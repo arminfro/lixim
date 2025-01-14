@@ -4,11 +4,36 @@
   inputs,
 }:
 let
+  mkEntryFromDrv =
+    drv:
+    if lib.isDerivation drv then
+      {
+        name = "${lib.getName drv}";
+        path = drv;
+      }
+    else
+      drv;
+
+  config =
+    (pkgs.lib.evalModules {
+      modules = [
+        ./config
+      ];
+      args = {
+        inherit pkgs;
+      };
+    }).config;
+
+  config2 = builtins.trace config.extraLazyImport config;
+
   # Derivation containing all plugins
-  pluginPath = import ./plugins { inherit pkgs lib inputs; };
+  pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv config2.plugins);
 
   # Derivation containing all runtime dependencies
-  runtimePath = import ./runtime { inherit pkgs; };
+  runtimePath = pkgs.symlinkJoin {
+    name = "lazyvim-nix-runtime";
+    paths = config2.extraPackages;
+  };
 
   # Link together all treesitter grammars into single derivation
   treesitterPath = pkgs.symlinkJoin {
@@ -23,13 +48,22 @@ let
     configure = {
       customRC = # vim
         ''
-          " Populate paths to neovim
           let g:config_path = "${../config}"
           let g:plugin_path = "${pluginPath}"
           let g:runtime_path = "${runtimePath}"
           let g:treesitter_path = "${treesitterPath}"
-          " Begin initialization
+
+          lua << EOF
+            vim.g.extra_lazy_import = {
+              ${lib.concatStrings (
+                builtins.map (extraImport: "{ import = \"${extraImport}\" },") config2.extraLazyImport
+              )}
+            }
+            ${config.extraLuaConfig}
+          EOF
+
           source ${../config/init.lua}
+
         '';
       packages.all.start = [ pkgs.vimPlugins.lazy-nvim ];
     };
