@@ -2,6 +2,8 @@
   pkgs,
   lib,
   inputs,
+  self,
+  config,
 }:
 let
   mkEntryFromDrv =
@@ -14,17 +16,23 @@ let
     else
       drv;
 
-  config =
+  configEval =
     (pkgs.lib.evalModules {
       modules = [
-        ./config
+        (import ./config self)
       ];
-      args = {
-        inherit pkgs;
+      specialArgs = {
+        inherit
+          # inputs
+          # lib
+          pkgs
+          config
+          ;
       };
+
     }).config;
 
-  config2 = builtins.trace config.extraLazyImport config;
+  config2 = builtins.trace configEval configEval;
 
   # Derivation containing all plugins
   pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv config2.plugins);
@@ -59,7 +67,7 @@ let
                 builtins.map (extraImport: "{ import = \"${extraImport}\" },") config2.extraLazyImport
               )}
             }
-            ${config.extraLuaConfig}
+            ${config2.extraLuaConfig}
           EOF
 
           source ${../config/init.lua}

@@ -6,6 +6,8 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    tailwindcss-colorizer-cmp-nvim.url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
+    tailwindcss-colorizer-cmp-nvim.flake = false;
   };
 
   outputs =
@@ -42,7 +44,19 @@
                   pkgs
                   lib
                   inputs
+                  self
                   ;
+                config = {
+                  enable_lvl = "lazyvim";
+                  lang = {
+                    git.enable = true;
+                    json.enable = true;
+                    markdown.enable = true;
+                    nix.enable = true;
+                    tailwind.enable = true;
+                    typescript.enable = true;
+                  };
+                };
               };
               default = neovim;
             };

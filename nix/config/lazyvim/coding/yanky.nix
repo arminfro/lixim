@@ -5,11 +5,10 @@ self:
 }:
 {
   plugins = with pkgs.vimPlugins; [
-    blink-cmp
-    friendly-snippets
+    yanky-nvim
   ];
 
   extraLazyImport = [
-    "lazyvim.plugins.extras.coding.blink"
+    "lazyvim.plugins.extras.coding.yanky"
   ];
 }

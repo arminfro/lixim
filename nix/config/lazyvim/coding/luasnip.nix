@@ -5,11 +5,11 @@ self:
 }:
 {
   plugins = with pkgs.vimPlugins; [
-    blink-cmp
+    { name = "LuaSnip"; path = luasnip; }
     friendly-snippets
   ];
 
   extraLazyImport = [
-    "lazyvim.plugins.extras.coding.blink"
+    "lazyvim.plugins.extras.coding.luasnip"
   ];
 }

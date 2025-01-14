@@ -1,13 +1,16 @@
+self:
 { lib, ... }:
 let
-  inherit (lib.options) mkOption;
+  inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.types)
     listOf
     package
     ;
 in
 {
-  imports = [ ./lazyvim ];
+    imports = map (module: import module self) [
+    ./lazyvim 
+  ];
 
   options = {
     plugins = mkOption {
@@ -61,6 +64,21 @@ in
       '';
     };
 
+    lang = mkOption {
+      type = (
+        lib.types.submodule {
+          options = {
+            git = mkEnableOption "lazyvim lang.git extra";
+            json = mkEnableOption "lazyvim lang.json extra";
+            markdown = mkEnableOption "lazyvim lang.markdown extra";
+            nix = mkEnableOption "lazyvim lang.nix extra";
+            tailwind = mkEnableOption "lazyvim lang.tailwind extra";
+            typescript = mkEnableOption "lazyvim lang.typescript extra";
+          };
+        }
+      );
+    };
+
     enable_lvl = mkOption {
       default = "core";
       type = lib.types.enum [
@@ -81,7 +99,6 @@ in
     };
   };
 
-  config = {
-    enable_lvl = "lazyvim";
-  };
+  # config = {
+  # };
 }

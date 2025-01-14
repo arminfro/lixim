@@ -5,11 +5,10 @@ self:
 }:
 {
   plugins = with pkgs.vimPlugins; [
-    blink-cmp
-    friendly-snippets
+    aerial-nvim
   ];
 
   extraLazyImport = [
-    "lazyvim.plugins.extras.coding.blink"
+    "lazyvim.plugins.extras.editor.aerial"
   ];
 }

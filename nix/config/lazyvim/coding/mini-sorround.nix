@@ -5,11 +5,10 @@ self:
 }:
 {
   plugins = with pkgs.vimPlugins; [
-    blink-cmp
-    friendly-snippets
+    mini-surround
   ];
 
   extraLazyImport = [
-    "lazyvim.plugins.extras.coding.blink"
+    "lazyvim.plugins.extras.coding.mini-surround"
   ];
 }

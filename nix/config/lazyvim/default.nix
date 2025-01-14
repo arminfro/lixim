@@ -1,11 +1,41 @@
+self:
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
 {
-  imports = [
-    ./editor/telescope.nix
+  imports = map (module: import module self) [
     ./coding/blink.nix
+    ./coding/luasnip.nix
+    ./coding/mini-sorround.nix
+    ./coding/neogen.nix
+    ./coding/yanky.nix
+
+    ./editor/aerial.nix
+    ./editor/dial.nix
+    ./editor/inc-rename.nix
+    ./editor/mini-files.nix
+    ./editor/overseer.nix
+    ./editor/refactoring.nix
+    ./editor/telescope.nix
+
+    ./formatting/prettier.nix
+
+    ./lang/git.nix
+    ./lang/json.nix
+    ./lang/markdown.nix
+    ./lang/nix.nix
+    ./lang/tailwind.nix
+    ./lang/typescript.nix
+
+    ./linting/eslint.nix
+
+    ./test/neotest.nix
+
+    ./util/dot.nix
+    ./util/rest.nix
   ];
 
   config = {
