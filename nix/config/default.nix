@@ -15,8 +15,8 @@ in
     ++ lib.optional (
       config.enableLvl == "core" || config.enableLvl == "balance" || config.enableLvl == "max"
     ) ./core
+    ++ lib.optional (config.enableLvl == "balance" || config.enableLvl == "max") ./balance
   );
-  # ++ lib.optional (config.enableLvl == "balance" || config.enableLvl == "max") ./balance
   # ++ lib.optional (config.enableLvl == "max") ./max;
 
   options = {
