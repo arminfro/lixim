@@ -11,6 +11,7 @@ self:
     ./coding.nix
     ./editor.nix
     ./git.nix
+    ./lsp.nix
     ./telescope.nix
   ]);
 }
