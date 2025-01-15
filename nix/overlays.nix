@@ -89,6 +89,21 @@ let
       ];
     }
     { name = "template-string.nvim"; }
+    { name = "fsread.nvim"; }
+    {
+      name = "nvim-fundo";
+      nvimSkipModule = [
+        "fundo.fs.init"
+        "fundo.fs.uvwrapper"
+        "fundo.lib.mutex"
+        "fundo.lib.semaphore"
+        "fundo.main"
+        "fundo.manager"
+        "fundo.model.undo"
+      ];
+    }
+    { name = "promise-async"; }
+    { name = "hand-side-fix.nvim"; }
 
   ];
 in

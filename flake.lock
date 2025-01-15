@@ -126,6 +126,22 @@
         "type": "indirect"
       }
     },
+    "fsread-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676854047,
+        "narHash": "sha256-CsyBn8iAx5m1rhHW+HfbUSbtyTCaSG6/mgyrh+5KOqo=",
+        "owner": "nullchilly",
+        "repo": "fsread.nvim",
+        "rev": "a637bf048f733def7c5c46f5bf482f93a8311b29",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nullchilly",
+        "repo": "fsread.nvim",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -168,6 +184,22 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "hand-side-fix-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711572601,
+        "narHash": "sha256-AgWeXs2t1xH74h7Ux4N+lC5r+Qt/hlv4H+jnPyGXsiQ=",
+        "owner": "arminfro",
+        "repo": "hand-side-fix.nvim",
+        "rev": "11d64cc1a379a517d713a55f72f262b102c1fbb8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arminfro",
+        "repo": "hand-side-fix.nvim",
         "type": "github"
       }
     },
@@ -329,6 +361,22 @@
         "type": "github"
       }
     },
+    "nvim-fundo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715880105,
+        "narHash": "sha256-+YOLS6YqxAp5hBCzLrqUJ1aM/KTnWsmAhw6zRpK3HWk=",
+        "owner": "kevinhwang91",
+        "repo": "nvim-fundo",
+        "rev": "ac9c9372c4bf677721e24f144ef29d3a05c2b589",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "nvim-fundo",
+        "type": "github"
+      }
+    },
     "nvim-scissors": {
       "flake": false,
       "locked": {
@@ -393,21 +441,41 @@
         "type": "github"
       }
     },
+    "promise-async": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722813441,
+        "narHash": "sha256-9eM66brPjiFlY64vmBetRYrKnpDyN7+/URMm4GsGimA=",
+        "owner": "kevinhwang91",
+        "repo": "promise-async",
+        "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "promise-async",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "auto-pandoc-nvim": "auto-pandoc-nvim",
         "blink-cmp-dictionary": "blink-cmp-dictionary",
         "flake-parts": "flake-parts",
+        "fsread-nvim": "fsread-nvim",
+        "hand-side-fix-nvim": "hand-side-fix-nvim",
         "hl_match_area-nvim": "hl_match_area-nvim",
         "markdowny-nvim": "markdowny-nvim",
         "mdeval-nvim": "mdeval-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "nvim-devdocs": "nvim-devdocs",
+        "nvim-fundo": "nvim-fundo",
         "nvim-scissors": "nvim-scissors",
         "nvim-tinygit": "nvim-tinygit",
         "nvim-toc": "nvim-toc",
         "nvim-window": "nvim-window",
+        "promise-async": "promise-async",
         "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
         "telescope-alternate": "telescope-alternate",
         "telescope-env-nvim": "telescope-env-nvim",

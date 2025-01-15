@@ -86,6 +86,22 @@
       url = "github:axelvc/template-string.nvim";
       flake = false;
     };
+    fsread-nvim = {
+      url = "github:nullchilly/fsread.nvim";
+      flake = false;
+    };
+    nvim-fundo = {
+      url = "github:kevinhwang91/nvim-fundo";
+      flake = false;
+    };
+    promise-async = {
+      url = "github:kevinhwang91/promise-async";
+      flake = false;
+    };
+    hand-side-fix-nvim = {
+      url = "github:arminfro/hand-side-fix.nvim";
+      flake = false;
+    };
 
   };
 
