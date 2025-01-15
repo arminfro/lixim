@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "blink-cmp-dictionary": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736668846,
+        "narHash": "sha256-c3q3OXEky1P8ygZJjgNcd8yKZkSYEp9fYUVcaakLhJ0=",
+        "owner": "Kaiser-Yang",
+        "repo": "blink-cmp-dictionary",
+        "rev": "07cc2e49bb52ebff4e8b83d1801ad6441edf90a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kaiser-Yang",
+        "repo": "blink-cmp-dictionary",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -235,10 +251,17 @@
     },
     "root": {
       "inputs": {
+        "blink-cmp-dictionary": "blink-cmp-dictionary",
         "flake-parts": "flake-parts",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
-        "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim"
+        "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
+        "telescope-alternate": "telescope-alternate",
+        "telescope-env-nvim": "telescope-env-nvim",
+        "telescope-heading-nvim": "telescope-heading-nvim",
+        "telescope-lazy-nvim": "telescope-lazy-nvim",
+        "telescope-luasnip-nvim": "telescope-luasnip-nvim",
+        "telescope-node-modules-nvim": "telescope-node-modules-nvim"
       }
     },
     "tailwindcss-colorizer-cmp-nvim": {
@@ -254,6 +277,102 @@
       "original": {
         "owner": "roobert",
         "repo": "tailwindcss-colorizer-cmp.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-alternate": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713211208,
+        "narHash": "sha256-oit93iNRGlQhKAgsy0JgaJLkf+1miDhi3XjzE39gx7g=",
+        "owner": "otavioschwanck",
+        "repo": "telescope-alternate",
+        "rev": "2efa87d99122ee1abe8ada1a50304180a1802c34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "otavioschwanck",
+        "repo": "telescope-alternate",
+        "type": "github"
+      }
+    },
+    "telescope-env-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671119502,
+        "narHash": "sha256-gwpheCuMOSfRf9A5nHAOrb0S6GHQE3we9QAa6ri2XaQ=",
+        "owner": "LinArcX",
+        "repo": "telescope-env.nvim",
+        "rev": "00a703cc7b713cdda0a981d88fddf3ce25502af5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LinArcX",
+        "repo": "telescope-env.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-heading-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718109830,
+        "narHash": "sha256-29nSqK4sWI3m5hHviGBfiSN/GPh8oXGiYrrTmN2okRk=",
+        "owner": "crispgm",
+        "repo": "telescope-heading.nvim",
+        "rev": "e85c0f69cb64048f56e76548dcb2f10277576df9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "crispgm",
+        "repo": "telescope-heading.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-lazy-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731094449,
+        "narHash": "sha256-jAe07086TQvWB2MLOjlwTw25E97GIDSQDqhesu+t62s=",
+        "owner": "tsakirist",
+        "repo": "telescope-lazy.nvim",
+        "rev": "810f7859c98e88b9c4e45de16cb5317207c9b3e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tsakirist",
+        "repo": "telescope-lazy.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-luasnip-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734145237,
+        "narHash": "sha256-9XsV2hPjt05q+y5FiSbKYYXnznDKYOsDwsVmfskYd3M=",
+        "owner": "benfowler",
+        "repo": "telescope-luasnip.nvim",
+        "rev": "07a2a2936a7557404c782dba021ac0a03165b343",
+        "type": "github"
+      },
+      "original": {
+        "owner": "benfowler",
+        "repo": "telescope-luasnip.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-node-modules-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651890876,
+        "narHash": "sha256-MaYGGFdmqLmbBg1a/lE9OIgVyanIu3/xi1lXCez04NE=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-node-modules.nvim",
+        "rev": "b846d33ff5763176dc14fc74c30941a2067c82fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-node-modules.nvim",
         "type": "github"
       }
     },

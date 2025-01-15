@@ -6,8 +6,39 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    tailwindcss-colorizer-cmp-nvim.url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
-    tailwindcss-colorizer-cmp-nvim.flake = false;
+    tailwindcss-colorizer-cmp-nvim = {
+      url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
+      flake = false;
+    };
+    blink-cmp-dictionary = {
+      url = "github:Kaiser-Yang/blink-cmp-dictionary";
+      flake = false;
+    };
+    telescope-alternate = {
+      url = "github:otavioschwanck/telescope-alternate";
+      flake = false;
+    };
+    telescope-lazy-nvim = {
+      url = "github:tsakirist/telescope-lazy.nvim";
+      flake = false;
+    };
+    telescope-node-modules-nvim = {
+      url = "github:nvim-telescope/telescope-node-modules.nvim";
+      flake = false;
+    };
+    telescope-heading-nvim = {
+      url = "github:crispgm/telescope-heading.nvim";
+      flake = false;
+    };
+    telescope-env-nvim = {
+      url = "github:LinArcX/telescope-env.nvim";
+      flake = false;
+    };
+    telescope-luasnip-nvim = {
+      url = "github:benfowler/telescope-luasnip.nvim";
+      flake = false;
+    };
+
   };
 
   outputs =
@@ -70,10 +101,10 @@
               in
               rec {
                 lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // defaultNeovimConfig);
-                # core = neovimByConfig ({ enableLvl = "core"; } // defaultConfig);
-                # balance = neovimByConfig ({ enableLvl = "balance"; } // defaultConfig);
-                # max = neovimByConfig ({ enableLvl = "max"; } // defaultConfig);
-                default = lazyvim;
+                core = neovimByConfig ({ enableLvl = "core"; } // defaultNeovimConfig);
+                # balance = neovimByConfig ({ enableLvl = "balance"; } // defaultNeovimConfig);
+                # max = neovimByConfig ({ enableLvl = "max"; } // defaultNeovimConfig);
+                default = core;
               };
           };
       };

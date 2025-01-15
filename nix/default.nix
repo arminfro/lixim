@@ -67,6 +67,15 @@ let
                 builtins.map (extraImport: "{ import = \"${extraImport}\" },") config2.extraLazyImport
               )}
             }
+
+            -- todo, use dicts in markdwon
+            -- vim.g.neovim_config = {
+            --     cmpDicts = {
+            --       en = "${../config/dicts/english.dict}",
+            --       de = "${../config/dicts/german.dict}",
+            --     },
+            -- }
+
             ${config2.extraLuaConfig}
           EOF
 

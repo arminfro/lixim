@@ -3,7 +3,7 @@
   pkgs,
 }:
 let
-  build-custom-plugin =
+  buildVimPlugin =
     {
       name,
       src,
@@ -21,18 +21,61 @@ let
         ;
       pname = name;
     });
+
+  customPluginsDef = [
+    { name = "tailwindcss-colorizer-cmp.nvim"; }
+    {
+
+      name = "telescope-alternate";
+      nvimSkipModule = "telescope-alternate.telescope";
+    }
+    {
+      name = "blink-cmp-dictionary";
+      nvimSkipModule = "blink-cmp-dictionary";
+    }
+    {
+      name = "telescope-heading.nvim";
+    }
+    {
+      name = "telescope-lazy.nvim";
+    }
+    {
+      name = "telescope-node-modules.nvim";
+    }
+    {
+      name = "telescope-env.nvim";
+    }
+    {
+      name = "telescope-luasnip.nvim";
+    }
+  ];
 in
 [
   (final: prev: {
-    vimPlugins = prev.vimPlugins // {
-      LazyVim = prev.vimPlugins.LazyVim.overrideAttrs (oldAttrs: {
-        patches = import ./config/lazyvim/patches;
-      });
-      tailwindcss-colorizer-cmp-nvim = build-custom-plugin {
-        name = "tailwindcss-colorizer-cmp.nvim";
-        src = self.inputs.tailwindcss-colorizer-cmp-nvim;
-      };
-    };
+    vimPlugins =
+      prev.vimPlugins
+      // {
+        LazyVim = prev.vimPlugins.LazyVim.overrideAttrs (oldAttrs: {
+          patches = import ./config/lazyvim/patches;
+        });
+      }
+      // builtins.listToAttrs (
+        builtins.map (
+          plugin:
+          let
+            subbedName = builtins.replaceStrings [ "." ] [ "-" ] plugin.name;
+          in
+          {
+            name = subbedName;
+            value = buildVimPlugin (
+              plugin
+              // {
+                src = self.inputs.${subbedName};
+              }
+            );
+          }
+        ) customPluginsDef
+      );
   })
   (final: prev: {
     markdown-toc = pkgs.callPackage ./pkgs/markdown-toc { };

@@ -1,5 +1,5 @@
 self:
-{ lib, ... }:
+{ lib, config, ... }:
 let
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.types)
@@ -8,9 +8,16 @@ let
     ;
 in
 {
-  imports = map (module: import module self) [
-    ./lazyvim
-  ];
+  imports = map (module: import module self) (
+    [
+      ./lazyvim
+    ]
+    ++ lib.optional (
+      config.enableLvl == "core" || config.enableLvl == "balance" || config.enableLvl == "max"
+    ) ./core
+  );
+  # ++ lib.optional (config.enableLvl == "balance" || config.enableLvl == "max") ./balance
+  # ++ lib.optional (config.enableLvl == "max") ./max;
 
   options = {
     plugins = mkOption {
