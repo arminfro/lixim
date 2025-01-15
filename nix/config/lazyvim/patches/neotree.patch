@@ -1,0 +1,12 @@
+diff --git a/lua/lazyvim/plugins/editor.lua b/lua/lazyvim/plugins/editor.lua
+index bac949fc..daabc9e0 100644
+--- a/lua/lazyvim/plugins/editor.lua
++++ b/lua/lazyvim/plugins/editor.lua
+@@ -19,7 +19,6 @@ return {
+         end,
+         desc = "Explorer NeoTree (cwd)",
+       },
+-      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
+       { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+       {
+         "<leader>ge",

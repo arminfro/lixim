@@ -1,0 +1,12 @@
+diff --git a/lua/lazyvim/config/options.lua b/lua/lazyvim/config/options.lua
+index bc504675..d00872e8 100644
+--- a/lua/lazyvim/config/options.lua
++++ b/lua/lazyvim/config/options.lua
+@@ -1,6 +1,6 @@
+ -- This file is automatically loaded by plugins.core
+ vim.g.mapleader = " "
+-vim.g.maplocalleader = "\\"
++vim.g.maplocalleader = ","
+ 
+ -- LazyVim auto format
+ vim.g.autoformat = true

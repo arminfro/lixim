@@ -38,6 +38,19 @@
             ...
           }:
           {
+            _module.args.pkgs = import inputs.nixpkgs {
+              inherit system;
+              overlays = [
+                (final: prev: {
+                  vimPlugins = prev.vimPlugins // {
+                    LazyVim = prev.vimPlugins.LazyVim.overrideAttrs (oldAttrs: {
+                      patches = import ./nix/config/lazyvim/patches;
+                    });
+                  };
+                })
+              ];
+            };
+
             packages = rec {
               neovim = import ./nix {
                 inherit

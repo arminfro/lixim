@@ -39,7 +39,11 @@ require("lazy").setup({
           -- Put treesitter path as first entry in rtp
           vim.opt.rtp:prepend(vim.g.treesitter_path)
         end,
-        opts = { auto_install = false, ensure_installed = {} },
+        opts = function(_, opts)
+          opts.ensure_installed = {}
+          opts.auto_install = false
+        end,
+        -- opts = { auto_install = false, ensure_installed = {} },
       },
     }, vim.g.extra_lazy_import),
   },

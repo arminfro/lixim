@@ -6,6 +6,7 @@ self:
 {
   plugins = with pkgs.vimPlugins; [
     telescope-nvim
+    telescope-fzf-native-nvim
     dressing-nvim
   ];
 

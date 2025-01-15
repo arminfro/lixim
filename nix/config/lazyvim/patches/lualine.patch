@@ -1,0 +1,24 @@
+diff --git a/lua/lazyvim/plugins/ui.lua b/lua/lazyvim/plugins/ui.lua
+index d52c6741..60d7ee8e 100644
+--- a/lua/lazyvim/plugins/ui.lua
++++ b/lua/lazyvim/plugins/ui.lua
+@@ -87,8 +87,8 @@ return {
+           disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
+         },
+         sections = {
+-          lualine_a = { "mode" },
+-          lualine_b = { "branch" },
++          lualine_a = { "fileformat" },
++          lualine_b = { "filename" },
+ 
+           lualine_c = {
+             LazyVim.lualine.root_dir(),
+@@ -101,8 +101,6 @@ return {
+                 hint = icons.diagnostics.Hint,
+               },
+             },
+-            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+-            { LazyVim.lualine.pretty_path() },
+           },
+           lualine_x = {
+             -- stylua: ignore
