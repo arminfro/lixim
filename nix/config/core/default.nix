@@ -16,5 +16,6 @@ self:
     ./telescope.nix
     ./ui.nix
     ./writing.nix
+    ./zk.nix
   ]);
 }
