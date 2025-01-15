@@ -1,5 +1,5 @@
 {
-  description = "Setup LazyVim using NixVim";
+  description = "neovim editor with custom lazyvim configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -51,16 +51,9 @@
               ];
             };
 
-            packages = rec {
-              neovim = import ./nix {
-                inherit
-                  pkgs
-                  lib
-                  inputs
-                  self
-                  ;
-                config = {
-                  enableLvl = "lazyvim";
+            packages =
+              let
+                defaultConfig = {
                   lang = {
                     git.enable = true;
                     json.enable = true;
@@ -70,9 +63,26 @@
                     typescript.enable = true;
                   };
                 };
+                neovimByConfig =
+                  config:
+                  import ./nix {
+                    inherit
+                      pkgs
+                      lib
+                      inputs
+                      self
+                      config
+                      ;
+
+                  };
+              in
+              rec {
+                lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // defaultConfig);
+                # core = neovimByConfig ({ enableLvl = "core"; } // defaultConfig);
+                # balance = neovimByConfig ({ enableLvl = "balance"; } // defaultConfig);
+                # max = neovimByConfig ({ enableLvl = "max"; } // defaultConfig);
+                default = lazyvim;
               };
-              default = neovim;
-            };
           };
       };
 }
