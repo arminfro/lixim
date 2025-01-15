@@ -14,5 +14,7 @@ self:
     ./lsp.nix
     ./lualine.nix
     ./telescope.nix
+    ./ui.nix
+    ./writing.nix
   ]);
 }

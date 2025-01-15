@@ -58,7 +58,22 @@
       url = "github:chrisgrieser/nvim-tinygit";
       flake = false;
     };
-
+    markdowny-nvim = {
+      url = "github:antonk52/markdowny.nvim";
+      flake = false;
+    };
+    auto-pandoc-nvim = {
+      url = "github:jghauser/auto-pandoc.nvim";
+      flake = false;
+    };
+    nvim-toc = {
+      url = "github:richardbizik/nvim-toc";
+      flake = false;
+    };
+    mdeval-nvim = {
+      url = "github:jubnzv/mdeval.nvim";
+      flake = false;
+    };
   };
 
   outputs =

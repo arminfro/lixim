@@ -62,6 +62,17 @@ let
         "tinygit.statusline.branch-state"
       ];
     }
+
+    { name = "markdowny.nvim"; }
+    { name = "auto-pandoc.nvim"; }
+    {
+      name = "nvim-toc";
+      dependencies = [
+        pkgs.vimPlugins.nvim-treesitter
+      ];
+    }
+    { name = "mdeval.nvim"; }
+
   ];
 in
 [

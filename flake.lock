@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "auto-pandoc-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731247329,
+        "narHash": "sha256-VZV9xjq6S9M9eSCDE2nV8fv6kJsC4otYJ7ZGuZwpaXw=",
+        "owner": "jghauser",
+        "repo": "auto-pandoc.nvim",
+        "rev": "11d007dcab1dd4587bfca175e18b6017ff4ad1dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jghauser",
+        "repo": "auto-pandoc.nvim",
+        "type": "github"
+      }
+    },
     "blink-cmp-dictionary": {
       "flake": false,
       "locked": {
@@ -177,6 +193,38 @@
         "type": "github"
       }
     },
+    "markdowny-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721349116,
+        "narHash": "sha256-87CJ/yrtII9fBH8PEejFTegQL3iGnYtUCGOMkLDJwyc=",
+        "owner": "antonk52",
+        "repo": "markdowny.nvim",
+        "rev": "8ff18e8677cf39821913f387697378fcf3e141a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antonk52",
+        "repo": "markdowny.nvim",
+        "type": "github"
+      }
+    },
+    "mdeval-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732965837,
+        "narHash": "sha256-IMm78SbuFfuBsBtbKQqrT/zy1/uAkvdFRhNKFeGCzos=",
+        "owner": "jubnzv",
+        "repo": "mdeval.nvim",
+        "rev": "0e1b248db174a9659a9ab16eb8c90ff3aec55264",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jubnzv",
+        "repo": "mdeval.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -281,6 +329,22 @@
         "type": "github"
       }
     },
+    "nvim-toc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704382490,
+        "narHash": "sha256-u5TUldGf+gadUcUewRjIPgpOozMNbDiZSm6VZufG4ZM=",
+        "owner": "richardbizik",
+        "repo": "nvim-toc",
+        "rev": "afc27debc800129c50c5b870846ce1a5c9ce4479",
+        "type": "github"
+      },
+      "original": {
+        "owner": "richardbizik",
+        "repo": "nvim-toc",
+        "type": "github"
+      }
+    },
     "nvim-window": {
       "flake": false,
       "locked": {
@@ -299,12 +363,16 @@
     },
     "root": {
       "inputs": {
+        "auto-pandoc-nvim": "auto-pandoc-nvim",
         "blink-cmp-dictionary": "blink-cmp-dictionary",
         "flake-parts": "flake-parts",
+        "markdowny-nvim": "markdowny-nvim",
+        "mdeval-nvim": "mdeval-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "nvim-scissors": "nvim-scissors",
         "nvim-tinygit": "nvim-tinygit",
+        "nvim-toc": "nvim-toc",
         "nvim-window": "nvim-window",
         "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
         "telescope-alternate": "telescope-alternate",
