@@ -1,4 +1,7 @@
-{ self, pkgs }:
+{
+  self,
+  pkgs,
+}:
 let
   build-custom-plugin =
     {
@@ -30,5 +33,8 @@ in
         src = self.inputs.tailwindcss-colorizer-cmp-nvim;
       };
     };
+  })
+  (final: prev: {
+    markdown-toc = pkgs.callPackage ./pkgs/markdown-toc { };
   })
 ]

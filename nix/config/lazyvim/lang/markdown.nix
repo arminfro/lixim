@@ -10,7 +10,7 @@ self:
     [
       markdownlint-cli2
       marksman
-      # inherit (self.packages.${pkgs.stdenv.hostPlatform.system}) markdown-toc; # todo
+      markdown-toc
     ]
   );
 
