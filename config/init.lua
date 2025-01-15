@@ -64,3 +64,7 @@ require("lazy").setup({
     },
   },
 })
+
+require("config.globals")
+require("config.commands")
+require("config.close-unused-buffers")

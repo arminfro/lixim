@@ -1,7 +1,50 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-vim.keymap.set("n", "gR", "<cmd> Trouble lsp_references <CR>")
+-- use `vim.keymap.set` instead
+local map = vim.keymap.set
 
-vim.keymap.set("n", "<tab>", "<cmd> bn <CR>")
-vim.keymap.set("n", "<S-tab>", "<cmd> bp <CR>")
+-- easier save, new and exit
+map("n", "<leader><leader>", ":wa<CR>", { desc = "Save files" })
+map("n", "<leader>qw", ":wqa<CR>", { desc = "Save files and Quit" })
+map("n", "<leader>Q", ":qa<CR>", { desc = "Quit all" })
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
+map("n", "<leader>!", ":qa!<CR>", { desc = "forcefully Quit" })
+
+-- spell checker
+map("n", "<leader>z", "", { desc = "+spelling" })
+map("n", "<leader>zz", "1z=", { desc = "Fix to first spell suggestion" })
+map("n", "<leader>zg", "<CMD>SetGermanSpellFeature<CR>", { desc = "Set German" })
+map("n", "<leader>ze", "<CMD>SetEnglishSpellFeatureSpellFeature<CR>", { desc = "Set English" })
+
+-- Cursors Movement
+map({ "n", "v" }, "<S-h>", "^", { desc = "Jump to beginning of line" })
+map({ "n", "v" }, "<S-l>", "g_", { desc = "Jump to end of line" })
+
+-- Window Managemant
+map("n", "<leader>wo", ":only<CR>", { desc = "Display only current buffer" })
+map("n", "<leader>wh", ":hide<CR>", { desc = "Hide current buffer" })
+map("n", "<leader>wD", ":window diffthis<CR>", { desc = "Diff this window" })
+map("n", "<leader>wt", ":window diffoff<CR>", { desc = "Diff off" })
+
+-- Copy to clipboard
+map({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to clipboard" })
+map({ "n", "v" }, "<leader>Y", '"+yg_', { desc = "Copy to clipboard until EOL" })
+
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+-- LazyVim
+map("n", "<leader>xL", function()
+  LazyVim.news.changelog()
+end, { desc = "LazyVim Changelog" })
+map("n", "<leader>xp", "<cmd>Lazy<cr>", { desc = "Plugins" })
+
+-- floating terminal
+-- map("n", "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
+-- map("n", "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
+-- -- map("n", "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
+-- -- map("n", "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
+-- map("n", "<c-/>",      function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
+-- map("n", "<c-_>",      function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "which_key_ignore" })
+
+map("n", "<leader>xm", "<cmd>messages<cr>", { desc = "Messages" }) -- vi: ft=lua
