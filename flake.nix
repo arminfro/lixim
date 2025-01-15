@@ -60,7 +60,7 @@
                   self
                   ;
                 config = {
-                  enable_lvl = "lazyvim";
+                  enableLvl = "lazyvim";
                   lang = {
                     git.enable = true;
                     json.enable = true;

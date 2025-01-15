@@ -4,12 +4,8 @@ self:
   config,
   ...
 }:
-let
-  enable = config.lang.nix.enable;
-  emptyListOr = list: if enable then list else [ ];
-in
 {
-  extraPackages = emptyListOr (
+  extraPackages = (
     with pkgs;
     [
       nil
@@ -17,14 +13,14 @@ in
     ]
   );
 
-  plugins = emptyListOr (
+  plugins = (
     with pkgs.vimPlugins;
     [
       (nvim-treesitter.withPlugins (plugins: [ plugins.nix ]))
     ]
   );
 
-  extraLazyImport = emptyListOr [
+  extraLazyImport = [
     "lazyvim.plugins.extras.lang.nix"
   ];
 }

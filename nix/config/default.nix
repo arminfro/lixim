@@ -8,8 +8,8 @@ let
     ;
 in
 {
-    imports = map (module: import module self) [
-    ./lazyvim 
+  imports = map (module: import module self) [
+    ./lazyvim
   ];
 
   options = {
@@ -68,18 +68,18 @@ in
       type = (
         lib.types.submodule {
           options = {
-            git = mkEnableOption "lazyvim lang.git extra";
-            json = mkEnableOption "lazyvim lang.json extra";
-            markdown = mkEnableOption "lazyvim lang.markdown extra";
-            nix = mkEnableOption "lazyvim lang.nix extra";
-            tailwind = mkEnableOption "lazyvim lang.tailwind extra";
-            typescript = mkEnableOption "lazyvim lang.typescript extra";
+            git = mkEnableOption "git language support";
+            json = mkEnableOption "json language support";
+            markdown = mkEnableOption "markdown language support";
+            nix = mkEnableOption "nix language support";
+            tailwind = mkEnableOption "tailwind language support";
+            typescript = mkEnableOption "typescript language support";
           };
         }
       );
     };
 
-    enable_lvl = mkOption {
+    enableLvl = mkOption {
       default = "core";
       type = lib.types.enum [
         "lazyvim"

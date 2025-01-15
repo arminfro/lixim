@@ -4,14 +4,10 @@ self:
   config,
   ...
 }:
-let
-  enable = config.lang.tailwind.enable;
-  emptyListOr = list: if enable then list else [ ];
-in
 {
-  extraPackages = emptyListOr [ pkgs.tailwindcss-language-server ];
+  extraPackages = [ pkgs.tailwindcss-language-server ];
 
-  plugins = emptyListOr [
+  plugins = [
     (pkgs.vimUtils.buildVimPlugin {
       pname = "tailwindcss-colorizer-cmp.nvim";
       version = "2024-09-27";
@@ -19,7 +15,7 @@ in
     })
   ];
 
-  extraLazyImport = emptyListOr [
+  extraLazyImport = [
     "lazyvim.plugins.extras.lang.tailwind"
   ];
 }

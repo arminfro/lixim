@@ -5,38 +5,42 @@ self:
   config,
   ...
 }:
+let
+  enabledLanguagePathsOrNull = lib.mapAttrs (
+    lang: value: if value.enable then ./lang/${lang}.nix else null
+  ) config.lang;
+  enabledLanguagePaths = builtins.filter (lang: lang != null) (
+    builtins.attrValues enabledLanguagePathsOrNull
+  );
+in
 {
-  imports = map (module: import module self) [
-    ./coding/blink.nix
-    ./coding/luasnip.nix
-    ./coding/mini-sorround.nix
-    ./coding/neogen.nix
-    ./coding/yanky.nix
+  imports = map (module: import module self) (
+    [
+      ./coding/blink.nix
+      ./coding/luasnip.nix
+      ./coding/mini-sorround.nix
+      ./coding/neogen.nix
+      ./coding/yanky.nix
 
-    ./editor/aerial.nix
-    ./editor/dial.nix
-    ./editor/inc-rename.nix
-    ./editor/mini-files.nix
-    ./editor/overseer.nix
-    ./editor/refactoring.nix
-    ./editor/telescope.nix
+      ./editor/aerial.nix
+      ./editor/dial.nix
+      ./editor/inc-rename.nix
+      ./editor/mini-files.nix
+      ./editor/overseer.nix
+      ./editor/refactoring.nix
+      ./editor/telescope.nix
 
-    ./formatting/prettier.nix
+      ./formatting/prettier.nix
 
-    ./lang/git.nix
-    ./lang/json.nix
-    ./lang/markdown.nix
-    ./lang/nix.nix
-    ./lang/tailwind.nix
-    ./lang/typescript.nix
+      ./linting/eslint.nix
 
-    ./linting/eslint.nix
+      ./test/neotest.nix
 
-    ./test/neotest.nix
-
-    ./util/dot.nix
-    ./util/rest.nix
-  ];
+      ./util/dot.nix
+      ./util/rest.nix
+    ]
+    ++ enabledLanguagePaths
+  );
 
   config = {
     plugins = with pkgs.vimPlugins; [

@@ -4,12 +4,8 @@ self:
   config,
   ...
 }:
-let
-  enable = config.lang.markdown.enable;
-  emptyListOr = list: if enable then list else [ ];
-in
 {
-  extraPackages = emptyListOr (
+  extraPackages = (
     with pkgs;
     [
       markdownlint-cli2
@@ -18,7 +14,7 @@ in
     ]
   );
 
-  plugins = emptyListOr (
+  plugins = (
     with pkgs.vimPlugins;
     [
       markdown-preview-nvim
@@ -26,7 +22,7 @@ in
     ]
   );
 
-  extraLazyImport = emptyListOr [
+  extraLazyImport = [
     "lazyvim.plugins.extras.lang.markdown"
   ];
 }

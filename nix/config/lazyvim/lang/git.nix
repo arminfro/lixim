@@ -4,12 +4,8 @@ self:
   config,
   ...
 }:
-let
-  enable = config.lang.git.enable;
-  emptyListOr = list: if enable then list else [ ];
-in
 {
-  plugins = emptyListOr [
+  plugins = [
     pkgs.vimPlugins.cmp-git
     (pkgs.vimPlugins.nvim-treesitter.withPlugins (
       plugins: with plugins; [
@@ -22,7 +18,7 @@ in
     ))
   ];
 
-  extraLazyImport = emptyListOr [
+  extraLazyImport = [
     "lazyvim.plugins.extras.lang.git"
   ];
 }
