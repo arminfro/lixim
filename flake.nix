@@ -54,6 +54,11 @@
       url = "github:yorickpeterse/nvim-window";
       flake = false;
     };
+    nvim-tinygit = {
+      url = "github:chrisgrieser/nvim-tinygit";
+      flake = false;
+    };
+
   };
 
   outputs =

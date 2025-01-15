@@ -55,6 +55,13 @@ let
     { name = "nvim-window"; }
     { name = "ts-node-action"; }
     { name = "vim-mkdir"; }
+    {
+      name = "nvim-tinygit";
+      nvimSkipModule = [
+        "tinygit.commands.staging.telescope"
+        "tinygit.statusline.branch-state"
+      ];
+    }
   ];
 in
 [

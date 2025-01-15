@@ -10,6 +10,7 @@ self:
     ./blink.nix
     ./coding.nix
     ./editor.nix
+    ./git.nix
     ./telescope.nix
   ]);
 }

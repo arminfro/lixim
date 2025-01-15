@@ -265,6 +265,22 @@
         "type": "github"
       }
     },
+    "nvim-tinygit": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736681648,
+        "narHash": "sha256-BM3dqN0IT1uqaOgaqSPwr8TuDEQQS4XsAC0DKvrNDJM=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-tinygit",
+        "rev": "d0cbd1fd1736d3cf1638eda1d008e7d6d0d842e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-tinygit",
+        "type": "github"
+      }
+    },
     "nvim-window": {
       "flake": false,
       "locked": {
@@ -288,6 +304,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "nvim-scissors": "nvim-scissors",
+        "nvim-tinygit": "nvim-tinygit",
         "nvim-window": "nvim-window",
         "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
         "telescope-alternate": "telescope-alternate",
