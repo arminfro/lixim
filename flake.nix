@@ -74,6 +74,19 @@
       url = "github:jubnzv/mdeval.nvim";
       flake = false;
     };
+    hl_match_area-nvim = {
+      url = "github:rareitems/hl_match_area.nvim";
+      flake = false;
+    };
+    nvim-devdocs = {
+      url = "github:luckasRanarison/nvim-devdocs";
+      flake = false;
+    };
+    template-string-nvim = {
+      url = "github:axelvc/template-string.nvim";
+      flake = false;
+    };
+
   };
 
   outputs =

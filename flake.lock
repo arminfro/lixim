@@ -193,6 +193,22 @@
         "type": "github"
       }
     },
+    "hl_match_area-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695030149,
+        "narHash": "sha256-eOoG8EiVgvgnn3nluVNfYADUzXwsEYrh2ziaPnEcN/o=",
+        "owner": "rareitems",
+        "repo": "hl_match_area.nvim",
+        "rev": "e2be159f47b036e2a8fa91549ff09110acc1856e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rareitems",
+        "repo": "hl_match_area.nvim",
+        "type": "github"
+      }
+    },
     "markdowny-nvim": {
       "flake": false,
       "locked": {
@@ -297,6 +313,22 @@
         "type": "github"
       }
     },
+    "nvim-devdocs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712843813,
+        "narHash": "sha256-NvxsUAl+FKrT60xmrVBh/EVLuWrGaLWWwFsWYrr7QKc=",
+        "owner": "luckasRanarison",
+        "repo": "nvim-devdocs",
+        "rev": "1ab982d3e069d191d9157b897c8b70cf48b7f77a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luckasRanarison",
+        "repo": "nvim-devdocs",
+        "type": "github"
+      }
+    },
     "nvim-scissors": {
       "flake": false,
       "locked": {
@@ -366,10 +398,12 @@
         "auto-pandoc-nvim": "auto-pandoc-nvim",
         "blink-cmp-dictionary": "blink-cmp-dictionary",
         "flake-parts": "flake-parts",
+        "hl_match_area-nvim": "hl_match_area-nvim",
         "markdowny-nvim": "markdowny-nvim",
         "mdeval-nvim": "mdeval-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
+        "nvim-devdocs": "nvim-devdocs",
         "nvim-scissors": "nvim-scissors",
         "nvim-tinygit": "nvim-tinygit",
         "nvim-toc": "nvim-toc",
@@ -381,6 +415,7 @@
         "telescope-lazy-nvim": "telescope-lazy-nvim",
         "telescope-luasnip-nvim": "telescope-luasnip-nvim",
         "telescope-node-modules-nvim": "telescope-node-modules-nvim",
+        "template-string-nvim": "template-string-nvim",
         "ts-node-action": "ts-node-action",
         "vim-mkdir": "vim-mkdir"
       }
@@ -494,6 +529,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-node-modules.nvim",
+        "type": "github"
+      }
+    },
+    "template-string-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736201255,
+        "narHash": "sha256-LkbATjFFUHffi4vVEG2Kms9vlvJeJX+x1oEdCbN39BY=",
+        "owner": "axelvc",
+        "repo": "template-string.nvim",
+        "rev": "da5f326b65fb74fd068aa1d8b55461b64c8fb23b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "axelvc",
+        "repo": "template-string.nvim",
         "type": "github"
       }
     },
