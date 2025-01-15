@@ -40,20 +40,12 @@
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
-              overlays = [
-                (final: prev: {
-                  vimPlugins = prev.vimPlugins // {
-                    LazyVim = prev.vimPlugins.LazyVim.overrideAttrs (oldAttrs: {
-                      patches = import ./nix/config/lazyvim/patches;
-                    });
-                  };
-                })
-              ];
+              overlays = import ./nix/overlays.nix { inherit self pkgs; };
             };
 
             packages =
               let
-                defaultConfig = {
+                defaultNeovimConfig = {
                   lang = {
                     git.enable = true;
                     json.enable = true;
@@ -77,7 +69,7 @@
                   };
               in
               rec {
-                lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // defaultConfig);
+                lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // defaultNeovimConfig);
                 # core = neovimByConfig ({ enableLvl = "core"; } // defaultConfig);
                 # balance = neovimByConfig ({ enableLvl = "balance"; } // defaultConfig);
                 # max = neovimByConfig ({ enableLvl = "max"; } // defaultConfig);
