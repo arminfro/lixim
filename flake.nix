@@ -38,7 +38,22 @@
       url = "github:benfowler/telescope-luasnip.nvim";
       flake = false;
     };
-
+    ts-node-action = {
+      url = "github:CKolkey/ts-node-action";
+      flake = false;
+    };
+    vim-mkdir = {
+      url = "github:pbrisbin/vim-mkdir";
+      flake = false;
+    };
+    nvim-scissors = {
+      url = "github:chrisgrieser/nvim-scissors";
+      flake = false;
+    };
+    nvim-window = {
+      url = "github:yorickpeterse/nvim-window";
+      flake = false;
+    };
   };
 
   outputs =

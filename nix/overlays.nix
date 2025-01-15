@@ -48,6 +48,13 @@ let
     {
       name = "telescope-luasnip.nvim";
     }
+    {
+      name = "nvim-scissors";
+      nvimSkipModule = "scissors.2-picker.telescope";
+    }
+    { name = "nvim-window"; }
+    { name = "ts-node-action"; }
+    { name = "vim-mkdir"; }
   ];
 in
 [

@@ -249,19 +249,55 @@
         "type": "github"
       }
     },
+    "nvim-scissors": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736681315,
+        "narHash": "sha256-myCMr+9VUA+kFqoVeZsxoL6lHTM5j4oVY0Z3FvPwfmQ=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-scissors",
+        "rev": "12d9f282b67525bb766c6fe33317caf25a19c86a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-scissors",
+        "type": "github"
+      }
+    },
+    "nvim-window": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730733983,
+        "narHash": "sha256-hXKvz2WnXm+Sf3+rHj575yrkjJX2irhhu/AxEPtjKrg=",
+        "owner": "yorickpeterse",
+        "repo": "nvim-window",
+        "rev": "d85cbffc5e5b6b6cc2926ef69a8f9fa2b28cef56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yorickpeterse",
+        "repo": "nvim-window",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blink-cmp-dictionary": "blink-cmp-dictionary",
         "flake-parts": "flake-parts",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
+        "nvim-scissors": "nvim-scissors",
+        "nvim-window": "nvim-window",
         "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
         "telescope-alternate": "telescope-alternate",
         "telescope-env-nvim": "telescope-env-nvim",
         "telescope-heading-nvim": "telescope-heading-nvim",
         "telescope-lazy-nvim": "telescope-lazy-nvim",
         "telescope-luasnip-nvim": "telescope-luasnip-nvim",
-        "telescope-node-modules-nvim": "telescope-node-modules-nvim"
+        "telescope-node-modules-nvim": "telescope-node-modules-nvim",
+        "ts-node-action": "ts-node-action",
+        "vim-mkdir": "vim-mkdir"
       }
     },
     "tailwindcss-colorizer-cmp-nvim": {
@@ -394,6 +430,38 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "ts-node-action": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735501714,
+        "narHash": "sha256-f1TIAs1s1P+C5tVwvswK1vAkglbGYCZ2n5xXznyD+v8=",
+        "owner": "CKolkey",
+        "repo": "ts-node-action",
+        "rev": "7b41b88b410cd45cd610bca74214574299ce0d61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CKolkey",
+        "repo": "ts-node-action",
+        "type": "github"
+      }
+    },
+    "vim-mkdir": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1556560885,
+        "narHash": "sha256-3GZFp6Q6ZM48b4Qxy3BpsMGI9K9vmIsvZ53R6niw4k4=",
+        "owner": "pbrisbin",
+        "repo": "vim-mkdir",
+        "rev": "f0ba7a7dc190a0cedf1d827958c99f3718109cf0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pbrisbin",
+        "repo": "vim-mkdir",
         "type": "github"
       }
     }
