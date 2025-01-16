@@ -31,7 +31,8 @@ let
       ./editor/overseer.nix
       ./editor/refactoring.nix
 
-      ./formatting/prettier.nix
+      ./formatting/biome.nix
+      # ./formatting/prettier.nix
 
       ./linting/eslint.nix
 
