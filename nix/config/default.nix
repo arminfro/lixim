@@ -9,13 +9,16 @@ let
 in
 {
   imports = map (module: import module self) (
-    [
-      ./lazyvim
-    ]
-    ++ lib.optional (
-      config.enableLvl == "core" || config.enableLvl == "balance" || config.enableLvl == "max"
-    ) ./core
-    ++ lib.optional (config.enableLvl == "balance" || config.enableLvl == "max") ./balance
+    # reverseList happens to give the right order: `lazyvim` -> `core` -> `balance` -> `max`,
+    lib.reverseList (
+      [
+        ./lazyvim
+      ]
+      ++ lib.optional (
+        config.enableLvl == "core" || config.enableLvl == "balance" || config.enableLvl == "max"
+      ) ./core
+      ++ lib.optional (config.enableLvl == "balance" || config.enableLvl == "max") ./balance
+    )
   );
   # ++ lib.optional (config.enableLvl == "max") ./max;
 

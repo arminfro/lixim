@@ -66,9 +66,7 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1736143030,
@@ -86,10 +84,7 @@
     },
     "flake-parts_2": {
       "inputs": {
-        "nixpkgs-lib": [
-          "neovim-nightly-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["neovim-nightly-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1736143030,
@@ -142,14 +137,27 @@
         "type": "github"
       }
     },
+    "git-blame-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727177890,
+        "narHash": "sha256-mFzm0hkO0iei3yekOXrQpeCJimwzBLgXLZtK1DjjoE4=",
+        "owner": "f-person",
+        "repo": "git-blame.nvim",
+        "rev": "2883a7460f611c2705b23f12d58d398d5ce6ec00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "f-person",
+        "repo": "git-blame.nvim",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
-        "nixpkgs": [
-          "neovim-nightly-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["neovim-nightly-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1735882644,
@@ -167,11 +175,7 @@
     },
     "gitignore": {
       "inputs": {
-        "nixpkgs": [
-          "neovim-nightly-overlay",
-          "git-hooks",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["neovim-nightly-overlay", "git-hooks", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1709087332,
@@ -206,10 +210,7 @@
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_3",
-        "nixpkgs": [
-          "neovim-nightly-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["neovim-nightly-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1735695978,
@@ -238,6 +239,54 @@
       "original": {
         "owner": "rareitems",
         "repo": "hl_match_area.nvim",
+        "type": "github"
+      }
+    },
+    "lualine-diagnostic-message": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732649728,
+        "narHash": "sha256-ftxR1TCbN8dvGyD0hrWaYm1O/J7IUkbw3RSL99bGC1k=",
+        "owner": "Isrothy",
+        "repo": "lualine-diagnostic-message",
+        "rev": "e8244c4d1f088e21bb05021f164ed903093b168b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Isrothy",
+        "repo": "lualine-diagnostic-message",
+        "type": "github"
+      }
+    },
+    "lualine-so-fancy-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736448743,
+        "narHash": "sha256-Ctdt8kCG+4ynpfEHpvUhFQpbhcaLg0hoPX+yPkUQGS0=",
+        "owner": "meuter",
+        "repo": "lualine-so-fancy.nvim",
+        "rev": "6ba7b138f2ca435673eb04c2cf85f0757df69b07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "meuter",
+        "repo": "lualine-so-fancy.nvim",
+        "type": "github"
+      }
+    },
+    "lualine-spell-status": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657233995,
+        "narHash": "sha256-TVzKHUmlJZVg6JKai6NQUYSiVLrUP1jcsNlQZNW5lBE=",
+        "owner": "sherlock5512",
+        "repo": "lualine-spell-status",
+        "rev": "aa81c2c9a71e3ed3552c6cd75e150414ff9ac664",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sherlock5512",
+        "repo": "lualine-spell-status",
         "type": "github"
       }
     },
@@ -361,6 +410,22 @@
         "type": "github"
       }
     },
+    "nvim-dr-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735559781,
+        "narHash": "sha256-c5cDqUHgT5QAEV4hXJMfiALZdzp46nrfcKiPmWWwHoQ=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-dr-lsp",
+        "rev": "162c915eaf61d40ca1b4eec079037f42e9fdefcf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-dr-lsp",
+        "type": "github"
+      }
+    },
     "nvim-fundo": {
       "flake": false,
       "locked": {
@@ -463,13 +528,18 @@
         "blink-cmp-dictionary": "blink-cmp-dictionary",
         "flake-parts": "flake-parts",
         "fsread-nvim": "fsread-nvim",
+        "git-blame-nvim": "git-blame-nvim",
         "hand-side-fix-nvim": "hand-side-fix-nvim",
         "hl_match_area-nvim": "hl_match_area-nvim",
+        "lualine-diagnostic-message": "lualine-diagnostic-message",
+        "lualine-so-fancy-nvim": "lualine-so-fancy-nvim",
+        "lualine-spell-status": "lualine-spell-status",
         "markdowny-nvim": "markdowny-nvim",
         "mdeval-nvim": "mdeval-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "nvim-devdocs": "nvim-devdocs",
+        "nvim-dr-lsp": "nvim-dr-lsp",
         "nvim-fundo": "nvim-fundo",
         "nvim-scissors": "nvim-scissors",
         "nvim-tinygit": "nvim-tinygit",
@@ -618,10 +688,7 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": [
-          "neovim-nightly-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["neovim-nightly-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1736154270,

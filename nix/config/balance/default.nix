@@ -7,5 +7,6 @@ self:
     ./ai.nix
     ./coding.nix
     ./editor.nix
+    ./lualine.nix
   ]);
 }

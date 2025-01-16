@@ -105,6 +105,9 @@ let
     { name = "promise-async"; }
     { name = "hand-side-fix.nvim"; }
 
+    { name = "git-blame.nvim"; }
+    { name = "lualine-so-fancy.nvim"; }
+    { name = "lualine-spell-status"; }
   ];
 in
 [

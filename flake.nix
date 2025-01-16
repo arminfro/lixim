@@ -102,6 +102,26 @@
       url = "github:arminfro/hand-side-fix.nvim";
       flake = false;
     };
+    git-blame-nvim = {
+      url = "github:f-person/git-blame.nvim";
+      flake = false;
+    };
+    lualine-so-fancy-nvim = {
+      url = "github:meuter/lualine-so-fancy.nvim";
+      flake = false;
+    };
+    lualine-diagnostic-message = {
+      url = "github:Isrothy/lualine-diagnostic-message";
+      flake = false;
+    };
+    nvim-dr-lsp = {
+      url = "github:chrisgrieser/nvim-dr-lsp";
+      flake = false;
+    };
+    lualine-spell-status = {
+      url = "github:sherlock5512/lualine-spell-status";
+      flake = false;
+    };
 
   };
 
