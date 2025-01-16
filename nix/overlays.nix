@@ -114,6 +114,7 @@ let
     { name = "nvim-dr-lsp"; }
 
     { name = "mistake.nvim"; }
+    { name = "jsonpath-nvim"; nvimSkipModule = [ "jsonpath"]; }
   ];
 in
 [

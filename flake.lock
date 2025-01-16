@@ -257,6 +257,22 @@
         "type": "github"
       }
     },
+    "jsonpath-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722891725,
+        "narHash": "sha256-7mTeHTXX75iQOL5dZw+HqIZtTRE3dPAddqv1Sg0wsRQ=",
+        "owner": "phelipetls",
+        "repo": "jsonpath.nvim",
+        "rev": "2d889eb9c39893e030e902b854122a1615c042ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "phelipetls",
+        "repo": "jsonpath.nvim",
+        "type": "github"
+      }
+    },
     "lualine-diagnostic-message": {
       "flake": false,
       "locked": {
@@ -578,6 +594,7 @@
         "git-blame-nvim": "git-blame-nvim",
         "hand-side-fix-nvim": "hand-side-fix-nvim",
         "hl_match_area-nvim": "hl_match_area-nvim",
+        "jsonpath-nvim": "jsonpath-nvim",
         "lualine-diagnostic-message": "lualine-diagnostic-message",
         "lualine-so-fancy-nvim": "lualine-so-fancy-nvim",
         "lualine-spell-status": "lualine-spell-status",

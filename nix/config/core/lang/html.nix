@@ -1,13 +1,12 @@
 self:
 {
   pkgs,
-  config,
-  lib,
   ...
 }:
 {
-  extraPackages = [
-    pkgs.vscode-langservers-extracted
+  extraPackages = with pkgs; [
+    vscode-langservers-extracted
+    htmlhint
   ];
 
   extraLazyImport = [

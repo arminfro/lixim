@@ -130,7 +130,10 @@
       url = "github:ck-zhang/mistake.nvim";
       flake = false;
     };
-
+    jsonpath-nvim = {
+      url = "github:phelipetls/jsonpath.nvim";
+      flake = false;
+    };
   };
 
   outputs =

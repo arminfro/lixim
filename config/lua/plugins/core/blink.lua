@@ -276,6 +276,15 @@ return {
       -- set_spelllang_source_config(opts)
 
       opts.signature = { enabled = true }
+      opts.completion.list = opts.completion.list or {}
+      opts.completion.list.selection = {
+        preselect = function(ctx)
+          return ctx.mode ~= "cmdline"
+        end,
+        auto_insert = function(ctx)
+          return ctx.mode ~= "cmdline"
+        end,
+      }
     end,
   },
 }
