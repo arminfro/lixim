@@ -112,6 +112,8 @@ let
 
     { name = "lualine-diagnostic-message"; }
     { name = "nvim-dr-lsp"; }
+
+    { name = "mistake.nvim"; }
   ];
 in
 [

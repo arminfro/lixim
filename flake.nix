@@ -126,6 +126,11 @@
       url = "github:chrisgrieser/nvim-origami";
       flake = false;
     };
+    mistake-nvim = {
+      url = "github:ck-zhang/mistake.nvim";
+      flake = false;
+    };
+
   };
 
   outputs =

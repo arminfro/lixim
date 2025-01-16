@@ -337,6 +337,22 @@
         "type": "github"
       }
     },
+    "mistake-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736992023,
+        "narHash": "sha256-ca6FvqU4F/0z1+Wi4FpMLHqHUKG+McXrPCzZ0XZtfd8=",
+        "owner": "ck-zhang",
+        "repo": "mistake.nvim",
+        "rev": "857d7dc3816ceda3b359a11d831c5eb3c7b94b3a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ck-zhang",
+        "repo": "mistake.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -567,6 +583,7 @@
         "lualine-spell-status": "lualine-spell-status",
         "markdowny-nvim": "markdowny-nvim",
         "mdeval-nvim": "mdeval-nvim",
+        "mistake-nvim": "mistake-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "nvim-devdocs": "nvim-devdocs",
