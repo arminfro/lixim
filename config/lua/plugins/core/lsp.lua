@@ -25,6 +25,18 @@ return {
   },
 
   {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {},
+    ---@class PluginLspOpts
+    opts = {
+      servers = {
+        emmet_language_server = {},
+      },
+    },
+  },
+
+  {
     "Maan2003/lsp_lines.nvim",
     event = "LazyFile",
     config = function()

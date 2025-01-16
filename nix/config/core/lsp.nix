@@ -9,6 +9,8 @@ self:
     actions-preview-nvim
   ];
 
+  extraPackages = [ pkgs.emmet-language-server ];
+
   extraLazyImport = [
     "plugins.core.lsp"
   ];
