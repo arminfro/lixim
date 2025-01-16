@@ -66,7 +66,9 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": ["nixpkgs"]
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1736143030,
@@ -84,7 +86,10 @@
     },
     "flake-parts_2": {
       "inputs": {
-        "nixpkgs-lib": ["neovim-nightly-overlay", "nixpkgs"]
+        "nixpkgs-lib": [
+          "neovim-nightly-overlay",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1736143030,
@@ -157,7 +162,10 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
-        "nixpkgs": ["neovim-nightly-overlay", "nixpkgs"]
+        "nixpkgs": [
+          "neovim-nightly-overlay",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1735882644,
@@ -175,7 +183,11 @@
     },
     "gitignore": {
       "inputs": {
-        "nixpkgs": ["neovim-nightly-overlay", "git-hooks", "nixpkgs"]
+        "nixpkgs": [
+          "neovim-nightly-overlay",
+          "git-hooks",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1709087332,
@@ -210,7 +222,10 @@
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_3",
-        "nixpkgs": ["neovim-nightly-overlay", "nixpkgs"]
+        "nixpkgs": [
+          "neovim-nightly-overlay",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1735695978,
@@ -442,6 +457,22 @@
         "type": "github"
       }
     },
+    "nvim-origami": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735574716,
+        "narHash": "sha256-aKm82zyRdef/CBKO5GzUEy18CyNBCwVQ2GplQFW7fgY=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-origami",
+        "rev": "d46d552ffe117739e4a7ce4207966c163db96ea0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-origami",
+        "type": "github"
+      }
+    },
     "nvim-scissors": {
       "flake": false,
       "locked": {
@@ -541,6 +572,7 @@
         "nvim-devdocs": "nvim-devdocs",
         "nvim-dr-lsp": "nvim-dr-lsp",
         "nvim-fundo": "nvim-fundo",
+        "nvim-origami": "nvim-origami",
         "nvim-scissors": "nvim-scissors",
         "nvim-tinygit": "nvim-tinygit",
         "nvim-toc": "nvim-toc",
@@ -688,7 +720,10 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": ["neovim-nightly-overlay", "nixpkgs"]
+        "nixpkgs": [
+          "neovim-nightly-overlay",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1736154270,

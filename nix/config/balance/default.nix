@@ -8,5 +8,6 @@ self:
     ./coding.nix
     ./editor.nix
     ./lualine.nix
+    ./ui.nix
   ]);
 }

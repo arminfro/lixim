@@ -108,6 +108,7 @@ let
     { name = "git-blame.nvim"; }
     { name = "lualine-so-fancy.nvim"; }
     { name = "lualine-spell-status"; }
+    { name = "nvim-origami"; }
   ];
 in
 [

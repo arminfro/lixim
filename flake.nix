@@ -122,7 +122,10 @@
       url = "github:sherlock5512/lualine-spell-status";
       flake = false;
     };
-
+    nvim-origami = {
+      url = "github:chrisgrieser/nvim-origami";
+      flake = false;
+    };
   };
 
   outputs =
