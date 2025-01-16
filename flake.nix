@@ -190,8 +190,8 @@
                 lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // defaultNeovimConfig);
                 core = neovimByConfig ({ enableLvl = "core"; } // defaultNeovimConfig);
                 balance = neovimByConfig ({ enableLvl = "balance"; } // defaultNeovimConfig);
-                # max = neovimByConfig ({ enableLvl = "max"; } // defaultNeovimConfig);
-                default = balance;
+                max = neovimByConfig ({ enableLvl = "max"; } // defaultNeovimConfig);
+                default = max;
               };
           };
       };
