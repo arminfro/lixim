@@ -6,40 +6,56 @@ self:
   ...
 }:
 let
-  enabledLanguagePathsOrNull = lib.mapAttrs (
+  enabledLanguagesOrNull = lib.mapAttrs (
     lang: value: if value.enable then ./lang/${lang}.nix else null
   ) config.lang;
-  enabledLanguagePaths = builtins.filter (lang: lang != null) (
-    builtins.attrValues enabledLanguagePathsOrNull
+  enabledLanguages = builtins.filter (lang: lang != null) (
+    builtins.attrValues enabledLanguagesOrNull
   );
-in
-{
-  imports = map (module: import module self) (
-    [
+  enabledExtras = {
+    core = [
       ./coding/blink.nix
       ./coding/luasnip.nix
       ./coding/mini-sorround.nix
-      ./coding/neogen.nix
       ./coding/yanky.nix
 
-      ./editor/aerial.nix
-      ./editor/dial.nix
       ./editor/inc-rename.nix
       ./editor/mini-files.nix
+      ./editor/telescope.nix
+
+      ./util/dot.nix
+    ];
+    balance = [
+      ./editor/aerial.nix
+
       ./editor/overseer.nix
       ./editor/refactoring.nix
-      ./editor/telescope.nix
 
       ./formatting/prettier.nix
 
       ./linting/eslint.nix
 
       ./test/neotest.nix
+    ];
+    max = [
+      ./coding/neogen.nix
 
-      ./util/dot.nix
+      ./editor/dial.nix
+
       ./util/rest.nix
-    ]
-    ++ enabledLanguagePaths
+    ];
+  };
+in
+{
+  imports = map (module: import module self) (
+    lib.flatten (
+      enabledExtras.core
+      ++ lib.optional (
+        config.enableLvl == "lazyvim" || config.enableLvl == "balance" || config.enableLvl == "max"
+      ) enabledExtras.balance
+      ++ lib.optional (config.enableLvl == "lazyvim" || config.enableLvl == "max") enabledExtras.max
+      ++ enabledLanguages
+    )
   );
 
   config = {
