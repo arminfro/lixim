@@ -9,7 +9,7 @@ let
   enabledLanguagesOrNull = lib.mapAttrs (
     lang: value: if value.enable then ./lang/${lang}.nix else null
   ) config.lang;
-  enabledLanguages = builtins.filter (lang: lang != null) (
+  enabledLanguages = builtins.filter (lang: lang != null && lib.pathIsRegularFile lang) (
     builtins.attrValues enabledLanguagesOrNull
   );
   enabledExtras = {

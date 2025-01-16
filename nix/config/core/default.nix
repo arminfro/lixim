@@ -14,5 +14,6 @@ self:
     ./ui.nix
     ./writing.nix
     ./zk.nix
+    ./lang
   ]);
 }

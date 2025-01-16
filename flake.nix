@@ -172,6 +172,7 @@
                   lang = {
                     docker.enable = true;
                     git.enable = true;
+                    html.enable = true;
                     json.enable = true;
                     markdown.enable = true;
                     nix.enable = true;

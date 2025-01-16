@@ -78,12 +78,19 @@ in
       type = (
         lib.types.submodule {
           options = {
+            docker = mkEnableOption "docker language support";
             git = mkEnableOption "git language support";
+            html = mkEnableOption "html language support";
             json = mkEnableOption "json language support";
             markdown = mkEnableOption "markdown language support";
             nix = mkEnableOption "nix language support";
+            nushell = mkEnableOption "nushell language support";
+            rust = mkEnableOption "rust language support";
+            svelte = mkEnableOption "svelte language support";
             tailwind = mkEnableOption "tailwind language support";
+            toml = mkEnableOption "toml language support";
             typescript = mkEnableOption "typescript language support";
+            yaml = mkEnableOption "yaml language support";
           };
         }
       );
