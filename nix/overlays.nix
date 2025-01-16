@@ -109,6 +109,9 @@ let
     { name = "lualine-so-fancy.nvim"; }
     { name = "lualine-spell-status"; }
     { name = "nvim-origami"; }
+
+    { name = "lualine-diagnostic-message"; }
+    { name = "nvim-dr-lsp"; }
   ];
 in
 [
