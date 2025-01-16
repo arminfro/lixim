@@ -18,6 +18,13 @@ self:
     telescope-z-nvim
   ];
 
+  extraPackages = (
+    with pkgs;
+    [
+      manix
+    ]
+  );
+
   extraLazyImport = [
     "plugins.core.telescope"
   ];

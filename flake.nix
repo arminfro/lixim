@@ -170,12 +170,18 @@
               let
                 defaultNeovimConfig = {
                   lang = {
+                    docker.enable = true;
                     git.enable = true;
                     json.enable = true;
                     markdown.enable = true;
                     nix.enable = true;
+                    nushell.enable = true;
+                    rust.enable = true;
+                    svelte.enable = true;
                     tailwind.enable = true;
+                    toml.enable = true;
                     typescript.enable = true;
+                    yaml.enable = true;
                   };
                 };
                 neovimByConfig =

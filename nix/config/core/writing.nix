@@ -13,6 +13,13 @@ self:
     mdeval-nvim
   ];
 
+  extraPackages = with pkgs; [
+    glow
+    pandoc
+    pandoc-lua-filters
+    texliveBasic
+  ];
+
   extraLazyImport = [
     "plugins.core.writing"
   ];
