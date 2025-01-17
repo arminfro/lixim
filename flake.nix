@@ -1,5 +1,5 @@
 {
-  description = "neovim editor with custom lazyvim configuration";
+  description = "lixim - neovim editor with custom lazyvim configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -144,6 +144,25 @@
       flake-parts,
       ...
     }@inputs:
+    let
+
+      neovimByConfig =
+        {
+          config,
+          pkgs,
+          lib,
+        }:
+        import ./nix {
+          inherit
+            pkgs
+            lib
+            inputs
+            self
+            config
+            ;
+
+        };
+    in
     flake-parts.lib.mkFlake
       {
         inherit inputs;
@@ -155,6 +174,16 @@
           "aarch64-darwin"
           "x86_64-darwin"
         ];
+
+        flake.nixosModules.default = import ./nix/module.nix {
+          inherit self neovimByConfig;
+          isNixOsModule = true;
+        };
+
+        flake.homeManagerModules.default = import ./nix/module.nix {
+          inherit self neovimByConfig;
+          isNixOsModule = false;
+        };
 
         perSystem =
           {
@@ -172,7 +201,7 @@
 
             packages =
               let
-                defaultNeovimConfig = {
+                liximDefaultConfig = {
                   lang = {
                     docker.enable = true;
                     git.enable = true;
@@ -189,24 +218,24 @@
                     yaml.enable = true;
                   };
                 };
-                neovimByConfig =
-                  config:
-                  import ./nix {
-                    inherit
-                      pkgs
-                      lib
-                      inputs
-                      self
-                      config
-                      ;
-
-                  };
               in
               rec {
-                lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // defaultNeovimConfig);
-                core = neovimByConfig ({ enableLvl = "core"; } // defaultNeovimConfig);
-                balance = neovimByConfig ({ enableLvl = "balance"; } // defaultNeovimConfig);
-                max = neovimByConfig ({ enableLvl = "max"; } // defaultNeovimConfig);
+                lazyvim = neovimByConfig ({
+                  inherit pkgs lib;
+                  config = ({ enableLvl = "lazyvim"; } // liximDefaultConfig);
+                });
+                core = neovimByConfig ({
+                  inherit pkgs lib;
+                  config = ({ enableLvl = "core"; } // liximDefaultConfig);
+                });
+                balance = neovimByConfig ({
+                  inherit pkgs lib;
+                  config = ({ enableLvl = "balance"; } // liximDefaultConfig);
+                });
+                max = neovimByConfig ({
+                  inherit pkgs lib;
+                  config = ({ enableLvl = "max"; } // liximDefaultConfig);
+                });
                 default = max;
               };
           };

@@ -16,7 +16,7 @@ let
     else
       drv;
 
-  configEval =
+  liximConfig =
     (pkgs.lib.evalModules {
       modules = [
         (import ./config self)
@@ -33,12 +33,12 @@ let
     }).config;
 
   # Derivation containing all plugins
-  pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv configEval.plugins);
+  pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv liximConfig.plugins);
 
   # Derivation containing all runtime dependencies
   runtimePath = pkgs.symlinkJoin {
     name = "lazyvim-nix-runtime";
-    paths = configEval.extraPackages;
+    paths = liximConfig.extraPackages;
   };
 
   # Link together all treesitter grammars into single derivation
@@ -48,7 +48,7 @@ let
   };
 
   # For some lsp's mason warns about path issues, setting env to prevent that
-  masonPath = pkgs.linkFarm "lazyvim-nix-mason" configEval.extraMasonPath;
+  masonPath = pkgs.linkFarm "lazyvim-nix-mason" liximConfig.extraMasonPath;
 
   # Use nightly neovim only ;)
   neovimNightly = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
@@ -67,7 +67,7 @@ let
 
             vim.g.extra_lazy_import = {
               ${lib.concatStrings (
-                builtins.map (extraImport: "{ import = \"${extraImport}\" },") configEval.extraLazyImport
+                builtins.map (extraImport: "{ import = \"${extraImport}\" },") liximConfig.extraLazyImport
               )}
             }
 
@@ -79,7 +79,7 @@ let
             --     },
             -- }
 
-            ${configEval.extraLuaConfig}
+            ${liximConfig.extraLuaConfig}
           EOF
 
           source ${../config/init.lua}

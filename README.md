@@ -1,4 +1,4 @@
-# LazyVim Nix
+# lixim - neovim editor with custom lazyvim configuration
 
 Standalone nix package containing a whole lazyvim config, together with all dependencies.
 
