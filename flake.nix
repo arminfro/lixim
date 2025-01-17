@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    bacon-ls.url = "github:crisidev/bacon-ls";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     tailwindcss-colorizer-cmp-nvim = {
       url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
@@ -166,7 +167,7 @@
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
-              overlays = import ./nix/overlays.nix { inherit self pkgs; };
+              overlays = import ./nix/overlays.nix { inherit self pkgs system; };
             };
 
             packages =

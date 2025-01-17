@@ -1,6 +1,7 @@
 {
   self,
   pkgs,
+  system,
 }:
 let
   buildVimPlugin =
@@ -114,7 +115,10 @@ let
     { name = "nvim-dr-lsp"; }
 
     { name = "mistake.nvim"; }
-    { name = "jsonpath-nvim"; nvimSkipModule = [ "jsonpath"]; }
+    {
+      name = "jsonpath-nvim";
+      nvimSkipModule = [ "jsonpath" ];
+    }
   ];
 in
 [
@@ -146,5 +150,6 @@ in
   })
   (final: prev: {
     markdown-toc = pkgs.callPackage ./pkgs/markdown-toc { };
+    bacon-ls = self.inputs.bacon-ls.defaultPackage.${system};
   })
 ]
