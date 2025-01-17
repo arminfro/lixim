@@ -49,6 +49,9 @@ let
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
+  # For some lsp's mason warns about path issues, setting env to prevent that
+  masonPath = pkgs.linkFarm "lazyvim-nix-mason" config2.extraMasonPath;
+
   # Use nightly neovim only ;)
   neovimNightly = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   # Wrap neovim with custom init and plugins
@@ -62,6 +65,8 @@ let
           let g:treesitter_path = "${treesitterPath}"
 
           lua << EOF
+            vim.env.MASON = "${masonPath}"
+
             vim.g.extra_lazy_import = {
               ${lib.concatStrings (
                 builtins.map (extraImport: "{ import = \"${extraImport}\" },") config2.extraLazyImport

@@ -30,6 +30,8 @@ in
       '';
       example = ''
         [ pkgs.vimPlugins.undotree ]
+        or
+        [ { name = "UndoTree"; path = pkgs.vimPlugins.undotree; } ]
       '';
       type = lib.types.listOf (
         lib.types.oneOf [
@@ -71,6 +73,23 @@ in
         [
           "lazyvim.plugins.extras.editor.telescope"
         ]
+      '';
+    };
+
+    extraMasonPath = mkOption {
+      default = [ ];
+      type = lib.types.listOf (lib.types.submodule {
+            options = {
+              name = mkOption {
+                type = lib.types.string;
+              };
+              path = mkOption {
+                type = lib.types.package;
+              };
+            };
+          });
+      example = ''
+        [ { name = "packages/svelte-language-server/node_modules/typescript-svelte-plugin"; path = pkgs.svelte-language-server; } ]
       '';
     };
 
