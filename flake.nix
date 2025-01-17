@@ -167,7 +167,7 @@
           {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
-              overlays = import ./nix/overlays.nix { inherit self pkgs system; };
+              overlays = import ./nix/overlays.nix { inherit self pkgs; };
             };
 
             packages =

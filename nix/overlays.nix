@@ -1,7 +1,6 @@
 {
   self,
   pkgs,
-  system,
 }:
 let
   buildVimPlugin =
@@ -150,6 +149,6 @@ in
   })
   (final: prev: {
     markdown-toc = pkgs.callPackage ./pkgs/markdown-toc { };
-    bacon-ls = self.inputs.bacon-ls.defaultPackage.${system};
+    bacon-ls = self.inputs.bacon-ls.defaultPackage.${pkgs.system};
   })
 ]
