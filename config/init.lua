@@ -11,41 +11,27 @@ require("lazy").setup({
     fallback = false,
   },
   spec = {
-    vim.list_extend({
-      { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-      -- { import = "lazyvim.plugins.extras.coding.yanky" },
-      -- { import = "lazyvim.plugins.extras.dap.core" },
-      -- -- { import = "lazyvim.plugins.extras.lang.clangd" },
-      -- -- { import = "lazyvim.plugins.extras.lang.cmake" },
-      -- { import = "lazyvim.plugins.extras.lang.markdown" },
-      -- -- { import = "lazyvim.plugins.extras.lang.rust" },
-      -- { import = "lazyvim.plugins.extras.lang.yaml" },
-      -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
-      -- { import = "lazyvim.plugins.extras.test.core" },
-      -- { import = "lazyvim.plugins.extras.util.project" },
-      -- The following configs are needed for fixing lazyvim on nix
-      -- force enable telescope-fzf-native.nvim
-      -- { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
-      -- disable mason.nvim, use config.extraPackages
-      { "williamboman/mason-lspconfig.nvim", enabled = false },
-      { "williamboman/mason.nvim", enabled = false },
-      { "jaybaby/mason-nvim-dap.nvim", enabled = false },
-      -- uncomment to import/override with your plugins
-      -- { import = "plugins" },
-      -- put this line at the end of spec to clear ensure_installed
+    vim.list_extend(
+      vim.list_extend({
+        { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+      }, vim.g.extra_lazy_import),
       {
-        "nvim-treesitter/nvim-treesitter",
-        init = function()
-          -- Put treesitter path as first entry in rtp
-          vim.opt.rtp:prepend(vim.g.treesitter_path)
-        end,
-        opts = function(_, opts)
-          opts.ensure_installed = {}
-          opts.auto_install = false
-        end,
-        -- opts = { auto_install = false, ensure_installed = {} },
-      },
-    }, vim.g.extra_lazy_import),
+        { "williamboman/mason-lspconfig.nvim", enabled = false },
+        { "williamboman/mason.nvim", enabled = false },
+        { "jaybaby/mason-nvim-dap.nvim", enabled = false },
+        {
+          "nvim-treesitter/nvim-treesitter",
+          init = function()
+            -- Put treesitter path as first entry in rtp
+            vim.opt.rtp:prepend(vim.g.treesitter_path)
+          end,
+          opts = function(_, opts)
+            opts.ensure_installed = {}
+          end,
+          -- opts = { auto_install = false, ensure_installed = {} },
+        },
+      }
+    ),
   },
   performance = {
     rtp = {
