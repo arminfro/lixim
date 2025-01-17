@@ -5,14 +5,18 @@ self:
   ...
 }:
 {
-  extraPackages = with pkgs; [
-    cargo
-    clippy
-    rust-analyzer
-    bacon
-    bacon-ls
-    vscode-extensions.vadimcn.vscode-lldb
-  ];
+  extraPackages =
+    with pkgs;
+    [
+      cargo
+      clippy
+      rust-analyzer
+      bacon
+      vscode-extensions.vadimcn.vscode-lldb
+    ]
+    ++ [
+      self.inputs.bacon-ls.defaultPackage.${pkgs.system}
+    ];
 
   plugins = with pkgs.vimPlugins; [
     crates-nvim
@@ -28,7 +32,9 @@ self:
   ];
 
   extraLuaConfig = # lua
-    ''
-      vim.g.lazyvim_rust_diagnostics = "bacon-ls"
-    '';
+    [
+      ''
+        vim.g.lazyvim_rust_diagnostics = "bacon-ls"
+      ''
+    ];
 }

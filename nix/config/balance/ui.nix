@@ -1,14 +1,16 @@
 self:
 {
   pkgs,
+utils,
   ...
 }:
 {
   plugins = with pkgs.vimPlugins; [
     nvim-hlslens
     urlview-nvim
-    nvim-origami
-  ];
+  ] ++ utils.buildVimPlugins [
+    { name = "nvim-origami"; }
+    ];
 
   extraLazyImport = [
     "plugins.balance.ui"

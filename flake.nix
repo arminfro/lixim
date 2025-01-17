@@ -144,25 +144,6 @@
       flake-parts,
       ...
     }@inputs:
-    let
-
-      neovimByConfig =
-        {
-          config,
-          pkgs,
-          lib,
-        }:
-        import ./nix {
-          inherit
-            pkgs
-            lib
-            inputs
-            self
-            config
-            ;
-
-        };
-    in
     flake-parts.lib.mkFlake
       {
         inherit inputs;
@@ -175,13 +156,13 @@
           "x86_64-darwin"
         ];
 
-        flake.nixosModules.default = import ./nix/module.nix {
-          inherit self neovimByConfig;
+        flake.nixosModules.default = import ./nix {
+          inherit self;
           isNixOsModule = true;
         };
 
-        flake.homeManagerModules.default = import ./nix/module.nix {
-          inherit self neovimByConfig;
+        flake.homeManagerModules.default = import ./nix {
+          inherit self;
           isNixOsModule = false;
         };
 
@@ -194,48 +175,58 @@
             ...
           }:
           {
-            _module.args.pkgs = import inputs.nixpkgs {
-              inherit system;
-              overlays = import ./nix/overlays.nix { inherit self pkgs; };
-            };
-
             packages =
               let
                 liximDefaultConfig = {
+                  enable = true;
                   lang = {
-                    docker.enable = true;
-                    git.enable = true;
-                    html.enable = true;
-                    json.enable = true;
-                    markdown.enable = true;
-                    nix.enable = true;
-                    nushell.enable = true;
-                    rust.enable = true;
-                    svelte.enable = true;
-                    tailwind.enable = true;
-                    toml.enable = true;
-                    typescript.enable = true;
-                    yaml.enable = true;
+                    docker = true;
+                    git = true;
+                    html = true;
+                    json = true;
+                    markdown = true;
+                    nix = true;
+                    nushell = true;
+                    rust = true;
+                    svelte = true;
+                    tailwind = true;
+                    toml = true;
+                    typescript = true;
+                    yaml = true;
                   };
                 };
+                neovimByConfig =
+                  config:
+                  let
+                    liximSettings =
+                      (pkgs.lib.evalModules {
+                        modules = [
+                          (import ./nix/config self)
+                        ];
+                        specialArgs = {
+                          inherit
+                            pkgs
+                            config
+                            ;
+                          utils = import ./nix/utils.nix { inherit pkgs self; };
+                        };
+                      }).config;
+                  in
+                  import ./nix/pkgs/lixim {
+                    inherit
+                      pkgs
+                      lib
+                      self
+                      ;
+                    config = config // liximSettings;
+                  };
               in
               rec {
-                lazyvim = neovimByConfig ({
-                  inherit pkgs lib;
-                  config = ({ enableLvl = "lazyvim"; } // liximDefaultConfig);
-                });
-                core = neovimByConfig ({
-                  inherit pkgs lib;
-                  config = ({ enableLvl = "core"; } // liximDefaultConfig);
-                });
-                balance = neovimByConfig ({
-                  inherit pkgs lib;
-                  config = ({ enableLvl = "balance"; } // liximDefaultConfig);
-                });
-                max = neovimByConfig ({
-                  inherit pkgs lib;
-                  config = ({ enableLvl = "max"; } // liximDefaultConfig);
-                });
+                lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // liximDefaultConfig);
+                core = neovimByConfig ({ enableLvl = "core"; } // liximDefaultConfig);
+                balance = neovimByConfig ({ enableLvl = "balance"; } // liximDefaultConfig);
+                max = neovimByConfig ({ enableLvl = "max"; } // liximDefaultConfig);
+                markdown-toc = pkgs.callPackage ./nix/pkgs/markdown-toc { };
                 default = max;
               };
           };

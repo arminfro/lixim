@@ -10,7 +10,9 @@ self:
     [
       markdownlint-cli2
       marksman
-      markdown-toc
+    ]
+    ++ [
+      self.packages.${pkgs.system}.markdown-toc
     ]
   );
 

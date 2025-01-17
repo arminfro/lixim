@@ -1,12 +1,13 @@
 self:
 {
   pkgs,
+  utils,
   ...
 }:
 {
-  plugins = with pkgs.vimPlugins; [
-    lualine-diagnostic-message
-    nvim-dr-lsp
+  plugins = utils.buildVimPlugins [
+    { name = "lualine-diagnostic-message"; }
+    { name = "nvim-dr-lsp"; }
   ];
 
   extraLazyImport = [

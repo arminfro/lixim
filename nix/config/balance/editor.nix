@@ -1,19 +1,35 @@
 self:
 {
   pkgs,
+  utils,
   ...
 }:
 {
-  plugins = with pkgs.vimPlugins; [
-    compiler-nvim
-    overseer-nvim
-    zen-mode-nvim
-    twilight-nvim
-    fsread-nvim
-    nvim-fundo
-    promise-async
-    hand-side-fix-nvim
-  ];
+  plugins =
+    with pkgs.vimPlugins;
+    [
+      compiler-nvim
+      overseer-nvim
+      zen-mode-nvim
+      twilight-nvim
+    ]
+    ++ utils.buildVimPlugins [
+      { name = "fsread.nvim"; }
+      {
+        name = "nvim-fundo";
+        nvimSkipModule = [
+          "fundo.fs.init"
+          "fundo.fs.uvwrapper"
+          "fundo.lib.mutex"
+          "fundo.lib.semaphore"
+          "fundo.main"
+          "fundo.manager"
+          "fundo.model.undo"
+        ];
+      }
+      { name = "promise-async"; }
+      { name = "hand-side-fix.nvim"; }
+    ];
 
   extraLazyImport = [
     "plugins.balance.editor"

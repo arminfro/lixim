@@ -1,14 +1,15 @@
 self:
 {
   pkgs,
+utils,
   ...
 }:
 {
-  plugins = with pkgs.vimPlugins; [
-    git-blame-nvim
-    lualine-so-fancy-nvim
-    lualine-spell-status
-  ];
+  plugins = utils.buildVimPlugins [
+    { name = "git-blame.nvim"; }
+    { name = "lualine-so-fancy.nvim"; }
+    { name = "lualine-spell-status"; }
+    ];
 
   extraLazyImport = [
     "plugins.balance.lualine"

@@ -11,9 +11,11 @@ self:
   ];
 
   extraLuaConfig = # lua
-    ''
-      vim.g.lazyvim_picker = "telescope"
-    '';
+    [
+      ''
+        vim.g.lazyvim_picker = "telescope"
+      ''
+    ];
 
   extraLazyImport = [
     "lazyvim.plugins.extras.editor.telescope"

@@ -1,96 +1,108 @@
 {
-  pkgs,
-  lib,
-  inputs,
   self,
+  isNixOsModule,
+}:
+{
   config,
+  inputs,
+  lib,
+  pkgs,
+  ...
 }:
 let
-  mkEntryFromDrv =
-    drv:
-    if lib.isDerivation drv then
-      {
-        name = "${lib.getName drv}";
-        path = drv;
-      }
-    else
-      drv;
+  cfg = config.programs.lixim;
+  inherit (lib) mkIf;
+  inherit (lib.options) mkOption mkEnableOption;
+  inherit (lib.types)
+    submodule
+    enum
+    ;
 
-  liximConfig =
+  liximSettings =
     (pkgs.lib.evalModules {
       modules = [
         (import ./config self)
       ];
       specialArgs = {
         inherit
-          # inputs
-          # lib
           pkgs
-          config
           ;
+        config = cfg;
+        utils = import ./utils.nix { inherit pkgs self; };
       };
-
     }).config;
 
-  # Derivation containing all plugins
-  pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv liximConfig.plugins);
+  neovimByConfig =
+    config:
+    import ./pkgs/lixim {
+      inherit
+        pkgs
+        lib
+        self
+        ;
+      config = liximSettings;
+    };
 
-  # Derivation containing all runtime dependencies
-  runtimePath = pkgs.symlinkJoin {
-    name = "lazyvim-nix-runtime";
-    paths = liximConfig.extraPackages;
-  };
+  neovimPackage = neovimByConfig config;
+in
+{
+  options.programs.lixim = {
+    enable = mkEnableOption "lixim";
+    lang = mkOption {
+      type = (
+        submodule {
+          options = {
+            docker = mkEnableOption "docker language support";
+            git = mkEnableOption "git language support";
+            html = mkEnableOption "html language support";
+            json = mkEnableOption "json language support";
+            markdown = mkEnableOption "markdown language support";
+            nix = mkEnableOption "nix language support";
+            nushell = mkEnableOption "nushell language support";
+            rust = mkEnableOption "rust language support";
+            svelte = mkEnableOption "svelte language support";
+            tailwind = mkEnableOption "tailwind language support";
+            toml = mkEnableOption "toml language support";
+            typescript = mkEnableOption "typescript language support";
+            yaml = mkEnableOption "yaml language support";
+          };
+        }
+      );
+    };
 
-  # Link together all treesitter grammars into single derivation
-  treesitterPath = pkgs.symlinkJoin {
-    name = "lazyvim-nix-treesitter-parsers";
-    paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
-  };
+    enableLvl = mkOption {
+      default = "core";
+      type = enum [
+        "lazyvim"
+        "core"
+        "balance"
+        "max"
+      ];
+      description = ''
+        Enable level for Lazyvim plugins.
+        Possible values: lazyvim, core, balance, max.
 
-  # For some lsp's mason warns about path issues, setting env to prevent that
-  masonPath = pkgs.linkFarm "lazyvim-nix-mason" liximConfig.extraMasonPath;
-
-  # Use nightly neovim only ;)
-  neovimNightly = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-  # Wrap neovim with custom init and plugins
-  neovimWrapped = pkgs.wrapNeovim neovimNightly {
-    configure = {
-      customRC = # vim
-        ''
-          let g:config_path = "${../config}"
-          let g:plugin_path = "${pluginPath}"
-          let g:runtime_path = "${runtimePath}"
-          let g:treesitter_path = "${treesitterPath}"
-
-          lua << EOF
-            vim.env.MASON = "${masonPath}"
-
-            vim.g.extra_lazy_import = {
-              ${lib.concatStrings (
-                builtins.map (extraImport: "{ import = \"${extraImport}\" },") liximConfig.extraLazyImport
-              )}
-            }
-
-            -- todo, use dicts in markdwon
-            -- vim.g.neovim_config = {
-            --     cmpDicts = {
-            --       en = "${../config/dicts/english.dict}",
-            --       de = "${../config/dicts/german.dict}",
-            --     },
-            -- }
-
-            ${liximConfig.extraLuaConfig}
-          EOF
-
-          source ${../config/init.lua}
-
-        '';
-      packages.all.start = [ pkgs.vimPlugins.lazy-nvim ];
+        lazyvim - just lazyvim
+        core - most important plugins and configs
+        balance - more features but nothing too heavy
+        max - all plugins
+      '';
     };
   };
-in
-pkgs.writeShellApplication {
-  name = "nvim";
-  runtimeInputs = [ runtimePath ];
-  text = ''${neovimWrapped}/bin/nvim "$@"'';
+
+  config = mkIf cfg.enable (
+    if isNixOsModule then
+      {
+        environment.systemPackages = [
+          neovimPackage
+        ];
+      }
+    else
+      {
+        home.packages = [
+          neovimPackage
+        ];
+      }
+  );
+
 }

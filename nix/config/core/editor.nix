@@ -1,19 +1,27 @@
 self:
 {
   pkgs,
+  utils,
   ...
 }:
 {
-  plugins = with pkgs.vimPlugins; [
-    undotree
-    nvim-various-textobjs
-    nvim-config-local
-    vim-repeat
-    nvim-scissors
-    nvim-window
-    ts-node-action
-    vim-mkdir
-  ];
+  plugins =
+    with pkgs.vimPlugins;
+    [
+      undotree
+      nvim-various-textobjs
+      nvim-config-local
+      vim-repeat
+    ]
+    ++ utils.buildVimPlugins [
+      {
+        name = "nvim-scissors";
+        nvimSkipModule = "scissors.2-picker.telescope";
+      }
+      { name = "nvim-window"; }
+      { name = "ts-node-action"; }
+      { name = "vim-mkdir"; }
+    ];
 
   extraLazyImport = [
     "plugins.core.editor"

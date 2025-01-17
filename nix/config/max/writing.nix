@@ -1,11 +1,12 @@
 self:
 {
   pkgs,
+  utils,
   ...
 }:
 {
-  plugins = with pkgs.vimPlugins; [
-    mistake-nvim
+  plugins = [
+    (utils.buildVimPlugin { name = "mistake.nvim"; })
   ];
 
   extraLazyImport = [

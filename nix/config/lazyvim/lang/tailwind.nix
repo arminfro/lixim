@@ -2,13 +2,14 @@ self:
 {
   pkgs,
   config,
+  utils,
   ...
 }:
 {
   extraPackages = [ pkgs.tailwindcss-language-server ];
 
   plugins = [
-    pkgs.vimPlugins.tailwindcss-colorizer-cmp-nvim
+    (utils.buildVimPlugin { name = "tailwindcss-colorizer-cmp.nvim"; })
   ];
 
   extraLazyImport = [
