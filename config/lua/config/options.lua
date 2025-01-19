@@ -26,3 +26,5 @@ globals.root_spec = { "cwd" }
 
 -- todo, declaration in telescope.nix is not having the seeked effect
 globals.lazyvim_picker = "telescope"
+
+globals.maplocalleader = ","

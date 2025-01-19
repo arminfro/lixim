@@ -10,13 +10,9 @@ return {
           settings = {
             Lua = {
               workspace = {
-                checkThirdParty = false,
                 maxPreload = 1000,
               },
               telemetry = { enable = false },
-              completion = {
-                callSnippet = "Replace",
-              },
             },
           },
         },
