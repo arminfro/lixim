@@ -6,7 +6,7 @@ self:
 }:
 let
   enabledLanguagesOrNull = lib.mapAttrs (
-    lang: value: if value then ./${lang}.nix else null
+    langKey: lang: if lang.enable then ./${langKey}.nix else null
   ) config.lang;
   enabledLanguages = builtins.filter (lang: lang != null && lib.pathIsRegularFile lang) (
     builtins.attrValues enabledLanguagesOrNull

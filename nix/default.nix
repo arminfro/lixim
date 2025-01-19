@@ -18,32 +18,14 @@ let
     enum
     ;
 
-  liximSettings =
-    (pkgs.lib.evalModules {
-      modules = [
-        (import ./config self)
-      ];
-      specialArgs = {
-        inherit
-          pkgs
-          ;
-        config = cfg;
-        utils = import ./utils.nix { inherit pkgs self; };
-      };
-    }).config;
-
-  neovimByConfig =
-    config:
-    import ./pkgs/lixim {
-      inherit
-        pkgs
-        lib
-        self
-        ;
-      config = liximSettings;
-    };
-
-  neovimPackage = neovimByConfig config;
+  neovimPackage = import ./packages/lixim {
+    inherit
+      pkgs
+      lib
+      self
+      ;
+    config = cfg;
+  };
 in
 {
   options.programs.lixim = {
@@ -52,19 +34,19 @@ in
       type = (
         submodule {
           options = {
-            docker = mkEnableOption "docker language support";
-            git = mkEnableOption "git language support";
-            html = mkEnableOption "html language support";
-            json = mkEnableOption "json language support";
-            markdown = mkEnableOption "markdown language support";
-            nix = mkEnableOption "nix language support";
-            nushell = mkEnableOption "nushell language support";
-            rust = mkEnableOption "rust language support";
-            svelte = mkEnableOption "svelte language support";
-            tailwind = mkEnableOption "tailwind language support";
-            toml = mkEnableOption "toml language support";
-            typescript = mkEnableOption "typescript language support";
-            yaml = mkEnableOption "yaml language support";
+            docker.enable = mkEnableOption "docker language support";
+            git.enable = mkEnableOption "git language support";
+            html.enable = mkEnableOption "html language support";
+            json.enable = mkEnableOption "json language support";
+            markdown.enable = mkEnableOption "markdown language support";
+            nix.enable = mkEnableOption "nix language support";
+            nushell.enable = mkEnableOption "nushell language support";
+            rust.enable = mkEnableOption "rust language support";
+            svelte.enable = mkEnableOption "svelte language support";
+            tailwind.enable = mkEnableOption "tailwind language support";
+            toml.enable = mkEnableOption "toml language support";
+            typescript.enable = mkEnableOption "typescript language support";
+            yaml.enable = mkEnableOption "yaml language support";
           };
         }
       );

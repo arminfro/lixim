@@ -5,7 +5,43 @@
   config,
 }:
 let
-  cfg = config;
+  liximConfig =
+    (pkgs.lib.evalModules {
+      modules = [
+        (import ../../config self)
+      ];
+      specialArgs = {
+        inherit
+          pkgs
+          config
+          ;
+        utils = rec {
+          buildVimPlugin =
+            {
+              name,
+              version ? "*",
+              dependencies ? [ ],
+              nvimSkipModule ? null,
+
+            }:
+            let
+              subbedName = builtins.replaceStrings [ "." ] [ "-" ] name;
+            in
+            (pkgs.vimUtils.buildVimPlugin {
+              inherit
+                version
+                dependencies
+                nvimSkipModule
+                ;
+              pname = name;
+              src = self.inputs.${subbedName};
+            });
+
+          buildVimPlugins = plugins: builtins.map (plugin: buildVimPlugin (plugin)) plugins;
+        };
+      };
+    }).config;
+
   mkEntryFromDrv =
     drv:
     if lib.isDerivation drv then
@@ -17,12 +53,12 @@ let
       drv;
 
   # Derivation containing all plugins
-  pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv cfg.plugins);
+  pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv liximConfig.plugins);
 
   # Derivation containing all runtime dependencies
   runtimePath = pkgs.symlinkJoin {
     name = "lazyvim-nix-runtime";
-    paths = cfg.extraPackages;
+    paths = liximConfig.extraPackages;
   };
 
   # Link together all treesitter grammars into single derivation
@@ -32,7 +68,7 @@ let
   };
 
   # For some lsp's mason warns about path issues, setting env to prevent that
-  masonPath = pkgs.linkFarm "lazyvim-nix-mason" cfg.extraMasonPath;
+  masonPath = pkgs.linkFarm "lazyvim-nix-mason" liximConfig.extraMasonPath;
 
   # Use nightly neovim only ;)
   neovimNightly = self.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
@@ -51,7 +87,7 @@ let
 
             vim.g.extra_lazy_import = {
               ${lib.concatStrings (
-                builtins.map (extraImport: "{ import = \"${extraImport}\" },") cfg.extraLazyImport
+                builtins.map (extraImport: "{ import = \"${extraImport}\" },") liximConfig.extraLazyImport
               )}
             }
 
@@ -63,7 +99,7 @@ let
             --     },
             -- }
 
-            ${lib.concatStrings cfg.extraLuaConfig}
+            ${lib.concatStrings liximConfig.extraLuaConfig}
           EOF
 
           source ${../../../config/init.lua}

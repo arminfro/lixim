@@ -175,60 +175,13 @@
             ...
           }:
           {
-            packages =
-              let
-                liximDefaultConfig = {
-                  enable = true;
-                  lang = {
-                    docker = true;
-                    git = true;
-                    html = true;
-                    json = true;
-                    markdown = true;
-                    nix = true;
-                    nushell = true;
-                    rust = true;
-                    svelte = true;
-                    tailwind = true;
-                    toml = true;
-                    typescript = true;
-                    yaml = true;
-                  };
-                };
-                neovimByConfig =
-                  config:
-                  let
-                    liximSettings =
-                      (pkgs.lib.evalModules {
-                        modules = [
-                          (import ./nix/config self)
-                        ];
-                        specialArgs = {
-                          inherit
-                            pkgs
-                            config
-                            ;
-                          utils = import ./nix/utils.nix { inherit pkgs self; };
-                        };
-                      }).config;
-                  in
-                  import ./nix/pkgs/lixim {
-                    inherit
-                      pkgs
-                      lib
-                      self
-                      ;
-                    config = config // liximSettings;
-                  };
-              in
-              rec {
-                lazyvim = neovimByConfig ({ enableLvl = "lazyvim"; } // liximDefaultConfig);
-                core = neovimByConfig ({ enableLvl = "core"; } // liximDefaultConfig);
-                balance = neovimByConfig ({ enableLvl = "balance"; } // liximDefaultConfig);
-                max = neovimByConfig ({ enableLvl = "max"; } // liximDefaultConfig);
-                markdown-toc = pkgs.callPackage ./nix/pkgs/markdown-toc { };
-                default = max;
-              };
+            packages = import ./nix/packages {
+              inherit
+                pkgs
+                self
+                lib
+                ;
+            };
           };
       };
 }

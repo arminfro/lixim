@@ -12,7 +12,7 @@ self:
       marksman
     ]
     ++ [
-      self.packages.${pkgs.system}.markdown-toc
+      (pkgs.callPackage ../../../packages/markdown-toc { })
     ]
   );
 
