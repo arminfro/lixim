@@ -16,6 +16,7 @@ let
   inherit (lib.types)
     submodule
     enum
+    bool
     ;
 
   neovimPackage = import ./packages/lixim {
@@ -68,6 +69,14 @@ in
         core - most important plugins and configs
         balance - more features but nothing too heavy
         max - all plugins
+      '';
+    };
+
+    useNeovimNightly = mkOption {
+      default = true;
+      type = bool;
+      description = ''
+        Wether to use neovim nightly or not
       '';
     };
   };

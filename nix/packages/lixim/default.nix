@@ -70,10 +70,13 @@ let
   # For some lsp's mason warns about path issues, setting env to prevent that
   masonPath = pkgs.linkFarm "lazyvim-nix-mason" liximConfig.extraMasonPath;
 
-  # Use nightly neovim only ;)
-  neovimNightly = self.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-  # Wrap neovim with custom init and plugins
-  neovimWrapped = pkgs.wrapNeovim neovimNightly {
+  neovimUnwrapped =
+    if config.useNeovimNightly then
+      self.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
+    else
+      pkgs.neovim-unwrapped;
+
+  neovimWrapped = pkgs.wrapNeovim neovimUnwrapped {
     configure = {
       customRC = # vim
         ''

@@ -15,6 +15,7 @@ let
       config = {
         inherit enableLvl;
         enable = true;
+        useNeovimNightly = true;
         lang = {
           docker.enable = true;
           git.enable = true;
