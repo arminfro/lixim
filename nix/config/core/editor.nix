@@ -12,6 +12,7 @@ self:
       nvim-various-textobjs
       nvim-config-local
       vim-repeat
+      oil-nvim
     ]
     ++ utils.buildVimPlugins [
       {
