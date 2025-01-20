@@ -1,5 +1,14 @@
 return {
   {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        json = { "jq" },
+      },
+    },
+  },
+
+  {
     "phelipetls/jsonpath.nvim",
     ft = { "json" },
     -- config = function()
@@ -8,6 +17,7 @@ return {
     -- 	end
     -- end,
     keys = {
+      -- todo, set this key dynamically
       {
         "<leader>cY",
         function()
