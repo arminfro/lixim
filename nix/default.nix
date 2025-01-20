@@ -10,7 +10,7 @@
   ...
 }:
 let
-  cfg = config.programs.lixim;
+  cfg = config.programs.neovim.lixim;
   inherit (lib) mkIf;
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.types)
@@ -19,17 +19,19 @@ let
     bool
     ;
 
-  neovimPackage = import ./packages/lixim {
-    inherit
-      pkgs
-      lib
-      self
-      ;
-    config = cfg;
-  };
+  liximConfig = (
+    import ./config/eval.nix {
+      inherit
+        pkgs
+        self
+        lib
+        ;
+      config = cfg;
+    }
+  );
 in
 {
-  options.programs.lixim = {
+  options.programs.neovim.lixim = {
     enable = mkEnableOption "lixim";
     lang = mkOption {
       type = (
@@ -84,15 +86,24 @@ in
   config = mkIf cfg.enable (
     if isNixOsModule then
       {
-        environment.systemPackages = [
-          neovimPackage
-        ];
+        # todo, install extraPackages just for neovim, not globally
+        environment.systemPackages = liximConfig.extraPackages;
+        programs.neovim = {
+          package = liximConfig.neovimPackage;
+          configure = {
+            customRC = liximConfig.customRC;
+            packages.all.start = [ pkgs.vimPlugins.lazy-nvim ];
+          };
+        };
       }
     else
       {
-        home.packages = [
-          neovimPackage
-        ];
+        programs.neovim = {
+          package = liximConfig.neovimPackage;
+          extraConfig = liximConfig.customRC;
+          extraPackages = liximConfig.extraPackages;
+          plugins = [ pkgs.vimPlugins.lazy-nvim ];
+        };
       }
   );
 

@@ -53,6 +53,7 @@ let
       drv;
 in
 rec {
+  inherit (liximConfig) extraPackages;
   pluginPath = pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv liximConfig.plugins);
   runtimePath = pkgs.symlinkJoin {
     name = "lazyvim-nix-runtime";
@@ -96,6 +97,5 @@ rec {
       EOF
 
       source ${../../config/init.lua}
-
     '';
 }
