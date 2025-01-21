@@ -52,6 +52,7 @@ Example configuration using the `homeManagerModule`:
         nushell.enable = true;
         react.enable = true;
         rust.enable = true;
+        sql.enable = true;
         svelte.enable = true;
         tailwind.enable = true;
         toml.enable = true;

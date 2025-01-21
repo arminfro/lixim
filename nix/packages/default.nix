@@ -26,6 +26,7 @@ let
           nix.enable = true;
           nushell.enable = true;
           rust.enable = true;
+          sql.enable = true;
           react.enable = true;
           svelte.enable = true;
           tailwind.enable = true;
