@@ -43,6 +43,7 @@ let
 
       ./editor/dial.nix
 
+      ./ui/edgy.nix
       ./util/rest.nix
     ];
   };
