@@ -42,6 +42,7 @@ Example configuration using the `homeManagerModule`:
       enableLvl = "max";
       useNeovimNightly = true;
       lang = {
+        css.enable = true;
         docker.enable = true;
         git.enable = true;
         html.enable = true;
@@ -49,6 +50,7 @@ Example configuration using the `homeManagerModule`:
         markdown.enable = true;
         nix.enable = true;
         nushell.enable = true;
+        react.enable = true;
         rust.enable = true;
         svelte.enable = true;
         tailwind.enable = true;

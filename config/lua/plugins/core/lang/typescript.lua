@@ -1,10 +1,12 @@
 return {
+
   {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
       linters_by_ft = {
-        rust = { "clippy" },
+        typescript = { "ts-standard" },
+        typescriptreact = { "ts-standard" },
       },
     },
   },
@@ -12,6 +14,6 @@ return {
   {
     "luckasRanarison/nvim-devdocs",
     optional = true,
-    opts = { ensure_installed = { "rust" } },
+    opts = { ensure_installed = { "typescript", "javascript", "dom", "eslint" } },
   },
 }

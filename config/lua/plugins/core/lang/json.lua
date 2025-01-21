@@ -11,11 +11,6 @@ return {
   {
     "phelipetls/jsonpath.nvim",
     ft = { "json" },
-    -- config = function()
-    -- 	if vim.fn.exists("+winbar") == 1 then
-    -- 		vim.opt_local.winbar = "%{%v:lua.require'jsonpath'.get()%}"
-    -- 	end
-    -- end,
     keys = {
       -- todo, set this key dynamically
       {
@@ -26,5 +21,11 @@ return {
         desc = "Copy Jsonpath",
       },
     },
+  },
+
+  {
+    "luckasRanarison/nvim-devdocs",
+    optional = true,
+    opts = { ensure_installed = { "jq" } },
   },
 }

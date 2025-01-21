@@ -1,4 +1,5 @@
 return {
+
   {
     -- provides lsp features and a code completion source for code embedded in other documents
     "jmbuhr/otter.nvim",
@@ -26,6 +27,20 @@ return {
     keys = {
       { "<leader>Dh", "<cmd>DocsViewToggle<CR>", desc = "LSP hover doc side panel" },
     },
+  },
+
+  {
+    "moyiz/git-dev.nvim",
+    lazy = true,
+    cmd = {
+      "GitDevClean",
+      "GitDevCleanAll",
+      "GitDevCloseBuffers",
+      "GitDevOpen",
+      "GitDevRecents",
+      "GitDevToggleUI",
+    },
+    opts = {},
   },
 
   -- {

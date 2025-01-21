@@ -37,6 +37,7 @@ in
       type = (
         submodule {
           options = {
+            css.enable = mkEnableOption "docker language support";
             docker.enable = mkEnableOption "docker language support";
             git.enable = mkEnableOption "git language support";
             html.enable = mkEnableOption "html language support";
@@ -44,6 +45,7 @@ in
             markdown.enable = mkEnableOption "markdown language support";
             nix.enable = mkEnableOption "nix language support";
             nushell.enable = mkEnableOption "nushell language support";
+            react.enable = mkEnableOption "rust language support";
             rust.enable = mkEnableOption "rust language support";
             svelte.enable = mkEnableOption "svelte language support";
             tailwind.enable = mkEnableOption "tailwind language support";

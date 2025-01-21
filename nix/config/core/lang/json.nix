@@ -7,6 +7,10 @@ self:
   ...
 }:
 {
+  extraPackages = with pkgs; [
+    jq
+  ];
+
   plugins = [
     {
       name = "jsonpath.nvim";

@@ -5,12 +5,10 @@ self:
 }:
 {
   extraPackages = with pkgs; [
-    vscode-langservers-extracted
-    htmlhint
-    superhtml
+    stylelint-lsp
   ];
 
   extraLazyImport = [
-    "plugins.core.lang.html"
+    "plugins.core.lang.css"
   ];
 }

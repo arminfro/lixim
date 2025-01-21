@@ -135,6 +135,10 @@
       url = "github:phelipetls/jsonpath.nvim";
       flake = false;
     };
+    git-dev-nvim = {
+      url = "github:moyiz/git-dev.nvim";
+      flake = false;
+    };
   };
 
   outputs =

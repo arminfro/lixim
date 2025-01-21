@@ -85,7 +85,7 @@ rec {
           )}
         }
 
-        -- todo, use dicts in markdwon
+        -- todo, use dicts in markdown
         -- vim.g.neovim_config = {
         --     cmpDicts = {
         --       en = "{../../config/dicts/english.dict}",

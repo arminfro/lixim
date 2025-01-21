@@ -17,6 +17,7 @@ let
         enable = true;
         useNeovimNightly = true;
         lang = {
+          css.enable = true;
           docker.enable = true;
           git.enable = true;
           html.enable = true;
@@ -25,6 +26,7 @@ let
           nix.enable = true;
           nushell.enable = true;
           rust.enable = true;
+          react.enable = true;
           svelte.enable = true;
           tailwind.enable = true;
           toml.enable = true;

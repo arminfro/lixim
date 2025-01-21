@@ -4,6 +4,7 @@ return {
     opts = {
       servers = {
         html = {},
+        superhtml = {},
       },
     },
   },
@@ -16,5 +17,11 @@ return {
         html = { "htmlhint" },
       },
     },
+  },
+
+  {
+    "luckasRanarison/nvim-devdocs",
+    optional = true,
+    opts = { ensure_installed = { "html" } },
   },
 }

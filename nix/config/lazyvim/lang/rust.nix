@@ -13,6 +13,7 @@ self:
       rust-analyzer
       bacon
       vscode-extensions.vadimcn.vscode-lldb
+      graphviz
     ]
     ++ [
       self.inputs.bacon-ls.defaultPackage.${pkgs.system}
