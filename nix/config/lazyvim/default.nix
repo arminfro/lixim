@@ -37,6 +37,8 @@ let
       ./linting/eslint.nix
 
       ./test/neotest.nix
+
+      ./ui/treesitter-context.nix
     ];
     max = [
       ./coding/neogen.nix
@@ -44,6 +46,7 @@ let
       ./editor/dial.nix
 
       ./ui/edgy.nix
+
       ./util/rest.nix
     ];
   };
