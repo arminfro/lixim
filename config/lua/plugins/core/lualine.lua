@@ -3,8 +3,8 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
-      opts.options.disabled_filetypes.winbar = opts.options.disabled_filetypes.statusline
-      opts.winbar = {
+      -- opts.options.disabled_filetypes.tabline = opts.options.disabled_filetypes.statusline
+      opts.tabline = {
         lualine_a = {},
         lualine_b = {
           {
@@ -17,12 +17,19 @@ return {
             length = 0,
           }) },
         },
-        lualine_c = {},
+        lualine_c = {
+          {
+            "buffers",
+            buffers_color = {
+              active = { fg = Snacks.util.color("Special") },
+            },
+          },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
       }
-      opts.inactive_winbar = opts.winbar
+      -- opts.inactive_tabline = opts.tabline
     end,
   },
 

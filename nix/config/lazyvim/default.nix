@@ -68,7 +68,7 @@ in
         });
       })
       ++ (with pkgs.vimPlugins; [
-        bufferline-nvim
+        # bufferline-nvim # disabled for lualine
         conform-nvim
         dashboard-nvim
         flash-nvim

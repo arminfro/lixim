@@ -15,7 +15,7 @@ return {
       },
     },
     opts = function(_, opts)
-      table.insert(opts.winbar.lualine_y, require("gitblame").get_current_blame_text)
+      table.insert(opts.tabline.lualine_y, require("gitblame").get_current_blame_text)
     end,
   },
 
@@ -27,13 +27,13 @@ return {
       -- todo, remove current "recording @x"
       -- opts.sections.lualine_x = { "fancy_macro" }
       opts.sections.lualine_a = { { "fancy_mode", width = 3 } }
-      table.insert(opts.winbar.lualine_a, {
+      table.insert(opts.tabline.lualine_a, {
         "fancy_branch",
         fmt = function(str)
           return str:sub(1, 16)
         end,
       })
-      table.insert(opts.winbar.lualine_b, 1, {
+      table.insert(opts.tabline.lualine_b, 1, {
         "fancy_cwd",
         fmt = function(str)
           return extractLastPathSegments(str, 3)
