@@ -1,4 +1,5 @@
 [
+  ./adapt-prettier-to-fit-biome-usage.patch
   ./flip-noice-keys-to-xn.patch
   ./flip-search-resume-and-search-replace.patch
   ./keymaps.patch

@@ -1,0 +1,26 @@
+diff --git a/lua/lazyvim/plugins/extras/formatting/prettier.lua b/lua/lazyvim/plugins/extras/formatting/prettier.lua
+index 855dc258..0703ca8c 100644
+--- a/lua/lazyvim/plugins/extras/formatting/prettier.lua
++++ b/lua/lazyvim/plugins/extras/formatting/prettier.lua
+@@ -9,21 +9,12 @@ end
+ local M = {}
+ 
+ local supported = {
+-  "css",
+-  "graphql",
+   "handlebars",
+   "html",
+-  "javascript",
+-  "javascriptreact",
+-  "json",
+-  "jsonc",
+   "less",
+   "markdown",
+   "markdown.mdx",
+   "scss",
+-  "typescript",
+-  "typescriptreact",
+-  "vue",
+   "yaml",
+ }
+ 

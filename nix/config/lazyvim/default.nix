@@ -32,7 +32,7 @@ let
       ./editor/refactoring.nix
 
       ./formatting/biome.nix
-      # ./formatting/prettier.nix
+      ./formatting/prettier.nix
 
       ./linting/eslint.nix
 
