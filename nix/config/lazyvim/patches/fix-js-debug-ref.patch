@@ -1,0 +1,13 @@
+diff --git a/lua/lazyvim/plugins/extras/lang/typescript.lua b/lua/lazyvim/plugins/extras/lang/typescript.lua
+index 6d7ae673..0f441ffd 100644
+--- a/lua/lazyvim/plugins/extras/lang/typescript.lua
++++ b/lua/lazyvim/plugins/extras/lang/typescript.lua
+@@ -212,7 +212,7 @@ return {
+             command = "node",
+             -- 💀 Make sure to update this path to point to your installation
+             args = {
+-              LazyVim.get_pkg_path("js-debug-adapter", "/js-debug/src/dapDebugServer.js"),
++              LazyVim.get_pkg_path("js-debug-adapter", "/lib/node_modules/js-debug/dist/src/dapDebugServer.js"),
+               "${port}",
+             },
+           },

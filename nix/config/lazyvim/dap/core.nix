@@ -22,7 +22,7 @@ self:
 
   # todo, testing needed:
   extraMasonPath = lib.optional config.lang.typescript.enable {
-    name = "packages/js-debug-adapter/node_modules/js-debug";
+    name = "packages/js-debug-adapter";
     path = pkgs.vscode-js-debug;
   };
 }
