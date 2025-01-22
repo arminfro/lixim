@@ -37,6 +37,7 @@ in
       type = (
         submodule {
           options = {
+            astro.enable = mkEnableOption "astro language support";
             css.enable = mkEnableOption "css language support";
             docker.enable = mkEnableOption "docker language support";
             git.enable = mkEnableOption "git language support";

@@ -17,6 +17,7 @@ let
         enable = true;
         useNeovimNightly = true;
         lang = {
+          astro.enable = true;
           css.enable = true;
           docker.enable = true;
           git.enable = true;

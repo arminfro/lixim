@@ -6,12 +6,12 @@ It features a pre-configured `neovim` program, accessible as a Nix package, or c
 
 It's usable in four variants:
 
-* `lazyvim` includes all LazyVim extras which are implemented
-  * useful for debugging and development purposes, such as comparing the `checkhealth` output
-  * when not choosing `lazyvim` than LazyVim extras include depends on `core, balance, max` value
-* `core` includes most important plugins and configurations
-* `balance` includes more features but nothing too heavy
-* `max` includes all plugins
+- `lazyvim` includes all LazyVim extras which are implemented
+  - useful for debugging and development purposes, such as comparing the `checkhealth` output
+  - when not choosing `lazyvim` than LazyVim extras include depends on `core, balance, max` value
+- `core` includes most important plugins and configurations
+- `balance` includes more features but nothing too heavy
+- `max` includes all plugins
 
 Each option builds upon the previous one, so selecting `max` includes all configurations.
 
@@ -42,6 +42,7 @@ Example configuration using the `homeManagerModule`:
       enableLvl = "max";
       useNeovimNightly = true;
       lang = {
+        astro.enable = true;
         css.enable = true;
         docker.enable = true;
         git.enable = true;
@@ -81,5 +82,5 @@ To use the above configuration add `lixim` input in `flake.nix` file:
 
 Sources of inspiration:
 
-* Detached fork of: [lazyvim-nix](https://github.com/jla2000/lazyvim-nix)
-* [LazyVim-Module](https://github.com/matadaniel/LazyVim-module)
+- Detached fork of: [lazyvim-nix](https://github.com/jla2000/lazyvim-nix)
+- [LazyVim-Module](https://github.com/matadaniel/LazyVim-module)
