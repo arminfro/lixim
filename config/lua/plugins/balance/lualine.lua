@@ -15,32 +15,12 @@ return {
       },
     },
     opts = function(_, opts)
-      table.insert(opts.tabline.lualine_y, require("gitblame").get_current_blame_text)
-    end,
-  },
-
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    dependencies = { "meuter/lualine-so-fancy.nvim" },
-    opts = function(_, opts)
-      -- todo, remove current "recording @x"
-      -- opts.sections.lualine_x = { "fancy_macro" }
-      opts.sections.lualine_a = { { "fancy_mode", width = 3 } }
-      table.insert(opts.tabline.lualine_a, {
-        "fancy_branch",
-        fmt = function(str)
-          return str:sub(1, 16)
+      table.insert(opts.tabline.lualine_x, {
+        require("gitblame").get_current_blame_text,
+        cond = function()
+          return require("gitblame").get_current_blame_text() ~= nil
         end,
       })
-      table.insert(opts.tabline.lualine_b, 1, {
-        "fancy_cwd",
-        fmt = function(str)
-          return extractLastPathSegments(str, 3)
-        end,
-      })
-      table.insert(opts.sections.lualine_x, { "fancy_searchcount" })
-      table.insert(opts.sections.lualine_z, { "fancy_lsp_servers" })
     end,
   },
 
@@ -49,7 +29,7 @@ return {
     event = "VeryLazy",
     dependencies = { "sherlock5512/lualine-spell-status" },
     opts = function(_, opts)
-      table.insert(opts.sections.lualine_b, 1, {
+      table.insert(opts.sections.lualine_c, 3, {
         "spell_status",
       })
     end,

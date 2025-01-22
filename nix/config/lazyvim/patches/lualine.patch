@@ -1,24 +1,87 @@
 diff --git a/lua/lazyvim/plugins/ui.lua b/lua/lazyvim/plugins/ui.lua
-index d52c6741..60d7ee8e 100644
+index d556d1f1..30109218 100644
 --- a/lua/lazyvim/plugins/ui.lua
 +++ b/lua/lazyvim/plugins/ui.lua
-@@ -87,8 +87,8 @@ return {
+@@ -87,11 +87,19 @@ return {
            disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
          },
          sections = {
 -          lualine_a = { "mode" },
 -          lualine_b = { "branch" },
-+          lualine_a = { "fileformat" },
-+          lualine_b = { "filename" },
++          lualine_a = {},
++          lualine_b = {
++            "fileformat",
++            { "progress", separator = " ", padding = { left = 1, right = 0 } },
++            { "location", padding = { left = 0, right = 1 } },
++          },
  
            lualine_c = {
++            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
++            "filename",
              LazyVim.lualine.root_dir(),
-@@ -101,8 +101,6 @@ return {
++          },
++          lualine_x = {
+             {
+               "diagnostics",
+               symbols = {
+@@ -101,10 +109,6 @@ return {
                  hint = icons.diagnostics.Hint,
                },
              },
 -            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
 -            { LazyVim.lualine.pretty_path() },
-           },
-           lualine_x = {
+-          },
+-          lualine_x = {
+             Snacks.profiler.status(),
              -- stylua: ignore
+             {
+@@ -113,12 +117,6 @@ return {
+               color = function() return { fg = Snacks.util.color("Statement") } end,
+             },
+             -- stylua: ignore
+-            {
+-              function() return require("noice").api.status.mode.get() end,
+-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+-              color = function() return { fg = Snacks.util.color("Constant") } end,
+-            },
+-            -- stylua: ignore
+             {
+               function() return "  " .. require("dap").status() end,
+               cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+@@ -130,34 +128,9 @@ return {
+               cond = require("lazy.status").has_updates,
+               color = function() return { fg = Snacks.util.color("Special") } end,
+             },
+-            {
+-              "diff",
+-              symbols = {
+-                added = icons.git.added,
+-                modified = icons.git.modified,
+-                removed = icons.git.removed,
+-              },
+-              source = function()
+-                local gitsigns = vim.b.gitsigns_status_dict
+-                if gitsigns then
+-                  return {
+-                    added = gitsigns.added,
+-                    modified = gitsigns.changed,
+-                    removed = gitsigns.removed,
+-                  }
+-                end
+-              end,
+-            },
+-          },
+-          lualine_y = {
+-            { "progress", separator = " ", padding = { left = 1, right = 0 } },
+-            { "location", padding = { left = 0, right = 1 } },
+-          },
+-          lualine_z = {
+-            function()
+-              return " " .. os.date("%R")
+-            end,
+           },
++          lualine_y = {},
++          lualine_z = {},
+         },
+         extensions = { "neo-tree", "lazy", "fzf" },
+       }
