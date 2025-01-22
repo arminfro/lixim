@@ -43,6 +43,9 @@ let
     max = [
       ./coding/neogen.nix
 
+      ./dap/core.nix
+      ./dap/nlua.nix
+
       ./editor/dial.nix
 
       ./ui/edgy.nix
