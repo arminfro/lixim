@@ -1,10 +1,10 @@
 diff --git a/lua/lazyvim/config/keymaps.lua b/lua/lazyvim/config/keymaps.lua
-index f55fefe1..1ca833de 100644
+index 48726b02..fdc544b1 100644
 --- a/lua/lazyvim/config/keymaps.lua
 +++ b/lua/lazyvim/config/keymaps.lua
 @@ -31,8 +31,8 @@ map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc
  map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
-
+ 
  -- buffers
 -map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 -map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
@@ -13,25 +13,25 @@ index f55fefe1..1ca833de 100644
  map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
  map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
  map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-@@ -72,6 +72,7 @@ map("i", ";", ";<c-g>u")
-
+@@ -76,6 +76,7 @@ map("i", ";", ";<c-g>u")
+ 
  -- save file
  map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 +map("n", "<leader><leader>", "<cmd>wa<cr><esc>", { desc = "Save Files" })
-
+ 
  --keywordprg
  map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
-@@ -84,9 +85,6 @@ map("v", ">", ">gv")
+@@ -88,9 +89,6 @@ map("v", ">", ">gv")
  map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
  map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
-
+ 
 --- lazy
 -map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 -
  -- new file
  map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
-
-@@ -109,7 +107,7 @@ local diagnostic_goto = function(next, severity)
+ 
+@@ -113,7 +111,7 @@ local diagnostic_goto = function(next, severity)
      go({ severity = severity })
    end
  end
@@ -40,21 +40,21 @@ index f55fefe1..1ca833de 100644
  map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
  map("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
  map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
-@@ -137,9 +135,9 @@ end
+@@ -149,9 +147,9 @@ end
  -- lazygit
  if vim.fn.executable("lazygit") == 1 then
    map("n", "<leader>gg", function() Snacks.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 -  map("n", "<leader>gG", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)" })
--  map("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
--  map("n", "<leader>gl", function() Snacks.lazygit.log({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
+-  map("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Current File History" })
+-  map("n", "<leader>gl", function() Snacks.picker.git_log({ cwd = LazyVim.root.git() }) end, { desc = "Git Log" })
 +  -- map("n", "<leader>gG", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)" })
-+  -- map("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
-+  -- map("n", "<leader>gl", function() Snacks.lazygit.log({ cwd = LazyVim.root.git() }) end, { desc = "Lazygit Log" })
-   map("n", "<leader>gL", function() Snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
++  -- map("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Current File History" })
++  -- map("n", "<leader>gl", function() Snacks.picker.git_log({ cwd = LazyVim.root.git() }) end, { desc = "Git Log" })
+   map("n", "<leader>gL", function() Snacks.picker.git_log() end, { desc = "Git Log (cwd)" })
  end
-
+ 
 diff --git a/lua/lazyvim/plugins/ui.lua b/lua/lazyvim/plugins/ui.lua
-index 518d363f..c88f3d07 100644
+index d556d1f1..e9bc6ca3 100644
 --- a/lua/lazyvim/plugins/ui.lua
 +++ b/lua/lazyvim/plugins/ui.lua
 @@ -9,8 +9,8 @@ return {
