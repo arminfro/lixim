@@ -6,6 +6,10 @@ self:
   ...
 }:
 {
+  imports = [
+    (import ./typescript.nix self)
+  ];
+
   extraPackages = [ pkgs.astro-language-server ];
 
   extraLazyImport = [
