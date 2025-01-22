@@ -1,5 +1,22 @@
--- use `vim.keymap.set` instead
 local map = vim.keymap.set
+
+-- change LazyVim defaults
+-- unset "<cmd>Lazy<cr>", { desc = "Lazy" }
+vim.keymap.del("n", "<leader>l")
+
+vim.keymap.del("n", "<S-h>")
+map("n", "<S-TAB>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+
+vim.keymap.del("n", "<S-l>")
+map("n", "<TAB>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+
+vim.keymap.del("n", "<leader>cd")
+map("n", "<leader>cl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+-- unset some lazygit keymaps
+vim.keymap.del("n", "<leader>gG") -- Lazygit (cwd)
+vim.keymap.del("n", "<leader>gf") -- Git Current File History
+vim.keymap.del("n", "<leader>gl") -- Git Log
 
 -- easier save, new and exit
 map("n", "<leader><leader>", ":wa<CR>", { desc = "Save files" })

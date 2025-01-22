@@ -10,7 +10,7 @@ return {
           settings = {
             Lua = {
               workspace = {
-                maxPreload = 1000,
+                maxPreload = 100,
               },
               telemetry = { enable = false },
             },

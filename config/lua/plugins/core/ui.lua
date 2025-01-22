@@ -1,14 +1,5 @@
 return {
   {
-    "akinsho/bufferline.nvim",
-    opts = function(_, opts)
-      -- opts.options.numbers = "ordinal"
-      opts.options.show_buffer_close_icons = false
-      -- opts.options.diagnostics = nil
-    end,
-  },
-
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
@@ -140,10 +131,5 @@ return {
         },
       },
     },
-  },
-
-  {
-    "akinsho/bufferline.nvim",
-    enabled = false,
   },
 }

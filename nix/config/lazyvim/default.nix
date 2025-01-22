@@ -70,11 +70,10 @@ in
     plugins =
       (builtins.attrValues {
         LazyVim = pkgs.vimPlugins.LazyVim.overrideAttrs (oldAttrs: {
-          patches = import ./patches;
+          patches = (import ./patches { inherit config lib; });
         });
       })
       ++ (with pkgs.vimPlugins; [
-        # bufferline-nvim # disabled for lualine
         conform-nvim
         dashboard-nvim
         flash-nvim
@@ -107,7 +106,8 @@ in
           name = "catppuccin";
           path = catppuccin-nvim;
         }
-      ]);
+      ])
+      ++ lib.optional (config.enableLvl == "lazyvim") pkgs.vimPlugins.bufferline-nvim;
 
     extraPackages = with pkgs; [
       lazygit
@@ -118,5 +118,7 @@ in
       shfmt
       stylua
     ];
+
+    extraLazyImport = lib.optional (config.enableLvl != "lazyvim") "plugins.lazyvim";
   };
 }
