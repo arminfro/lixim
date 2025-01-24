@@ -1,9 +1,5 @@
 local map = vim.keymap.set
 
--- change LazyVim defaults
--- unset "<cmd>Lazy<cr>", { desc = "Lazy" }
-vim.keymap.del("n", "<leader>l")
-
 vim.keymap.del("n", "<S-h>")
 map("n", "<S-TAB>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 

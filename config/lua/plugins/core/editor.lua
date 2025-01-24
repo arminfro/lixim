@@ -31,7 +31,7 @@ return {
     cmd = { "ScissorsEditSnippet", "ScissorsAddNewSnippet" },
     keys = {
       { "<leader>l", "", desc = "+snippets" },
-      { "<leader>la", ":ScissorsAddNewSnippet<CR>", desc = "Add new snippet", mode = { "v" } },
+      { "<leader>la", ":ScissorsAddNewSnippet<CR>", desc = "Add new snippet", mode = { "v", "n" } },
       { "<leader>le", ":ScissorsEditSnippet<CR>", desc = "Edit snippet", mode = { "n" } },
     },
   },

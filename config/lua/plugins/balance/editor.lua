@@ -9,7 +9,7 @@ return {
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
     dependencies = { "stevearc/overseer.nvim" },
     keys = {
-      { "<leader>X", "", desc = "+Execute" },
+      { "<leader>X", "", desc = "+exec" },
       { "<leader>Xc", "<cmd>CompilerOpen<cr>", desc = "Compiler" },
       { "<leader>Xr", "<cmd>CompilerToggleResults<cr>", desc = "Toggle compiler results" },
     },

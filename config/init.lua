@@ -1,6 +1,3 @@
--- print(vim.inspect(vim.g.extra_lazy_import))
-print(vim.g.lazyvim_picker)
-
 require("lazy").setup({
   defaults = { lazy = true },
   dev = {
