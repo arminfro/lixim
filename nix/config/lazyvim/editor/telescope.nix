@@ -3,6 +3,7 @@ self:
   pkgs,
   ...
 }:
+# While migrating to Snacks picker, leave telescope installed but do not require default lazy telescope config
 {
   plugins = with pkgs.vimPlugins; [
     telescope-nvim
@@ -10,14 +11,7 @@ self:
     dressing-nvim
   ];
 
-  extraLuaConfig = # lua
-    [
-      ''
-        vim.g.lazyvim_picker = "telescope"
-      ''
-    ];
-
   extraLazyImport = [
-    "lazyvim.plugins.extras.editor.telescope"
+    # "lazyvim.plugins.extras.editor.telescope"
   ];
 }

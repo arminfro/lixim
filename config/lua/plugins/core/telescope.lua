@@ -146,14 +146,6 @@ return {
       end,
       desc = "Fuzzy Grep ",
     },
-
-    {
-      "<leader>so",
-      function()
-        require("telescope.builtin").live_grep({ grep_open_files = true })
-      end,
-      desc = "Grep open buffers",
-    },
   },
   dependencies = {
     -- {

@@ -119,14 +119,47 @@ return {
     optional = true,
     keys = {
       { "<leader>sR", false },
-      { "<leader>sr", "<cmd>Telescope resume<cr>", desc = "Resume" },
 
       { "<leader><space>", false },
 
       { "<leader>gc", false },
       { "<leader>gs", false },
       { "<leader>gC", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
-      { "<leader>gm", "<cmd>Telescope git_status<CR>", desc = "Modified" },
+
+      {
+        "<leader>sB",
+        function()
+          require("telescope.builtin").live_grep({ grep_open_files = true })
+        end,
+        desc = "Grep open buffers",
+      },
+    },
+  },
+
+  {
+    "folke/snacks.nvim",
+    optional = true,
+    keys = {
+      { "<leader>sR", false },
+      {
+        "<leader>sr",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "Resume",
+      },
+
+      { "<leader><space>", false },
+
+      { "<leader>gc", false },
+      { "<leader>gs", false },
+      {
+        "<leader>gm",
+        function()
+          Snacks.picker.git_status()
+        end,
+        desc = "Modified",
+      },
     },
   },
 

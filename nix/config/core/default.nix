@@ -10,6 +10,7 @@ self:
     ./git.nix
     ./lsp.nix
     ./lualine.nix
+    ./snacks_picker.nix
     ./telescope.nix
     ./ui.nix
     ./writing.nix

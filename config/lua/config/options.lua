@@ -24,7 +24,7 @@ opt.clipboard = "unnamed"
 
 globals.root_spec = { "cwd" }
 
-globals.lazyvim_picker = "telescope"
+globals.lazyvim_picker = "snacks"
 
 globals.maplocalleader = ","
 
