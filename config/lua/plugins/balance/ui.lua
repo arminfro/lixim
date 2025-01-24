@@ -31,6 +31,8 @@ return {
   { -- QoL features for folding
     "chrisgrieser/nvim-origami",
     event = "VeryLazy",
-    opts = true,
+    opts = {
+      hOnlyOpensOnFirstColumn = true,
+    },
   },
 }
