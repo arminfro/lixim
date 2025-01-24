@@ -28,3 +28,5 @@ globals.root_spec = { "cwd" }
 globals.lazyvim_picker = "telescope"
 
 globals.maplocalleader = ","
+
+globals.snacks_animate = false
