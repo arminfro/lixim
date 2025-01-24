@@ -36,12 +36,9 @@ self:
       }
     ];
 
-  extraPackages = (
-    with pkgs;
-    [
-      manix
-    ]
-  );
+  extraPackages = [
+    pkgs.manix
+  ];
 
   extraLazyImport = [
     "plugins.core.telescope"

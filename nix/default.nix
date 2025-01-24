@@ -19,44 +19,40 @@ let
     bool
     ;
 
-  liximConfig = (
-    import ./config/eval.nix {
-      inherit
-        pkgs
-        self
-        lib
-        ;
-      config = cfg;
-    }
-  );
+  liximConfig = import ./config/eval.nix {
+    inherit
+      pkgs
+      self
+      lib
+      ;
+    config = cfg;
+  };
 in
 {
   options.programs.neovim.lixim = {
     enable = mkEnableOption "lixim";
     lang = mkOption {
-      type = (
-        submodule {
-          options = {
-            astro.enable = mkEnableOption "astro language support";
-            css.enable = mkEnableOption "css language support";
-            docker.enable = mkEnableOption "docker language support";
-            git.enable = mkEnableOption "git language support";
-            html.enable = mkEnableOption "html language support";
-            json.enable = mkEnableOption "json language support";
-            markdown.enable = mkEnableOption "markdown language support";
-            nix.enable = mkEnableOption "nix language support";
-            nushell.enable = mkEnableOption "nushell language support";
-            react.enable = mkEnableOption "react language support";
-            rust.enable = mkEnableOption "rust language support";
-            sql.enable = mkEnableOption "sql language support";
-            svelte.enable = mkEnableOption "svelte language support";
-            tailwind.enable = mkEnableOption "tailwind language support";
-            toml.enable = mkEnableOption "toml language support";
-            typescript.enable = mkEnableOption "typescript language support";
-            yaml.enable = mkEnableOption "yaml language support";
-          };
-        }
-      );
+      type = submodule {
+        options = {
+          astro.enable = mkEnableOption "astro language support";
+          css.enable = mkEnableOption "css language support";
+          docker.enable = mkEnableOption "docker language support";
+          git.enable = mkEnableOption "git language support";
+          html.enable = mkEnableOption "html language support";
+          json.enable = mkEnableOption "json language support";
+          markdown.enable = mkEnableOption "markdown language support";
+          nix.enable = mkEnableOption "nix language support";
+          nushell.enable = mkEnableOption "nushell language support";
+          react.enable = mkEnableOption "react language support";
+          rust.enable = mkEnableOption "rust language support";
+          sql.enable = mkEnableOption "sql language support";
+          svelte.enable = mkEnableOption "svelte language support";
+          tailwind.enable = mkEnableOption "tailwind language support";
+          toml.enable = mkEnableOption "toml language support";
+          typescript.enable = mkEnableOption "typescript language support";
+          yaml.enable = mkEnableOption "yaml language support";
+        };
+      };
     };
 
     enableLvl = mkOption {
@@ -95,7 +91,7 @@ in
         programs.neovim = {
           package = liximConfig.neovimPackage;
           configure = {
-            customRC = liximConfig.customRC;
+            inherit (liximConfig) customRC;
             packages.all.start = [ pkgs.vimPlugins.lazy-nvim ];
           };
         };
@@ -103,9 +99,9 @@ in
     else
       {
         programs.neovim = {
+          inherit (liximConfig) extraPackages;
           package = liximConfig.neovimPackage;
           extraConfig = liximConfig.customRC;
-          extraPackages = liximConfig.extraPackages;
           plugins = [ pkgs.vimPlugins.lazy-nvim ];
         };
       }

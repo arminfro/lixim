@@ -4,8 +4,8 @@ self:
   ...
 }:
 {
-  plugins = with pkgs.vimPlugins; [
-    one-small-step-for-vimkind
+  plugins = [
+    pkgs.vimPlugins.one-small-step-for-vimkind
   ];
 
   extraLazyImport = [
