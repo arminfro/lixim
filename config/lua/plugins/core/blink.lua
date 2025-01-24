@@ -109,16 +109,20 @@ local set_quick_select = function(opts)
   }
 end
 
-local insert_blink_source_provider = function(opts, source, module, name, source_opts)
+local add_provider = function(opts, key, sourceProps)
   opts.sources.providers = opts.sources.providers or {}
-  opts.sources.providers[source] = {
-    name = name or source,
-    module = module or "blink.compat.source",
-  }
+  opts.sources.providers[key] = sourceProps
+end
 
-  if source_opts then
-    opts.sources.providers[source].opts = source_opts
-  end
+local add_compat_provider = function(opts, key, sourceProps)
+  add_provider(
+    opts,
+    key,
+    vim.tbl_extend("force", {
+      name = key,
+      module = "blink.compat.source",
+    }, sourceProps)
+  )
 end
 
 local buffer = {
@@ -134,6 +138,8 @@ local buffer = {
         end)
         :totable()
     end,
+    min_keyword_length = 4,
+    score_offset = 2,
   },
 }
 
@@ -197,14 +203,29 @@ end
 
 local set_providers = function(opts, sources)
   for _, source in ipairs(sources) do
-    insert_blink_source_provider(opts, source)
+    add_compat_provider(opts, source, {})
   end
 
-  insert_blink_source_provider(opts, "ripgrep", "blink-ripgrep", "Ripgrep", {
-    prefix_min_len = 4,
-    max_filesize = "200K",
+  add_provider(opts, "ripgrep", {
+    module = "blink-ripgrep",
+    name = "Ripgrep",
+    min_keyword_length = 3,
+    opts = {
+      max_filesize = "200K",
+      prefix_min_len = 3,
+    },
   })
+
   opts.sources.providers.buffer = buffer
+
+  opts.sources.providers.path = opts.sources.providers.path or {}
+  opts.sources.providers.path.score_offset = 50
+
+  opts.sources.providers.snippets = opts.sources.providers.snippets or {}
+  opts.sources.providers.snippets.score_offset = 20
+
+  opts.sources.providers.lsp = opts.sources.providers.lsp or {}
+  opts.sources.providers.lsp.score_offset = 20
 end
 
 -- local set_spelllang_source_config = function(opts)
