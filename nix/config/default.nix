@@ -4,10 +4,10 @@ let
   inherit (lib.options) mkOption;
   inherit (lib.types)
     listOf
-    package
     oneOf
-    submodule
+    package
     str
+    submodule
     ;
 in
 {

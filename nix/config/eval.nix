@@ -63,12 +63,19 @@ rec {
     name = "lazyvim-nix-treesitter-parsers";
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
+  snippetEnvPath =
+    if builtins.hasAttr "snippetsPath" config && config.snippetsPath != null then
+      "vim.env.SNIPPETS_PATH= \"${builtins.toString config.snippetsPath}\""
+    else
+      "";
+
   masonPath = pkgs.linkFarm "lazyvim-nix-mason" liximConfig.extraMasonPath;
   neovimPackage =
     if config.useNeovimNightly then
       self.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     else
       pkgs.neovim-unwrapped;
+
   customRC = # vim
     ''
       let g:config_path = "${../../config}"
@@ -78,10 +85,11 @@ rec {
 
       lua << EOF
         vim.env.MASON = "${masonPath}"
+        ${snippetEnvPath}
 
         vim.g.extra_lazy_import = {
           ${lib.concatStrings (
-            builtins.map (extraImport: "{ import = \"${extraImport}\" },") liximConfig.extraLazyImport
+            builtins.map (extraImport: "{ import = \"${extraImport}\" },\n") liximConfig.extraLazyImport
           )}
         }
 

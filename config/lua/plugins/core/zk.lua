@@ -102,7 +102,7 @@ local zk_group_utils = {
       ---@diagnostic disable-next-line: undefined-field
       local last_modified_file = os.capture(command)
       if last_modified_file then
-        local stat = vim.loop.fs_stat(last_modified_file)
+        local stat = vim.uv.fs_stat(last_modified_file)
         if stat and stat.type == "file" then
           return vim.cmd("edit " .. last_modified_file)
         end
@@ -193,7 +193,7 @@ return {
       if not vim.env.ZK_NOTEBOOK_DIR then
         return false
       end
-      local ok, stat = pcall(vim.loop.fs_stat, vim.env.ZK_NOTEBOOK_DIR)
+      local ok, stat = pcall(vim.uv.fs_stat, vim.env.ZK_NOTEBOOK_DIR)
       return ok and stat and stat.type == "directory" or false
     end,
     keys = {

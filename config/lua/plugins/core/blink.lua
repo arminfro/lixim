@@ -1,6 +1,6 @@
 local function buf_is_big(bufnr)
   local max_filesize = 100 * 1024 -- 100 KB
-  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
   if ok and stats and stats.size > max_filesize then
     return true
   else
@@ -219,7 +219,7 @@ local set_providers = function(opts, sources)
   opts.sources.providers.buffer = buffer
 
   opts.sources.providers.path = opts.sources.providers.path or {}
-  opts.sources.providers.path.score_offset = 50
+  opts.sources.providers.path.score_offset = 80
 
   opts.sources.providers.snippets = opts.sources.providers.snippets or {}
   opts.sources.providers.snippets.score_offset = 20

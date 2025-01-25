@@ -41,6 +41,10 @@ Example configuration using the `homeManagerModule`:
       enable = true;
       enableLvl = "max";
       useNeovimNightly = true;
+
+      # optional, set by env `SNIPPETS_PATH` or else `vim.fn.stdpath("config") .. "/snippets"`
+      snippetsPath = /home/user/Workspace/nix/lixim/config/snippets;
+
       lang = {
         astro.enable = true;
         css.enable = true;

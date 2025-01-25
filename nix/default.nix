@@ -17,6 +17,9 @@ let
     submodule
     enum
     bool
+    path
+    str
+    nullOr
     ;
 
   liximConfig = import ./config/eval.nix {
@@ -81,6 +84,16 @@ in
         Wether to use neovim nightly or not
       '';
     };
+
+    snippetsPath = mkOption {
+      default = null;
+      type = nullOr path;
+      description = ''
+        optional, set by env `SNIPPETS_PATH` or else `vim.fn.stdpath("config") .. "/snippets"` is tried
+
+        integrates your snippets with friendly-snippets and nvim-scissors
+      '';
+    };
   };
 
   config = mkIf cfg.enable (
@@ -106,5 +119,4 @@ in
         };
       }
   );
-
 }

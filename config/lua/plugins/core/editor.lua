@@ -21,13 +21,17 @@ return {
   {
     "chrisgrieser/nvim-scissors",
     cond = function()
-      -- todo, handle path differently
-      return vim.fn.isdirectory("~/.dotfiles/config/nvim/snippets") == 0
+      return vim.env.SNIPPETS_PATH ~= nil
     end,
     dependencies = "nvim-telescope/telescope.nvim",
-    opts = {
-      snippetDir = "~/.dotfiles/config/nvim/snippets",
-    },
+    opts = function()
+      local path = snippets_path()
+      if path ~= nil then
+        return {
+          snippetDir = path,
+        }
+      end
+    end,
     cmd = { "ScissorsEditSnippet", "ScissorsAddNewSnippet" },
     keys = {
       { "<leader>l", "", desc = "+snippets" },
@@ -54,7 +58,7 @@ return {
     end,
     keys = {
       {
-        "<leader>ww",
+        "W",
         function()
           require("nvim-window").pick()
         end,
