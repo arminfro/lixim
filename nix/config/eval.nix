@@ -68,6 +68,11 @@ rec {
       "vim.env.SNIPPETS_PATH = \"${builtins.toString config.snippetsPath}\""
     else
       "";
+  zkNotebookPath =
+    if builtins.hasAttr "zkNotebookPath" config && config.zkNotebookPath != null then
+      "vim.env.ZK_NOTEBOOK_PATH = \"${builtins.toString config.zkNotebookPath}\""
+    else
+      "";
 
   openAiApiPasswordCommand =
     if
@@ -94,6 +99,7 @@ rec {
       lua << EOF
         vim.env.MASON = "${masonPath}"
         ${snippetPath}
+        ${zkNotebookPath}
         ${openAiApiPasswordCommand}
 
         vim.g.extra_lazy_import = {

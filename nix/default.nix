@@ -100,6 +100,14 @@ in
         integrates your snippets with friendly-snippets and nvim-scissors
       '';
     };
+
+    zkNotebookPath = mkOption {
+      default = null;
+      type = nullOr path;
+      description = ''
+        optional, set by env `ZK_NOTEBOOK_PATH`, integration for zk-org.github.io/zk
+      '';
+    };
   };
 
   config = mkIf cfg.enable (

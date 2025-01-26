@@ -8,6 +8,10 @@ self:
     zk-nvim
   ];
 
+  extraPackages = [
+    pkgs.zk
+  ];
+
   extraLazyImport = [
     "plugins.core.zk"
   ];
