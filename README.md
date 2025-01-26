@@ -45,6 +45,9 @@ Example configuration using the `homeManagerModule`:
       # optional, set by env `SNIPPETS_PATH` or else `vim.fn.stdpath("config") .. "/snippets"`
       snippetsPath = /home/user/Workspace/nix/lixim/config/snippets;
 
+      # optional, set command to read OpenAi API Key, otherwise OPENAI_API_KEY is tried
+      openAiApiPasswordCommand = "pass Ai/open-ai/api-key";
+
       lang = {
         astro.enable = true;
         css.enable = true;

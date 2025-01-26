@@ -85,6 +85,12 @@ in
       '';
     };
 
+    openAiApiPasswordCommand = mkOption {
+      default = null;
+      type = nullOr str;
+      description = "optional, set command to read OpenAi API Key, otherwise OPENAI_API_KEY is tried";
+    };
+
     snippetsPath = mkOption {
       default = null;
       type = nullOr path;

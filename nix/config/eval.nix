@@ -63,9 +63,17 @@ rec {
     name = "lazyvim-nix-treesitter-parsers";
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
-  snippetEnvPath =
+  snippetPath =
     if builtins.hasAttr "snippetsPath" config && config.snippetsPath != null then
-      "vim.env.SNIPPETS_PATH= \"${builtins.toString config.snippetsPath}\""
+      "vim.env.SNIPPETS_PATH = \"${builtins.toString config.snippetsPath}\""
+    else
+      "";
+
+  openAiApiPasswordCommand =
+    if
+      builtins.hasAttr "openAiApiPasswordCommand" config && config.openAiApiPasswordCommand != null
+    then
+      "vim.env.OPENAI_API_KEY_CMD = \"${config.openAiApiPasswordCommand}\""
     else
       "";
 
@@ -85,7 +93,8 @@ rec {
 
       lua << EOF
         vim.env.MASON = "${masonPath}"
-        ${snippetEnvPath}
+        ${snippetPath}
+        ${openAiApiPasswordCommand}
 
         vim.g.extra_lazy_import = {
           ${lib.concatStrings (

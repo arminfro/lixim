@@ -46,21 +46,32 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    opts = {
-      -- provider = "openai",
-      provider = "ollama",
-      vendors = {
-        ollama = {
-          __inherited_from = "openai",
-          api_key_name = "",
-          endpoint = "http://127.0.0.1:11434/api",
-          model = "qwen2.5-coder:0.5b",
+    opts = function()
+      local is_open_api_key_cmd_defined = vim.env.OPENAI_API_KEY_CMD ~= nil
+      local is_open_api_key_defined = is_open_api_key_cmd_defined or vim.env.OPENAI_API_KEY ~= nil
+
+      local opts = {
+        provider = is_open_api_key_defined and "openai" or "ollama",
+        openai = {},
+        vendors = {
+          ollama = {
+            __inherited_from = "openai",
+            api_key_name = "",
+            endpoint = "http://127.0.0.1:11434/api",
+            model = "qwen2.5-coder:0.5b",
+          },
         },
-      },
-      behaviour = {
-        auto_suggestions = false,
-      },
-    },
+        behaviour = {
+          auto_suggestions = false,
+        },
+      }
+
+      if is_open_api_key_cmd_defined then
+        opts.openai.api_key_name = "cmd:" .. vim.env.OPENAI_API_KEY_CMD
+      end
+
+      return opts
+    end,
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       {
@@ -69,11 +80,11 @@ return {
           vim.ui.select({
             "openai",
             "ollama",
-            -- "claude",
-            -- "azure",
-            -- "gemini",
-            -- "cohere",
-            -- "copilot",
+            "claude",
+            "azure",
+            "gemini",
+            "cohere",
+            "copilot",
           }, {
             prompt = "Choose Provider",
             telescope = require("telescope.themes").get_cursor(),
