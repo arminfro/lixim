@@ -90,6 +90,11 @@ return {
         ":Git blame<CR>",
         desc = "Blame",
       },
+      {
+        "<leader>gu",
+        ":Git reset -- %<CR>",
+        desc = "Unstage file",
+      },
     },
   },
 

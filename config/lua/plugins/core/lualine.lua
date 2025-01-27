@@ -27,6 +27,14 @@ return {
             buffers_color = {
               active = { fg = Snacks.util.color("Special") },
             },
+            cond = function()
+              local listed_buffers = vim.tbl_filter(function(bufnr)
+                return vim.api.nvim_get_option_value("buflisted", {
+                  buf = bufnr,
+                })
+              end, vim.api.nvim_list_bufs())
+              return #listed_buffers > 1
+            end,
           },
         },
         lualine_x = {},

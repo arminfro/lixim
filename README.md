@@ -1,6 +1,6 @@
 # Lixim - Neovim Editor with Custom LazyVim Setup
 
-`lixim` is my personal Neovim distribution based on Nix and LazyVim.
+`lixim` is my personal Neovim configuration based on Nix and LazyVim.
 
 It features a pre-configured `neovim` program, accessible as a Nix package, or configured through Nix modules.
 
@@ -8,7 +8,7 @@ It's usable in four variants:
 
 - `lazyvim` includes all LazyVim extras which are implemented
   - useful for debugging and development purposes, such as comparing the `checkhealth` output
-  - when not choosing `lazyvim` than LazyVim extras include depends on `core, balance, max` value
+  - when not choosing `lazyvim` than LazyVim extras includes depends on `core, balance, max` value
 - `core` includes most important plugins and configurations
 - `balance` includes more features but nothing too heavy
 - `max` includes all plugins
@@ -17,13 +17,13 @@ Each option builds upon the previous one, so selecting `max` includes all config
 
 ## Packages
 
-All variants are pre-configured, to try out the `core` variant, run `nix run github:arminfro/lixim#core`.
+All variants are pre-configured, to try out the `core` variant, run `XDG_CONFIG_HOME=$(mktemp -d) nix run github:arminfro/lixim#core`.
 
 The default package is the `max` variant.
 
 ## Configuration
 
-Most of the configuration is accomplished by setting `enableLvl` to one of the following options: `lazyvim, core, balance, max`.
+Most of the configuration is achieved by setting `enableLvl` to one of the following options: `lazyvim, core, balance, max`.
 
 Example configuration using the `homeManagerModule`:
 
