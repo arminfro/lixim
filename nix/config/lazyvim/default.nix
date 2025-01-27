@@ -20,7 +20,6 @@ let
       ./coding/yanky.nix
 
       ./editor/inc-rename.nix
-      ./editor/mini-files.nix
       ./editor/telescope.nix
 
       ./util/dot.nix

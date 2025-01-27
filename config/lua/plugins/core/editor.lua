@@ -118,8 +118,9 @@ return {
     opts = {
       default_file_explorer = true,
       columns = {
-        "icon",
         "size",
+        "mtime",
+        "icon",
       },
     },
   },
