@@ -15,7 +15,6 @@ vim.keymap.del("n", "<leader>gf") -- Git Current File History
 vim.keymap.del("n", "<leader>gl") -- Git Log
 
 -- easier save, new and exit
-map("n", "<leader><leader>", ":wa<CR>", { desc = "Save files" })
 map("n", "<leader>qw", ":wqa<CR>", { desc = "Save files and Quit" })
 map("n", "<leader>Q", ":qa<CR>", { desc = "Quit all" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
