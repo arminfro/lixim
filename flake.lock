@@ -441,6 +441,22 @@
         "type": "github"
       }
     },
+    "neominimap-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735318910,
+        "narHash": "sha256-HQEgVk3xdIihg0kVV83PikOo008DblDhxGGswKryvMo=",
+        "owner": "Isrothy",
+        "repo": "neominimap.nvim",
+        "rev": "505e756fc96d05a7c372792fe76e346aa0ed9240",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Isrothy",
+        "repo": "neominimap.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": "flake-compat",

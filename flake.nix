@@ -151,6 +151,10 @@
       url = "github:mawkler/refjump.nvim";
       flake = false;
     };
+    neominimap-nvim = {
+      url = "github:Isrothy/neominimap.nvim";
+      flake = false;
+    };
   };
 
   outputs =
