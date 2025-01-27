@@ -55,6 +55,15 @@ return {
           },
           { section = "keys", gap = 1, padding = 1 },
           {
+            icon = " ",
+            desc = "Edgy UI",
+            padding = 1,
+            key = "e",
+            action = function()
+              require("edgy").open()
+            end,
+          },
+          {
             icon = " ",
             desc = "Git Staging",
             padding = 1,
