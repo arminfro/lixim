@@ -716,6 +716,7 @@
         "nvim-toc": "nvim-toc",
         "nvim-window": "nvim-window",
         "promise-async": "promise-async",
+        "smear-cursor-nvim": "smear-cursor-nvim",
         "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
         "telescope-alternate": "telescope-alternate",
         "telescope-env-nvim": "telescope-env-nvim",
@@ -726,6 +727,22 @@
         "template-string-nvim": "template-string-nvim",
         "ts-node-action": "ts-node-action",
         "vim-mkdir": "vim-mkdir"
+      }
+    },
+    "smear-cursor-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737500352,
+        "narHash": "sha256-Tr5LX3tTED1oh95SJjUX+n0J6XtKTt62R0UURPt6XuU=",
+        "owner": "sphamba",
+        "repo": "smear-cursor.nvim",
+        "rev": "791bd7871e612b17520cbde19ddede306d83ef11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sphamba",
+        "repo": "smear-cursor.nvim",
+        "type": "github"
       }
     },
     "systems": {

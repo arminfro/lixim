@@ -139,6 +139,10 @@
       url = "github:moyiz/git-dev.nvim";
       flake = false;
     };
+    smear-cursor-nvim = {
+      url = "github:sphamba/smear-cursor.nvim";
+      flake = false;
+    };
   };
 
   outputs =

@@ -129,4 +129,22 @@ return {
       end,
     },
   },
+
+  {
+    "sphamba/smear-cursor.nvim",
+    init = function()
+      -- use it on demand
+      require("smear_cursor").enabled = false
+    end,
+    keys = {
+      {
+        "<leader>uj",
+        function()
+          local smear_cursor = require("smear_cursor")
+          smear_cursor.enabled = not smear_cursor.enabled
+        end,
+        desc = "Toggle smear-cursor",
+      },
+    },
+  },
 }

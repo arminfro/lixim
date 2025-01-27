@@ -50,6 +50,7 @@ let
       ./editor/dial.nix
 
       ./ui/edgy.nix
+      ./ui/smear-cursor.nix
 
       ./util/rest.nix
     ];
