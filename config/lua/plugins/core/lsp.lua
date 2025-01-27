@@ -19,6 +19,14 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "<leader>xi",
+        vim.cmd.LspInfo,
+        mode = "n",
+        desc = "LSP Info",
+      },
+    },
   },
 
   {
@@ -86,6 +94,22 @@ return {
         end,
         desc = "Code Action",
         mode = { "n", "v" },
+      },
+    },
+  },
+
+  {
+    "mhanberg/output-panel.nvim",
+    version = "*",
+    event = "VeryLazy",
+    opts = {},
+    cmd = { "OutputPanel" },
+    keys = {
+      {
+        "<leader>xs",
+        vim.cmd.OutputPanel,
+        mode = "n",
+        desc = "LSP Logs",
       },
     },
   },

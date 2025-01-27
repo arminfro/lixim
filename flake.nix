@@ -143,6 +143,10 @@
       url = "github:sphamba/smear-cursor.nvim";
       flake = false;
     };
+    output-panel-nvim = {
+      url = "github:mhanberg/output-panel.nvim";
+      flake = false;
+    };
   };
 
   outputs =
