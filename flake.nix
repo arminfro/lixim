@@ -147,6 +147,10 @@
       url = "github:mhanberg/output-panel.nvim";
       flake = false;
     };
+    refjump-nvim = {
+      url = "github:mawkler/refjump.nvim";
+      flake = false;
+    };
   };
 
   outputs =

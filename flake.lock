@@ -703,6 +703,22 @@
         "type": "github"
       }
     },
+    "refjump-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734009577,
+        "narHash": "sha256-DK2E1BnhgRIAIJaMs7Do55ul8FJvlEIDuO++V+lPYxE=",
+        "owner": "mawkler",
+        "repo": "refjump.nvim",
+        "rev": "924ca2dc6cbf9627ea7c22659597a565ff391e51",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mawkler",
+        "repo": "refjump.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "auto-pandoc-nvim": "auto-pandoc-nvim",
@@ -733,6 +749,7 @@
         "nvim-window": "nvim-window",
         "output-panel-nvim": "output-panel-nvim",
         "promise-async": "promise-async",
+        "refjump-nvim": "refjump-nvim",
         "smear-cursor-nvim": "smear-cursor-nvim",
         "tailwindcss-colorizer-cmp-nvim": "tailwindcss-colorizer-cmp-nvim",
         "telescope-alternate": "telescope-alternate",

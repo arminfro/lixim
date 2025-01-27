@@ -23,6 +23,12 @@ return {
     event = "BufRead",
   },
 
+  {
+    "mawkler/refjump.nvim",
+    keys = { "]r", "[r" }, -- Uncomment to lazy load
+    opts = {},
+  },
+
   -- {
   -- 	"HiPhish/rainbow-delimiters.nvim",
   -- 	dependencies = { "nvim-treesitter/nvim-treesitter" },
