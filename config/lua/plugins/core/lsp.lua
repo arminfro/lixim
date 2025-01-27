@@ -55,12 +55,24 @@ return {
         "<leader>uv",
         function()
           require("lsp_lines").toggle()
-          local is_virtual_text = vim.diagnostic.config().virtual_text
-          vim.diagnostic.config({
-            virtual_text = not is_virtual_text,
-          })
         end,
         desc = "Toggle Diagnostics multiline",
+      },
+    },
+    dependencies = {
+      {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        optional = true,
+        keys = {
+          {
+            "<leader>uv",
+            function()
+              require("lsp_lines").toggle()
+              require("tiny-inline-diagnostic").toggle()
+            end,
+            desc = "Toggle Diagnostics multiline",
+          },
+        },
       },
     },
   },

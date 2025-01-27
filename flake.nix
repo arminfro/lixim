@@ -111,10 +111,6 @@
       url = "github:meuter/lualine-so-fancy.nvim";
       flake = false;
     };
-    lualine-diagnostic-message = {
-      url = "github:Isrothy/lualine-diagnostic-message";
-      flake = false;
-    };
     nvim-dr-lsp = {
       url = "github:chrisgrieser/nvim-dr-lsp";
       flake = false;

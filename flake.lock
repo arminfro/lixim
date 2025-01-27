@@ -327,22 +327,6 @@
         "type": "github"
       }
     },
-    "lualine-diagnostic-message": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1732649728,
-        "narHash": "sha256-ftxR1TCbN8dvGyD0hrWaYm1O/J7IUkbw3RSL99bGC1k=",
-        "owner": "Isrothy",
-        "repo": "lualine-diagnostic-message",
-        "rev": "e8244c4d1f088e21bb05021f164ed903093b168b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Isrothy",
-        "repo": "lualine-diagnostic-message",
-        "type": "github"
-      }
-    },
     "lualine-so-fancy-nvim": {
       "flake": false,
       "locked": {
@@ -747,7 +731,6 @@
         "hand-side-fix-nvim": "hand-side-fix-nvim",
         "hl_match_area-nvim": "hl_match_area-nvim",
         "jsonpath-nvim": "jsonpath-nvim",
-        "lualine-diagnostic-message": "lualine-diagnostic-message",
         "lualine-so-fancy-nvim": "lualine-so-fancy-nvim",
         "lualine-spell-status": "lualine-spell-status",
         "markdowny-nvim": "markdowny-nvim",

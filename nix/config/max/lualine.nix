@@ -6,7 +6,6 @@ self:
 }:
 {
   plugins = utils.buildVimPlugins [
-    { name = "lualine-diagnostic-message"; }
     { name = "nvim-dr-lsp"; }
   ];
 
