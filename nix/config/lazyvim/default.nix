@@ -43,9 +43,8 @@ let
     max = [
       ./coding/neogen.nix
 
-      # temp, fix issue and enable again
-      # ./dap/core.nix
-      # ./dap/nlua.nix
+      ./dap/core.nix
+      ./dap/nlua.nix
 
       ./editor/dial.nix
 
