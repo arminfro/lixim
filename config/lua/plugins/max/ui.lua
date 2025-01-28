@@ -4,7 +4,7 @@ return {
   { -- use LSP as folding provider
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
-    event = "UIEnter", -- needed for folds to load in time and comments being closed
+    event = "VeryLazy", -- needed for folds to load in time and comments being closed
     keys = {
       -- { "<leader>if", vim.cmd.UfoInspect, desc = " Fold info" },
       {
@@ -153,10 +153,7 @@ return {
     "Isrothy/neominimap.nvim",
     version = "v3.*.*",
     enabled = true,
-    lazy = false, -- NOTE: NO NEED to Lazy load
-    -- Optional
     keys = {
-      --   -- Global Minimap Controls
       { "<leader>uM", "<cmd>Neominimap toggle<cr>", desc = "Toggle global minimap" },
     },
     init = function()

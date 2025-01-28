@@ -2,7 +2,7 @@ return {
   {
     "andrewferrier/debugprint.nvim",
     cmd = "DeleteDebugPrints",
-    event = "BufRead",
+    event = "LazyFile",
     config = true,
   },
 
@@ -20,12 +20,12 @@ return {
   {
     -- Shows virtual text of the current context after functions, methods, statements
     "haringsrob/nvim_context_vt",
-    event = "BufRead",
+    event = "LazyFile",
   },
 
   {
     "mawkler/refjump.nvim",
-    keys = { "]r", "[r" }, -- Uncomment to lazy load
+    keys = { "]r", "[r" },
     opts = {},
   },
 

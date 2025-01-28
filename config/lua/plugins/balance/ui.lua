@@ -1,7 +1,7 @@
 return {
   {
     "kevinhwang91/nvim-hlslens",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LazyFile",
     config = function()
       local ok, scrollbar_search_handler = pcall(require, "scrollbar.handlers.search")
       if ok and scrollbar_search_handler ~= nil then
@@ -30,7 +30,7 @@ return {
 
   { -- QoL features for folding
     "chrisgrieser/nvim-origami",
-    event = "VeryLazy",
+    event = "LazyFile",
     opts = {
       hOnlyOpensOnFirstColumn = true,
     },

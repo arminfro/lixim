@@ -1,7 +1,6 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    optional = true,
     event = "VeryLazy",
     dependencies = { "chrisgrieser/nvim-dr-lsp" },
     opts = function(_, opts)
@@ -99,7 +98,7 @@ return {
         if vim.islist(clients) and #clients > 0 then
           for _, client in ipairs(clients) do
             if client.supports_method(method, 0) then
-              local lspParam = vim.lsp.util.make_position_params(0, client.offset_encoding or "utf-16")
+              local lspParam = vim.lsp.util.make_position_params(0)
               vim.tbl_deep_extend("force", lspParam, { context = { includeDeclaration = false } })
               vim.lsp.buf_request(0, method, lspParam, function(err, result, _)
                 if not err and result then

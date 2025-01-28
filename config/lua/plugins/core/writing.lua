@@ -33,7 +33,6 @@ return {
 
   {
     "HakonHarnes/img-clip.nvim",
-    event = "VeryLazy",
     keys = {
       {
         "<leader>ei",
@@ -67,7 +66,6 @@ return {
     "ellisonleao/glow.nvim",
     ft = { "markdown", "txt" },
     cmd = "Glow",
-    event = "BufRead",
     config = true,
     keys = {
       { "<leader>Xg", "<cmd>Glow<CR>", desc = "Glow Markdown render" },
@@ -78,7 +76,6 @@ return {
     "richardbizik/nvim-toc",
     ft = { "markdown", "txt" },
     dependencies = { "nvim-treesitter" },
-    event = "VeryLazy",
     opts = {},
     keys = {
       { "<leader>e", "", desc = "+edit" },

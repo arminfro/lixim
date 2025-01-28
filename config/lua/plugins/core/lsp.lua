@@ -1,7 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LazyFile",
     dependencies = {},
     ---@class PluginLspOpts
     opts = {
@@ -21,6 +21,12 @@ return {
     },
     keys = {
       {
+        "<leader>xR",
+        vim.cmd.LspRestart,
+        mode = "n",
+        desc = "LSP Restart",
+      },
+      {
         "<leader>xi",
         vim.cmd.LspInfo,
         mode = "n",
@@ -31,7 +37,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "LazyFile",
     dependencies = {},
     ---@class PluginLspOpts
     opts = {
@@ -113,7 +119,7 @@ return {
   {
     "mhanberg/output-panel.nvim",
     version = "*",
-    event = "VeryLazy",
+    event = "LazyFile",
     opts = {},
     cmd = { "OutputPanel" },
     keys = {

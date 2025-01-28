@@ -179,6 +179,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "mickael-menu/zk-nvim",
+      event = "VeryLazy",
       config = function()
         require("lazyvim.util").on_load("telescope.nvim", function()
           require("telescope").load_extension("zk")
@@ -193,8 +194,7 @@ return {
       if not vim.env.ZK_NOTEBOOK_DIR then
         return false
       end
-      local ok, stat = pcall(vim.uv.fs_stat, vim.env.ZK_NOTEBOOK_DIR)
-      return ok and stat and stat.type == "directory" or false
+      return vim.fs.dirname(vim.env.ZK_NOTEBOOK_DIR) ~= nil
     end,
     keys = {
       { "<leader>n", "", desc = "+notes" },

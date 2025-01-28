@@ -2,7 +2,8 @@ local Util = require("lazyvim.util")
 
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = false,
+  event = "VeryLazy",
+  lazy = true,
   opts = {
     defaults = {
       prompt_prefix = " ",

@@ -43,6 +43,7 @@ return {
 
   {
     "kevinhwang91/nvim-fundo",
+    event = "LazyFile",
     dependencies = "kevinhwang91/promise-async",
     build = function()
       require("fundo").install()
@@ -52,7 +53,7 @@ return {
 
   {
     "arminfro/hand-side-fix.nvim",
-    event = "BufEnter",
+    event = "LazyFile",
     opts = {
       layout = "us",
     },

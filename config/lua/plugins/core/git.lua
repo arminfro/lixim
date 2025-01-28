@@ -1,7 +1,6 @@
 return {
   {
     "sindrets/diffview.nvim",
-    lazy = true,
     keys = {
       {
         "<leader>gD",
@@ -32,7 +31,6 @@ return {
   {
     "chrisgrieser/nvim-tinygit",
     dependencies = "stevearc/dressing.nvim",
-    event = "VeryLazy", -- load for status line component
     keys = {
 			-- stylua: ignore start
 			{ "<leader>gM", function() require("tinygit").amendOnlyMsg { forcePushIfDiverged = false } end, desc = "Edit Msg" },
@@ -100,7 +98,6 @@ return {
 
   {
     "ruifm/gitlinker.nvim",
-    lazy = true,
     keys = {
       {
         "<leader>gy",

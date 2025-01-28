@@ -68,7 +68,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = {
-      { "chrisgrieser/nvim-tinygit", optional = true, opts = {} },
+      { "chrisgrieser/nvim-tinygit", event = "LazyFile", optional = true, opts = {} },
     },
     opts = function(_, opts)
       table.insert(opts.tabline.lualine_y, {
