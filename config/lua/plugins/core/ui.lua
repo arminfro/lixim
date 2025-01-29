@@ -160,4 +160,14 @@ return {
         :totable()
     end,
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = function(_, opts)
+      vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true, sp = "Grey" })
+      opts.max_lines = 0
+      opts.multiwindow = true
+    end,
+  },
 }
