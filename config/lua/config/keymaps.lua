@@ -59,4 +59,15 @@ map("n", "<leader>xp", "<cmd>Lazy<cr>", { desc = "Plugins" })
 -- map("n", "<c-/>",      function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
 -- map("n", "<c-_>",      function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "which_key_ignore" })
 
-map("n", "<leader>xm", "<cmd>messages<cr>", { desc = "Messages" }) -- vi: ft=lua
+map("n", "<leader>xm", "<cmd>messages<cr>", { desc = "Messages" })
+
+map("n", "<leader>Xp", function()
+  local root_path = vim.fs.find(".git", { path = vim.api.nvim_buf_get_name(0), upward = true })[1]
+  if root_path ~= nil then
+    local target_dir = vim.fs.dirname(root_path)
+    vim.cmd({ cmd = "cd", args = { target_dir } })
+    vim.notify("PWD chagned to " .. target_dir)
+  else
+    vim.notify("No git root path found")
+  end
+end, { desc = "PWD to files git path" })
