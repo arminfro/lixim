@@ -48,7 +48,7 @@ Example configuration using the `homeManagerModule`:
       # optional, set command to read OpenAi API Key, otherwise OPENAI_API_KEY is tried
       openAiApiPasswordCommand = "pass Ai/open-ai/api-key";
 
-      # optional, set by env `ZK_NOTEBOOK_PATH`, integration for zk-org.github.io/zk
+      # optional, set by env `ZK_NOTEBOOK_DIR`, integration for zk-org.github.io/zk
       zkNotebookPath = /home/user/Documents/zk-notes;
 
       lang = {

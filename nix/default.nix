@@ -105,7 +105,7 @@ in
       default = null;
       type = nullOr path;
       description = ''
-        optional, set by env `ZK_NOTEBOOK_PATH`, integration for zk-org.github.io/zk
+        optional, set by env `ZK_NOTEBOOK_DIR`, integration for zk-org.github.io/zk
       '';
     };
   };

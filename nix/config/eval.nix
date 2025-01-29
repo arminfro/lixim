@@ -70,7 +70,7 @@ rec {
       "";
   zkNotebookPath =
     if builtins.hasAttr "zkNotebookPath" config && config.zkNotebookPath != null then
-      "vim.env.ZK_NOTEBOOK_PATH = \"${builtins.toString config.zkNotebookPath}\""
+      "vim.env.ZK_NOTEBOOK_DIR = \"${builtins.toString config.zkNotebookPath}\""
     else
       "";
 
