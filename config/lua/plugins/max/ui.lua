@@ -156,6 +156,22 @@ return {
     keys = {
       { "<leader>uM", "<cmd>Neominimap toggle<cr>", desc = "Toggle global minimap" },
     },
+    dependencies = {
+      {
+        "folke/edgy.nvim",
+        optional = true,
+        opts = function(_, opts)
+          table.insert(opts.right, {
+            ft = "neominimap",
+            title = "Minimap",
+            pinned = true,
+            open = function()
+              require("neominimap").on()
+            end,
+          })
+        end,
+      },
+    },
     init = function()
       -- The following options are recommended when layout == "float"
       vim.opt.wrap = false
@@ -164,6 +180,7 @@ return {
       ---@type Neominimap.UserConfig
       vim.g.neominimap = {
         auto_enable = false,
+        layout = "split",
       }
     end,
   },

@@ -145,10 +145,19 @@ return {
   {
     "folke/edgy.nvim",
     optional = true,
-    opts = {
-      animate = {
+    opts = function(_, opts)
+      opts.animate = {
         enabled = false,
-      },
-    },
+      }
+      vim
+        .iter(pairs(opts.left))
+        :map(function(_, value)
+          if value.title == "Neo-Tree Buffers" then
+            value.pinned = false
+          end
+          return value
+        end)
+        :totable()
+    end,
   },
 }
