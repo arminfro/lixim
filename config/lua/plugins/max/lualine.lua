@@ -97,7 +97,7 @@ return {
         local clients = vim.lsp.get_clients({ bufnr = 0 })
         if vim.islist(clients) and #clients > 0 then
           for _, client in ipairs(clients) do
-            if client.supports_method(method, 0) then
+            if client.supports_method(method) then
               local lspParam = vim.lsp.util.make_position_params(0)
               vim.tbl_deep_extend("force", lspParam, { context = { includeDeclaration = false } })
               vim.lsp.buf_request(0, method, lspParam, function(err, result, _)
