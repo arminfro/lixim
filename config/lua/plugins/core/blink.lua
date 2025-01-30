@@ -220,13 +220,16 @@ local set_providers = function(opts, sources)
   opts.sources.providers.buffer = buffer
 
   opts.sources.providers.path = opts.sources.providers.path or {}
-  opts.sources.providers.path.score_offset = 10
+  opts.sources.providers.path.score_offset = 40
 
   opts.sources.providers.snippets = opts.sources.providers.snippets or {}
   opts.sources.providers.snippets.score_offset = 3
+  opts.sources.providers.snippets.min_keyword_length = 2
+  opts.sources.providers.snippets.min_keyword_length = 2
 
   opts.sources.providers.lsp = opts.sources.providers.lsp or {}
-  opts.sources.providers.lsp.score_offset = 3
+  opts.sources.providers.lsp.score_offset = 4
+  opts.sources.providers.snippets.min_keyword_length = 0
 end
 
 -- local set_spelllang_source_config = function(opts)
