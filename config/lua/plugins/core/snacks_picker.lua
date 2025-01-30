@@ -30,7 +30,7 @@ return {
       },
     },
     init = function()
-      vim.api.nvim_set_keymap("n", "<leader><space>", ":lua Snacks.picker.buffers()<CR>", {
+      vim.api.nvim_set_keymap("n", ",", ":lua Snacks.picker.buffers()<CR>", {
         desc = "Buffers",
       })
     end,

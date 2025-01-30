@@ -152,6 +152,7 @@ return {
       { "<leader><space>", false },
 
       { "<leader>gc", false },
+      { "<leader>gd", false },
       { "<leader>gs", false },
       {
         "<leader>gm",
