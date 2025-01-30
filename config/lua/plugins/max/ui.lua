@@ -160,6 +160,16 @@ return {
       {
         "folke/edgy.nvim",
         optional = true,
+        keys = {
+          {
+            "<leader>ue",
+            function()
+              require("neominimap").off()
+              require("edgy").toggle()
+            end,
+            desc = "Edgy Toggle",
+          },
+        },
         opts = function(_, opts)
           table.insert(opts.right, {
             ft = "neominimap",
