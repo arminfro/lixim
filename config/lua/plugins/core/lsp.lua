@@ -122,6 +122,19 @@ return {
     event = "LazyFile",
     opts = {},
     cmd = { "OutputPanel" },
+    dependencies = {
+      {
+        "folke/edgy.nvim",
+        optional = true,
+        opts = function(_, opts)
+          table.insert(opts.bottom, {
+            ft = "outputpanel",
+            title = "Lsp Logs",
+            open = "OutputPanel",
+          })
+        end,
+      },
+    },
     keys = {
       {
         "<leader>xs",

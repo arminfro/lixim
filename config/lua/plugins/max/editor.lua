@@ -25,7 +25,21 @@ return {
     },
     cmd = { "DocsViewToggle" },
     keys = {
-      { "<leader>Dh", "<cmd>DocsViewToggle<CR>", desc = "LSP hover doc side panel" },
+      { "<leader>Dh", "<cmd>DocsViewToggle<CR>", desc = "LSP hover doc" },
+    },
+    dependencies = {
+      {
+        "folke/edgy.nvim",
+        optional = true,
+        opts = function(_, opts)
+          table.insert(opts.bottom, {
+            ft = "nvim-docs-view",
+            title = "Documentation",
+            -- pinned = true,
+            open = "DocsViewToggle",
+          })
+        end,
+      },
     },
   },
 
