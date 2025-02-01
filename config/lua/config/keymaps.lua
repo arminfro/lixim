@@ -72,3 +72,13 @@ map("n", "<leader>Xp", function()
     vim.notify("No git root path found")
   end
 end, { desc = "PWD to files git path" })
+
+map("n", "<leader>fD", function()
+  local file_path = vim.fn.expand("%")
+  local confirm = vim.fn.confirm("Delete buffer and file " .. file_path .. "?", "&Yes\n&No", 2)
+
+  if confirm == 1 then
+    os.remove(file_path)
+    vim.api.nvim_buf_delete(0, { force = true })
+  end
+end, { desc = "Delete current file" })
