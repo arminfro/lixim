@@ -23,6 +23,8 @@ let
       ./editor/telescope.nix
 
       ./util/dot.nix
+
+      ./ui/treesitter-context.nix
     ];
     balance = [
       ./editor/aerial.nix
@@ -36,8 +38,6 @@ let
       ./linting/eslint.nix
 
       ./test/neotest.nix
-
-      ./ui/treesitter-context.nix
     ];
     max = [
       ./coding/neogen.nix
