@@ -35,7 +35,7 @@ return {
           -- {
           -- 	section = "terminal",
           -- 	-- todo, src picture within repo
-          -- 	cmd = "chafa /home/armin/Downloads/nix-snowflake-colours.png --size 24x24 --format symbols --symbols vhalf; sleep .1",
+          -- 	cmd = "chafa ~/Downloads/nix-snowflake-colours.png --size 24x24 --format symbols --symbols vhalf; sleep .1",
           -- 	height = 8,
           -- 	padding = 1,
           -- 	align = "center",
@@ -54,15 +54,6 @@ return {
             align = "center",
           },
           { section = "keys", gap = 1, padding = 1 },
-          {
-            icon = " ",
-            desc = "Edgy UI",
-            padding = 1,
-            key = "e",
-            action = function()
-              require("edgy").open()
-            end,
-          },
           {
             icon = " ",
             desc = "Git Staging",

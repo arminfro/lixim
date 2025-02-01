@@ -194,4 +194,19 @@ return {
       }
     end,
   },
+
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      table.insert(opts.dashboard.sections, 2, {
+        icon = " ",
+        desc = "Edgy UI",
+        padding = 1,
+        key = "e",
+        action = function()
+          require("edgy").open()
+        end,
+      })
+    end,
+  },
 }
