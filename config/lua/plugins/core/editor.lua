@@ -124,4 +124,30 @@ return {
       },
     },
   },
+
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      zen = {},
+      dim = {},
+    },
+    keys = {
+      {
+        "<leader>uz",
+        function()
+          Snacks.zen()
+          Snacks.dim()
+        end,
+        desc = "ZenMode",
+      },
+      {
+        "<leader>Z",
+        function()
+          Snacks.zen.zoom()
+        end,
+        desc = "Toggle Zoom",
+      },
+    },
+  },
 }

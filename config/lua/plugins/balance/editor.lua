@@ -17,31 +17,6 @@ return {
   },
 
   {
-    "folke/zen-mode.nvim",
-    opts = {
-      plugins = {
-        -- twilight = { enabled = false },
-      },
-    },
-    keys = {
-      { "<leader>uz", "<cmd>ZenMode<CR>", desc = "ZenMode" },
-    },
-  },
-
-  {
-    "folke/twilight.nvim",
-    opts = {
-      dimming = {
-        -- alpha = 0.75,
-      },
-      -- context = 0,
-    },
-    keys = {
-      { "<leader>ut", "<cmd>Twilight<CR>", desc = "Twilight" },
-    },
-  },
-
-  {
     "kevinhwang91/nvim-fundo",
     event = "LazyFile",
     dependencies = "kevinhwang91/promise-async",

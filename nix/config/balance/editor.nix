@@ -10,8 +10,6 @@ self:
     [
       compiler-nvim
       overseer-nvim
-      zen-mode-nvim
-      twilight-nvim
     ]
     ++ utils.buildVimPlugins [
       { name = "fsread.nvim"; }
