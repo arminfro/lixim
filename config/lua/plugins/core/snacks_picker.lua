@@ -1,8 +1,8 @@
 return {
   {
     "folke/snacks.nvim",
-    ---@type snacks.Config
     opts = {
+      ---@class snacks.picker.Config
       picker = {
         win = {
           input = {
@@ -25,6 +25,12 @@ return {
             { win = "input", height = 1, border = "bottom" },
             { win = "list", border = "none" },
             { win = "preview", height = 0.6, border = "top" },
+          },
+        },
+        ---@class snacks.picker.formatters.Config
+        formatters = {
+          file = {
+            truncate = vim.o.columns * 1 / 3,
           },
         },
       },
