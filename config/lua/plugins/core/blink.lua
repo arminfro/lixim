@@ -187,19 +187,21 @@ local set_sources_config = function(opts)
     return cmp_sources_for_filetype(vim.bo.filetype)
   end
 
-  opts.cmdline = opts.cmdline or {}
-  opts.cmdline.sources = function()
-    local type = vim.fn.getcmdtype()
-    -- Search forward and backward
-    if type == "/" or type == "?" then
-      return { "buffer" }
-    end
-    -- Commands
-    if type == ":" or type == "@" then
-      return { "cmdline", "cmdline_history" }
-    end
-    return {}
-  end
+  opts.cmdline = {
+    enabled = true,
+    sources = function()
+      local type = vim.fn.getcmdtype()
+      -- Search forward and backward
+      if type == "/" or type == "?" then
+        return { "buffer" }
+      end
+      -- Commands
+      if type == ":" or type == "@" then
+        return { "cmdline", "cmdline_history", "path" }
+      end
+      return {}
+    end,
+  }
 end
 
 local set_providers = function(opts, sources)
