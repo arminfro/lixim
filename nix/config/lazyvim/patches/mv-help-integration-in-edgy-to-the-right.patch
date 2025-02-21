@@ -1,0 +1,34 @@
+diff --git a/lua/lazyvim/plugins/extras/ui/edgy.lua b/lua/lazyvim/plugins/extras/ui/edgy.lua
+index dbe76d1b..91f67bf8 100644
+--- a/lua/lazyvim/plugins/extras/ui/edgy.lua
++++ b/lua/lazyvim/plugins/extras/ui/edgy.lua
+@@ -33,14 +33,6 @@ return {
+           },
+           "Trouble",
+           { ft = "qf", title = "QuickFix" },
+-          {
+-            ft = "help",
+-            size = { height = 20 },
+-            -- don't open help files in edgy that we're editing
+-            filter = function(buf)
+-              return vim.bo[buf].buftype == "help"
+-            end,
+-          },
+           { title = "Spectre", ft = "spectre_panel", size = { height = 0.4 } },
+           { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
+         },
+@@ -50,6 +42,14 @@ return {
+         },
+         right = {
+           { title = "Grug Far", ft = "grug-far", size = { width = 0.4 } },
++          {
++            ft = "help",
++            size = { width = 0.4 },
++            -- don't open help files in edgy that we're editing
++            filter = function(buf)
++              return vim.bo[buf].buftype == "help"
++            end,
++          },
+         },
+         keys = {
+           -- increase width
