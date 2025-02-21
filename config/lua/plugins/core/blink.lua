@@ -187,7 +187,8 @@ local set_sources_config = function(opts)
     return cmp_sources_for_filetype(vim.bo.filetype)
   end
 
-  opts.sources.cmdline = function()
+  opts.cmdline = opts.cmdline or {}
+  opts.cmdline.sources = function()
     local type = vim.fn.getcmdtype()
     -- Search forward and backward
     if type == "/" or type == "?" then
