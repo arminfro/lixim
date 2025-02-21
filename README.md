@@ -40,15 +40,18 @@ Example configuration using the `homeManagerModule`:
     lixim = {
       enable = true;
       enableLvl = "max";
-      useNeovimNightly = true;
 
-      # optional, set by env `SNIPPETS_PATH` or else `vim.fn.stdpath("config") .. "/snippets"`
+      # optionals:
+      useNeovimNightly = true;
+      useLatestLazyVim = false;
+
+      # set by env `SNIPPETS_PATH` or else `vim.fn.stdpath("config") .. "/snippets"`
       snippetsPath = /home/user/Workspace/nix/lixim/config/snippets;
 
-      # optional, set command to read OpenAi API Key, otherwise OPENAI_API_KEY is tried
+      # set command to read OpenAi API Key, otherwise OPENAI_API_KEY is tried
       openAiApiPasswordCommand = "pass Ai/open-ai/api-key";
 
-      # optional, set by env `ZK_NOTEBOOK_DIR`, integration for zk-org.github.io/zk
+      # set by env `ZK_NOTEBOOK_DIR`, integration for zk-org.github.io/zk
       zkNotebookPath = /home/user/Documents/zk-notes;
 
       lang = {

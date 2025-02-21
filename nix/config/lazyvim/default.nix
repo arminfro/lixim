@@ -3,6 +3,7 @@ self:
   pkgs,
   lib,
   config,
+  utils,
   ...
 }:
 let
@@ -53,6 +54,37 @@ let
       ./util/rest.nix
     ];
   };
+
+  lazyVimPackage =
+    if builtins.hasAttr "useLatestLazyVim" config && config.useLatestLazyVim then
+      utils.buildVimPlugin {
+        name = "LazyVim";
+        nvimSkipModule = [
+          "lazyvim.config.init"
+          "lazyvim.config.keymaps"
+          "lazyvim.plugins.extras.ai.tabnine"
+          "lazyvim.plugins.extras.coding.luasnip"
+          "lazyvim.plugins.extras.coding.neogen"
+          "lazyvim.plugins.extras.editor.snacks_picker"
+          "lazyvim.plugins.extras.editor.fzf"
+          "lazyvim.plugins.extras.editor.telescope"
+          "lazyvim.plugins.extras.formatting.prettier"
+          "lazyvim.plugins.extras.lang.markdown"
+          "lazyvim.plugins.extras.lang.omnisharp"
+          "lazyvim.plugins.extras.lang.python"
+          "lazyvim.plugins.extras.lang.svelte"
+          "lazyvim.plugins.extras.lang.typescript"
+          "lazyvim.plugins.init"
+          "lazyvim.plugins.ui"
+          "lazyvim.plugins.xtras"
+          "lazyvim.util.extras"
+          "lazyvim.util.init"
+          "lazyvim.util.plugin"
+          "lazyvim.types"
+        ];
+      }
+    else
+      pkgs.vimPlugins.LazyVim;
 in
 {
   imports = map (module: import module self) (
@@ -69,7 +101,7 @@ in
   config = {
     plugins =
       (builtins.attrValues {
-        LazyVim = pkgs.vimPlugins.LazyVim.overrideAttrs (oldAttrs: {
+        LazyVim = lazyVimPackage.overrideAttrs (oldAttrs: {
           patches = (import ./patches { inherit config lib; });
         });
       })

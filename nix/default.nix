@@ -79,9 +79,17 @@ in
 
     useNeovimNightly = mkOption {
       default = true;
-      type = bool;
+      type = nullOr bool;
       description = ''
         Wether to use neovim nightly or not
+      '';
+    };
+
+    useLatestLazyVim = mkOption {
+      default = false;
+      type = nullOr bool;
+      description = ''
+        Wether to use latest git version of LazyVim. If not the version from nixpkgs is used.
       '';
     };
 

@@ -84,7 +84,7 @@ rec {
 
   masonPath = pkgs.linkFarm "lazyvim-nix-mason" liximConfig.extraMasonPath;
   neovimPackage =
-    if config.useNeovimNightly then
+    if builtins.hasAttr "useNeovimNightly" config && config.useNeovimNightly then
       self.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     else
       pkgs.neovim-unwrapped;

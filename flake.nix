@@ -7,6 +7,10 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     bacon-ls.url = "github:crisidev/bacon-ls";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    LazyVim = {
+      url = "github:LazyVim/LazyVim";
+      flake = false;
+    };
     tailwindcss-colorizer-cmp-nvim = {
       url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
       flake = false;

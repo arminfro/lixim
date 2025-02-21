@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "LazyVim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739916743,
+        "narHash": "sha256-dF2clJlNkaGoQ15TaZBswuuUJmSf0OK2vgV4XCsYwv4=",
+        "owner": "LazyVim",
+        "repo": "LazyVim",
+        "rev": "f3e37a1f836448772b3e63a3add542236f9e7375",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LazyVim",
+        "repo": "LazyVim",
+        "type": "github"
+      }
+    },
     "auto-pandoc-nvim": {
       "flake": false,
       "locked": {
@@ -721,6 +737,7 @@
     },
     "root": {
       "inputs": {
+        "LazyVim": "LazyVim",
         "auto-pandoc-nvim": "auto-pandoc-nvim",
         "bacon-ls": "bacon-ls",
         "blink-cmp-dictionary": "blink-cmp-dictionary",
