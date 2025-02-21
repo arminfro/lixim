@@ -21,6 +21,7 @@ let
       ./coding/yanky.nix
 
       ./editor/inc-rename.nix
+      ./editor/neo-tree.nix
       ./editor/telescope.nix
 
       ./util/dot.nix
@@ -118,7 +119,6 @@ in
         mini-ai
         mini-icons
         mini-pairs
-        neo-tree-nvim
         noice-nvim
         nui-nvim
         nvim-lint
