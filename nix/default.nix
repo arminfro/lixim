@@ -53,6 +53,7 @@ in
           tailwind.enable = mkEnableOption "tailwind language support";
           toml.enable = mkEnableOption "toml language support";
           typescript.enable = mkEnableOption "typescript language support";
+          typst.enable = mkEnableOption "typescript language support";
           yaml.enable = mkEnableOption "yaml language support";
         };
       };

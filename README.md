@@ -71,6 +71,7 @@ Example configuration using the `homeManagerModule`:
         tailwind.enable = true;
         toml.enable = true;
         typescript.enable = true;
+        typst.enable = true;
         yaml.enable = true;
       };
     };
