@@ -125,28 +125,49 @@ return {
     },
   },
 
+  -- todo, use Snacks.toggle
+  -- {
+  --   "folke/snacks.nvim",
+  --   ---@type snacks.Config
+  --   opts = {
+  --     zen = {},
+  --     dim = {},
+  --   },
+  --   keys = {
+  --     {
+  --       "<leader>uz",
+  --       function()
+  --         Snacks.zen()
+  --         Snacks.dim()
+  --       end,
+  --       desc = "ZenMode",
+  --     },
+  --     {
+  --       "<leader>Z",
+  --       function()
+  --         Snacks.zen.zoom()
+  --       end,
+  --       desc = "Toggle Zoom",
+  --     },
+  --   },
+  -- },
+
   {
     "folke/snacks.nvim",
-    ---@type snacks.Config
-    opts = {
-      zen = {},
-      dim = {},
-    },
     keys = {
       {
-        "<leader>uz",
+        "<leader>.",
         function()
-          Snacks.zen()
-          Snacks.dim()
+          Snacks.scratch()
         end,
-        desc = "ZenMode",
+        desc = "Toggle Scratch Buffer",
       },
       {
-        "<leader>Z",
+        "<leader>S",
         function()
-          Snacks.zen.zoom()
+          Snacks.scratch.select()
         end,
-        desc = "Toggle Zoom",
+        desc = "Select Scratch Buffer",
       },
     },
   },
