@@ -52,7 +52,7 @@ return {
       },
       commit = {
         preview = true,
-        conventionalCommits = { enforce = true },
+        subject = { enforceType = true },
         spellcheck = true,
         keepAbortedMsgSecs = 60 * 10, -- 10 mins
         -- insertIssuesOnHashSign = { enabled = true, next = "#" },
