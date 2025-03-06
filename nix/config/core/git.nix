@@ -17,7 +17,7 @@ self:
       {
         name = "nvim-tinygit";
         nvimSkipModule = [
-          "tinygit.commands.staging.telescope"
+          "tinygit.commands.stage.telescope"
           "tinygit.statusline.branch-state"
         ];
       }
