@@ -58,13 +58,15 @@ return {
     priority = 1000, -- needs to be loaded in first
     config = function(_, opts)
       require("tiny-inline-diagnostic").setup(opts)
-      vim.diagnostic.config({ virtual_text = false })
     end,
-    opts = {
-      use_icons_from_diagnostic = true,
-      show_all_diags_on_cursorline = true,
-      show_source = true,
-    },
+    opts = function()
+      vim.diagnostic.config({ virtual_text = false })
+      return {
+        use_icons_from_diagnostic = true,
+        show_all_diags_on_cursorline = true,
+        show_source = true,
+      }
+    end,
   },
 
   -- {
