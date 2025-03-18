@@ -16,7 +16,7 @@ let
         inherit enableLvl;
         enable = true;
         useNeovimNightly = true;
-        useLatestLazyVim = true;
+        useLatestLazyVim = false;
         lang = {
           astro.enable = true;
           css.enable = true;
