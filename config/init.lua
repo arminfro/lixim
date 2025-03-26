@@ -1,5 +1,8 @@
-require("lazy").setup({
-  defaults = { lazy = true },
+---@class LazyUtilCore
+local lazySetup = {
+  defaults = {
+    lazy = true,
+  },
   dev = {
     -- reuse files from pkgs.vimPlugins.*
     path = vim.g.plugin_path,
@@ -46,8 +49,9 @@ require("lazy").setup({
       },
     },
   },
-})
+}
 
+require("lazy").setup(lazySetup)
 require("config.globals")
 require("config.commands")
 require("config.close-unused-buffers")

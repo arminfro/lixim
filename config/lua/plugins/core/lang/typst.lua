@@ -16,4 +16,16 @@ return {
       },
     },
   },
+
+  {
+    "chomosuke/typst-preview.nvim",
+    ft = { "typst" },
+    cmd = { "TypstPreview" },
+    opts = {
+      dependencies_bin = {
+        ["tinymist"] = vim.fn.exepath("tinymist"),
+        ["websocat"] = vim.fn.exepath("websocat"),
+      },
+    },
+  },
 }
