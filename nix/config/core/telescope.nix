@@ -31,9 +31,6 @@ self:
       {
         name = "telescope-env.nvim";
       }
-      {
-        name = "telescope-luasnip.nvim";
-      }
     ];
 
   extraPackages = [

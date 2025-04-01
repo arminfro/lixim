@@ -305,20 +305,6 @@ return {
     },
 
     {
-      "benfowler/telescope-luasnip.nvim",
-      keys = {
-        {
-          "<leader>sl",
-          function()
-            require("telescope").load_extension("luasnip")
-            require("telescope").extensions.luasnip.luasnip()
-          end,
-          desc = "Snippets",
-        },
-      },
-    },
-
-    {
       "debugloop/telescope-undo.nvim",
       config = function()
         require("telescope").load_extension("undo")

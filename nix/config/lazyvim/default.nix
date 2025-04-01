@@ -16,7 +16,7 @@ let
   enabledExtras = {
     core = [
       ./coding/blink.nix
-      ./coding/luasnip.nix
+      ./coding/friendly-snippets.nix
       ./coding/mini-sorround.nix
       ./coding/yanky.nix
 
@@ -64,7 +64,6 @@ let
           "lazyvim.config.init"
           "lazyvim.config.keymaps"
           "lazyvim.plugins.extras.ai.tabnine"
-          "lazyvim.plugins.extras.coding.luasnip"
           "lazyvim.plugins.extras.coding.neogen"
           "lazyvim.plugins.extras.editor.snacks_picker"
           "lazyvim.plugins.extras.editor.fzf"

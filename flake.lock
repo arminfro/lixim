@@ -790,7 +790,6 @@
         "telescope-env-nvim": "telescope-env-nvim",
         "telescope-heading-nvim": "telescope-heading-nvim",
         "telescope-lazy-nvim": "telescope-lazy-nvim",
-        "telescope-luasnip-nvim": "telescope-luasnip-nvim",
         "telescope-node-modules-nvim": "telescope-node-modules-nvim",
         "template-string-nvim": "template-string-nvim",
         "ts-node-action": "ts-node-action",
@@ -905,22 +904,6 @@
       "original": {
         "owner": "tsakirist",
         "repo": "telescope-lazy.nvim",
-        "type": "github"
-      }
-    },
-    "telescope-luasnip-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734145237,
-        "narHash": "sha256-9XsV2hPjt05q+y5FiSbKYYXnznDKYOsDwsVmfskYd3M=",
-        "owner": "benfowler",
-        "repo": "telescope-luasnip.nvim",
-        "rev": "07a2a2936a7557404c782dba021ac0a03165b343",
-        "type": "github"
-      },
-      "original": {
-        "owner": "benfowler",
-        "repo": "telescope-luasnip.nvim",
         "type": "github"
       }
     },

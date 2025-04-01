@@ -7,17 +7,6 @@ return {
   },
 
   {
-    "rafamadriz/friendly-snippets",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-      local path = snippets_path()
-      if path ~= nil then
-        require("luasnip.loaders.from_vscode").lazy_load({ paths = { path } })
-      end
-    end,
-  },
-
-  {
     -- Shows virtual text of the current context after functions, methods, statements
     "haringsrob/nvim_context_vt",
     event = "LazyFile",

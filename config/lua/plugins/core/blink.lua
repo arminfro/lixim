@@ -229,6 +229,8 @@ local set_providers = function(opts, sources)
   opts.sources.providers.snippets.score_offset = 3
   opts.sources.providers.snippets.min_keyword_length = 2
   opts.sources.providers.snippets.min_keyword_length = 2
+  opts.sources.providers.snippets.opts = opts.sources.providers.snippets.opts  or {}
+  opts.sources.providers.snippets.opts.search_paths = { snippets_path() }
 
   opts.sources.providers.lsp = opts.sources.providers.lsp or {}
   opts.sources.providers.lsp.score_offset = 4

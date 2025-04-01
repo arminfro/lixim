@@ -39,10 +39,6 @@
       url = "github:LinArcX/telescope-env.nvim";
       flake = false;
     };
-    telescope-luasnip-nvim = {
-      url = "github:benfowler/telescope-luasnip.nvim";
-      flake = false;
-    };
     ts-node-action = {
       url = "github:CKolkey/ts-node-action";
       flake = false;
