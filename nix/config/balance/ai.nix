@@ -5,7 +5,7 @@ self:
 }:
 {
   plugins = with pkgs.vimPlugins; [
-    avante-nvim
+    codecompanion-nvim
   ];
 
   extraLazyImport = [
