@@ -1,4 +1,19 @@
 local icons = LazyVim.config.icons
+local file_count_condition_gt = function(buffers_length)
+  return function()
+    return listed_buffers_length() > buffers_length
+  end
+end
+local fileRef = {
+  {
+    "filetype",
+    icon_only = true,
+    separator = "",
+    padding = { left = 0, right = 0 },
+    cond = file_count_condition_gt(0),
+  },
+  { LazyVim.lualine.pretty_path({ length = 0 }), cond = file_count_condition_gt(0) },
+}
 
 return {
   {
@@ -8,33 +23,22 @@ return {
       opts.options.component_separators = { left = "", right = "" }
       opts.options.section_separators = { left = "", right = "" }
       -- opts.options.disabled_filetypes.tabline = opts.options.disabled_filetypes.statusline
+
+      opts.winbar = opts.winbar or {}
+      opts.winbar.lualine_b = fileRef
+      opts.inactive_winbar = opts.active_winbar or {}
+      opts.inactive_winbar.lualine_b = fileRef
+
       opts.tabline = {
         lualine_a = {},
-        lualine_b = {
-          {
-            "filetype",
-            icon_only = true,
-            separator = "",
-            padding = { left = 0, right = 0 },
-          },
-          { LazyVim.lualine.pretty_path({
-            length = 0,
-          }) },
-        },
+        lualine_b = {},
         lualine_c = {
           {
             "buffers",
             buffers_color = {
               active = { fg = Snacks.util.color("Special") },
             },
-            cond = function()
-              local listed_buffers = vim.tbl_filter(function(bufnr)
-                return vim.api.nvim_get_option_value("buflisted", {
-                  buf = bufnr,
-                })
-              end, vim.api.nvim_list_bufs())
-              return #listed_buffers > 1
-            end,
+            cond = file_count_condition_gt(1),
           },
         },
         lualine_x = {},

@@ -24,6 +24,15 @@ function _G.merge_arrays(array1, array2)
   return ret
 end
 
+function _G.listed_buffers_length()
+  local listed_buffers = vim.tbl_filter(function(bufnr)
+    return vim.api.nvim_get_option_value("buflisted", {
+      buf = bufnr,
+    })
+  end, vim.api.nvim_list_bufs())
+  return #listed_buffers
+end
+
 function _G.copy(obj, seen)
   if type(obj) ~= "table" then
     return obj
