@@ -32,7 +32,9 @@ return {
     "chrisgrieser/nvim-origami",
     event = "LazyFile",
     opts = {
-      hOnlyOpensOnFirstColumn = true,
+      foldKeymaps = {
+        hOnlyOpensOnFirstColumn = true,
+      },
     },
   },
 }
