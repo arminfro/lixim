@@ -16,7 +16,6 @@ self:
       cmp-git
       cmp-calc
       cmp-emoji
-      cmp-cmdline-history
     ]
     ++ utils.buildVimPlugins [
       # {

@@ -197,7 +197,7 @@ local set_sources_config = function(opts)
       end
       -- Commands
       if type == ":" or type == "@" then
-        return { "cmdline", "cmdline_history", "path" }
+        return { "cmdline", "path" }
       end
       return {}
     end,
@@ -229,7 +229,7 @@ local set_providers = function(opts, sources)
   opts.sources.providers.snippets.score_offset = 3
   opts.sources.providers.snippets.min_keyword_length = 2
   opts.sources.providers.snippets.min_keyword_length = 2
-  opts.sources.providers.snippets.opts = opts.sources.providers.snippets.opts  or {}
+  opts.sources.providers.snippets.opts = opts.sources.providers.snippets.opts or {}
   opts.sources.providers.snippets.opts.search_paths = { snippets_path() }
 
   opts.sources.providers.lsp = opts.sources.providers.lsp or {}
@@ -266,7 +266,6 @@ local get_nvim_cmp_config = function()
     { "hrsh7th/cmp-calc", "calc" },
     { "hrsh7th/cmp-emoji", "emoji" },
     { "petertriho/cmp-git", "git" },
-    { "dmitmel/cmp-cmdline-history", "cmdline_history" },
   }
 
   local nvim_cmp_meta_by_index = function(index)
