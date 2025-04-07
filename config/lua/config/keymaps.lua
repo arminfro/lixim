@@ -25,7 +25,7 @@ map("n", "<leader>!", ":qa!<CR>", { desc = "forcefully Quit" })
 map("n", "<leader>z", "", { desc = "+spelling" })
 map("n", "<leader>zz", "1z=", { desc = "Fix to first spell suggestion" })
 map("n", "<leader>zg", "<CMD>SetGermanSpellFeature<CR>", { desc = "Set German" })
-map("n", "<leader>ze", "<CMD>SetEnglishSpellFeatureSpellFeature<CR>", { desc = "Set English" })
+map("n", "<leader>ze", "<CMD>SetEnglishSpellFeature<CR>", { desc = "Set English" })
 
 -- Cursors Movement
 map({ "n", "v" }, "<S-h>", "^", { desc = "Jump to beginning of line" })
@@ -36,6 +36,9 @@ map("n", "<leader>wo", ":only<CR>", { desc = "Display only current buffer" })
 map("n", "<leader>wh", ":hide<CR>", { desc = "Hide current buffer" })
 map("n", "<leader>wD", ":window diffthis<CR>", { desc = "Diff this window" })
 map("n", "<leader>wt", ":window diffoff<CR>", { desc = "Diff off" })
+
+-- buffer Managemant
+map({ "n", "x" }, "X", ":bd<CR>", { desc = "Close Buffer" })
 
 -- Copy to clipboard
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to clipboard" })

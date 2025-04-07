@@ -108,13 +108,12 @@ rec {
           )}
         }
 
-        -- todo, use dicts in markdown
-        -- vim.g.neovim_config = {
-        --     cmpDicts = {
-        --       en = "{../../config/dicts/english.dict}",
-        --       de = "{../../config/dicts/german.dict}",
-        --     },
-        -- }
+        vim.g.lixim_config = {
+            cmpDicts = {
+              en = "${../../config/dicts/en.dict}",
+              de = "${../../config/dicts/de.dict}",
+            },
+        }
 
         ${lib.concatStrings liximConfig.extraLuaConfig}
       EOF

@@ -18,10 +18,10 @@ self:
       cmp-emoji
     ]
     ++ utils.buildVimPlugins [
-      # {
-      #   name = "blink-cmp-dictionary";
-      #   nvimSkipModule = "blink-cmp-dictionary";
-      # }
+      {
+        name = "blink-cmp-dictionary";
+        nvimSkipModule = "blink-cmp-dictionary";
+      }
 
     ];
 

@@ -89,30 +89,6 @@ function _G.extractLastPathSegments(path, count, separator)
   end
 end
 
--- todo, update blink with configured dictionary provider
-function _G.setCmpDictionaryByCurrentLanguages(current_languages)
-  local ok, cmp_dictionary = pcall(require, "cmp_dictionary")
-  if not ok or not lixim_config.cmpDicts or #current_languages == 0 then
-    return
-  end
-
-  -- local current_languages = vim.opt.spelllang:get()
-  -- Create a table of dictionary paths
-  local paths = {}
-  for _, lang in ipairs(current_languages) do
-    local path = lixim_config.cmpDicts[lang]
-    if path then
-      table.insert(paths, path)
-    end
-  end
-
-  -- todo, calling it more than once does not seem to work
-  cmp_dictionary.setup({
-    paths = paths,
-    first_case_insensitive = true,
-  })
-end
-
 -- function _G.is_buffer_in_root_path(buf)
 -- 	local root_path = LazyVim.root()
 -- 	local buffer_path = vim.api.nvim_buf_get_name(buf or 0)

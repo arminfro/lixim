@@ -26,16 +26,6 @@ vim.api.nvim_create_autocmd({ "TermEnter" }, {
   group = augroup("autosave_on_TermEnter"),
 })
 
--- todo, update blink with configured dictionary provider
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   desc = "Set spelllang for completion",
---   callback = function()
---     setCmpDictionaryByCurrentLanguages(vim.opt.spelllang:get())
---   end,
---   pattern = "*",
---   group = augroup("set_cmp_dictionary"),
--- })
-
 -- quit some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Quit some filetypes easily with q",

@@ -147,11 +147,11 @@ local set_sources_config = function(opts)
   local default_cmp_sources = { "lsp", "path", "snippets", "buffer", "ripgrep" }
   local cmp_sources_by_filetypes = {
     {
-      types = { "markdown", "gitcommit" },
+      types = { "markdown", "gitcommit", "typst" },
       sources = {
         "calc",
         "emoji",
-        -- "dictionary",
+        "dictionary",
       },
     },
     {
@@ -237,27 +237,26 @@ local set_providers = function(opts, sources)
   opts.sources.providers.snippets.min_keyword_length = 0
 end
 
--- local set_spelllang_source_config = function(opts)
---   local spelllang = vim.api.nvim_get_option_value("spelllang", { buf = 0 })
---   print('DEBUGPRINT[18]: blink.lua:211: spelllang=' .. vim.inspect(spelllang))
---   if vim.g.neovim_config.cmpDicts[spelllang] ~= nil then
---     local k = vim.g.neovim_config.cmpDicts[spelllang]
---     print("DEBUGPRINT[17]: blink.lua:213: k=" .. vim.inspect(k))
---     insert_blink_source_provider(opts, "dictionary", "blink-cmp-dictionary", "Dict", {
---       get_command = {
---         "rg",
---         "--color=never",
---         "--no-line-number",
---         "--no-messages",
---         "--no-filename",
---         "--ignore-case",
---         "--",
---         "${prefix}", -- this will be replaced by the result of 'get_prefix' function
---         vim.fn.expand(vim.g.neovim_config.cmpDicts[spelllang]), -- where you dictionary is
---       },
---     })
---   end
--- end
+local set_spelllang_source_config = function(opts)
+  add_provider(opts, "dictionary", {
+    module = "blink-cmp-dictionary",
+    name = "Dict",
+    min_keyword_length = 3,
+    opts = {
+      dictionary_files = function()
+        local spelllang = vim.api.nvim_get_option_value("spelllang", { buf = 0 })
+        if
+          vim.g.lixim_config.cmpDicts ~= nil
+          and spelllang ~= nil
+          and vim.g.lixim_config.cmpDicts[spelllang] ~= nil
+        then
+          return { vim.g.lixim_config.cmpDicts[spelllang] }
+        end
+        return {}
+      end,
+    },
+  })
+end
 
 local get_nvim_cmp_config = function()
   local nvim_cmp_meta = {
@@ -294,7 +293,7 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = merge_arrays({
-      -- "Kaiser-Yang/blink-cmp-dictionary",
+      "Kaiser-Yang/blink-cmp-dictionary",
       "mikavilpas/blink-ripgrep.nvim",
     }, nvim_cmp_config.dependencies),
     opts = function(_, opts)
@@ -302,7 +301,7 @@ return {
       set_quick_select(opts)
       set_providers(opts, nvim_cmp_config.sources)
       set_sources_config(opts)
-      -- set_spelllang_source_config(opts)
+      set_spelllang_source_config(opts)
 
       opts.signature = { enabled = true }
       opts.completion.list = opts.completion.list or {}
