@@ -26,8 +26,6 @@ self:
   extraPackages = with pkgs; [
     glow
     pandoc
-    pandoc-lua-filters
-    texliveBasic
   ];
 
   extraLazyImport = [

@@ -25,7 +25,6 @@ return {
         desc = "Compile Markdown with Pandoc",
       },
     },
-    event = "BufRead",
     config = function()
       require("auto-pandoc")
     end,

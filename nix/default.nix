@@ -32,6 +32,8 @@ let
   };
 in
 {
+  imports = [ ./zk ];
+
   options.programs.neovim.lixim = {
     enable = mkEnableOption "lixim";
     lang = mkOption {
