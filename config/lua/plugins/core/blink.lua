@@ -157,13 +157,14 @@ local set_sources_config = function(opts)
     {
       types = { "markdown" },
       sources = {
-        "pandoc_references",
+        -- "pandoc_references",
       },
     },
     {
       types = { "gitcommit" },
       sources = {
-        "conventionalcommits",
+        "conventional_commits",
+        -- "git",
       },
     },
   }
@@ -204,9 +205,9 @@ local set_sources_config = function(opts)
   }
 end
 
-local set_providers = function(opts, sources)
-  for _, source in ipairs(sources) do
-    add_compat_provider(opts, source, {})
+local set_providers = function(opts, nvim_cmp_config_sources)
+  for _, cmp_source in ipairs(nvim_cmp_config_sources) do
+    add_compat_provider(opts, cmp_source, {})
   end
 
   add_provider(opts, "ripgrep", {
@@ -217,6 +218,51 @@ local set_providers = function(opts, sources)
     opts = {
       max_filesize = "200K",
       prefix_min_len = 3,
+    },
+  })
+
+  add_provider(opts, "conventional_commits", {
+    name = "Conventional Commits",
+    module = "blink-cmp-conventional-commits",
+    enabled = function()
+      return vim.bo.filetype == "gitcommit"
+    end,
+    opts = {},
+  })
+
+  -- add_provider(opts, "references", {
+  --   name = "pandoc_references",
+  --   module = "cmp-pandoc-references.blink",
+  -- })
+
+  -- add_provider(opts, "git", {
+  --   module = "blink-cmp-git",
+  --   name = "Git",
+  --   opts = {},
+  -- })
+
+  add_provider(opts, "emoji", {
+    module = "blink-emoji",
+    name = "Emoji",
+    opts = { insert = true },
+  })
+
+  add_provider(opts, "dictionary", {
+    module = "blink-cmp-dictionary",
+    name = "Dict",
+    min_keyword_length = 3,
+    opts = {
+      dictionary_files = function()
+        local spelllang = vim.api.nvim_get_option_value("spelllang", { buf = 0 })
+        if
+          vim.g.lixim_config.cmpDicts ~= nil
+          and spelllang ~= nil
+          and vim.g.lixim_config.cmpDicts[spelllang] ~= nil
+        then
+          return { vim.g.lixim_config.cmpDicts[spelllang] }
+        end
+        return {}
+      end,
     },
   })
 
@@ -237,34 +283,9 @@ local set_providers = function(opts, sources)
   opts.sources.providers.snippets.min_keyword_length = 0
 end
 
-local set_spelllang_source_config = function(opts)
-  add_provider(opts, "dictionary", {
-    module = "blink-cmp-dictionary",
-    name = "Dict",
-    min_keyword_length = 3,
-    opts = {
-      dictionary_files = function()
-        local spelllang = vim.api.nvim_get_option_value("spelllang", { buf = 0 })
-        if
-          vim.g.lixim_config.cmpDicts ~= nil
-          and spelllang ~= nil
-          and vim.g.lixim_config.cmpDicts[spelllang] ~= nil
-        then
-          return { vim.g.lixim_config.cmpDicts[spelllang] }
-        end
-        return {}
-      end,
-    },
-  })
-end
-
 local get_nvim_cmp_config = function()
   local nvim_cmp_meta = {
-    { "davidsierradz/cmp-conventionalcommits", "conventionalcommits" },
-    { "jc-doyle/cmp-pandoc-references", "pandoc_references" },
     { "hrsh7th/cmp-calc", "calc" },
-    { "hrsh7th/cmp-emoji", "emoji" },
-    { "petertriho/cmp-git", "git" },
   }
 
   local nvim_cmp_meta_by_index = function(index)
@@ -295,13 +316,19 @@ return {
     dependencies = merge_arrays({
       "Kaiser-Yang/blink-cmp-dictionary",
       "mikavilpas/blink-ripgrep.nvim",
+      "disrupted/blink-cmp-conventional-commits",
+      -- "jmbuhr/cmp-pandoc-references",
+      -- {
+      --   "Kaiser-Yang/blink-cmp-git",
+      --   dependencies = { "nvim-lua/plenary.nvim" },
+      -- },
+      "moyiz/blink-emoji.nvim",
     }, nvim_cmp_config.dependencies),
     opts = function(_, opts)
       set_keymap(opts)
       set_quick_select(opts)
       set_providers(opts, nvim_cmp_config.sources)
       set_sources_config(opts)
-      set_spelllang_source_config(opts)
 
       opts.signature = { enabled = true }
       opts.completion.list = opts.completion.list or {}

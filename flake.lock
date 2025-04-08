@@ -68,6 +68,22 @@
         "type": "github"
       }
     },
+    "cmp-pandoc-references": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743491695,
+        "narHash": "sha256-XsdneGNJzmRBggk8lz9JNDQYk7wbYfUAF2oZLXzFb9c=",
+        "owner": "jmbuhr",
+        "repo": "cmp-pandoc-references",
+        "rev": "130eae4f75029d6495808e0ea4b769fa1ce4c9ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jmbuhr",
+        "repo": "cmp-pandoc-references",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -741,6 +757,7 @@
         "auto-pandoc-nvim": "auto-pandoc-nvim",
         "bacon-ls": "bacon-ls",
         "blink-cmp-dictionary": "blink-cmp-dictionary",
+        "cmp-pandoc-references": "cmp-pandoc-references",
         "flake-parts": "flake-parts",
         "fsread-nvim": "fsread-nvim",
         "git-blame-nvim": "git-blame-nvim",

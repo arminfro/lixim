@@ -8,22 +8,21 @@ self:
   plugins =
     with pkgs.vimPlugins;
     [
+      blink-cmp-conventional-commits
+      blink-cmp-dictionary
+      # blink-cmp-git
       blink-compat
+      blink-emoji-nvim
       blink-ripgrep-nvim
-      cmp-conventionalcommits
-      cmp-digraphs
-      cmp-pandoc-references
-      cmp-git
       cmp-calc
-      cmp-emoji
     ]
     ++ utils.buildVimPlugins [
-      {
-        name = "blink-cmp-dictionary";
-        nvimSkipModule = "blink-cmp-dictionary";
-      }
-
+      # { name = "cmp-pandoc-references"; }
     ];
+
+  extraPackages = with pkgs; [
+    wordnet
+  ];
 
   extraLazyImport = [
     "plugins.core.blink"

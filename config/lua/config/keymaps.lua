@@ -13,6 +13,7 @@ map("n", "<leader>cl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 vim.keymap.del("n", "<leader>gG") -- Lazygit (cwd)
 vim.keymap.del("n", "<leader>gf") -- Git Current File History
 vim.keymap.del("n", "<leader>gl") -- Git Log
+vim.keymap.del("n", "<leader>l") -- lazyvim
 
 -- easier save, new and exit
 map("n", "<leader><leader>", ":wa<CR>", { desc = "Save files" })

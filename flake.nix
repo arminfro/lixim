@@ -151,6 +151,10 @@
       url = "github:Isrothy/neominimap.nvim";
       flake = false;
     };
+    cmp-pandoc-references = {
+      url = "github:jmbuhr/cmp-pandoc-references";
+      flake = false;
+    };
   };
 
   outputs =
