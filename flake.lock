@@ -623,22 +623,6 @@
         "type": "github"
       }
     },
-    "nvim-origami": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743689082,
-        "narHash": "sha256-w4auNTQSUKk1s0D7LaA8/Dh613fjHepHQXxLN2SksmY=",
-        "owner": "chrisgrieser",
-        "repo": "nvim-origami",
-        "rev": "a97d87f8078bbce06250e915a68f124bf361fc62",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chrisgrieser",
-        "repo": "nvim-origami",
-        "type": "github"
-      }
-    },
     "nvim-scissors": {
       "flake": false,
       "locked": {
@@ -776,7 +760,6 @@
         "nvim-devdocs": "nvim-devdocs",
         "nvim-dr-lsp": "nvim-dr-lsp",
         "nvim-fundo": "nvim-fundo",
-        "nvim-origami": "nvim-origami",
         "nvim-scissors": "nvim-scissors",
         "nvim-tinygit": "nvim-tinygit",
         "nvim-toc": "nvim-toc",
