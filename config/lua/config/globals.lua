@@ -1,5 +1,15 @@
 -- vi: ft=lua
 
+function _G.save_all_modifed_buffers()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_get_option_value("modified", { buf = buf }) and vim.fn.getbufvar(buf, "&modifiable") ~= 0 then
+      vim.api.nvim_buf_call(buf, function()
+        vim.cmd([[silent! update]])
+      end)
+    end
+  end
+end
+
 function _G.snippets_path()
   local nix_snippets_path_config = vim.env.SNIPPETS_PATH
   if nix_snippets_path_config ~= nil then
