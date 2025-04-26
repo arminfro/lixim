@@ -84,7 +84,7 @@ return {
     opts = {
       -- when opening the buffer, close these fold kinds
       close_fold_kinds_for_ft = {
-        default = { "imports", "comment" },
+        default = { "imports" },
         json = { "array" },
         markdown = {}, -- avoid everything becoming folded
         -- use `:UfoInspect` to get see available fold kinds

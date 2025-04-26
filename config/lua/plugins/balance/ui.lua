@@ -27,14 +27,4 @@ return {
       },
     },
   },
-
-  { -- QoL features for folding
-    "chrisgrieser/nvim-origami",
-    event = "LazyFile",
-    opts = {
-      foldKeymaps = {
-        hOnlyOpensOnFirstColumn = true,
-      },
-    },
-  },
 }

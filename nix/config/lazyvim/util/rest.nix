@@ -4,9 +4,10 @@ self:
   ...
 }:
 {
-  plugins = [
-    pkgs.vimPlugins.kulala-nvim
-    (pkgs.vimPlugins.nvim-treesitter.withPlugins (
+  plugins = with pkgs; [
+    kulala-fmt
+    vimPlugins.kulala-nvim
+    (vimPlugins.nvim-treesitter.withPlugins (
       plugins: with plugins; [
         http
         graphql

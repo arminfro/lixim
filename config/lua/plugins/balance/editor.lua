@@ -17,6 +17,15 @@ return {
   },
 
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        biome = {},
+      },
+    },
+  },
+
+  {
     "stevearc/overseer.nvim",
     keys = {
       {
