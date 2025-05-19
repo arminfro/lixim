@@ -171,15 +171,22 @@
           "aarch64-darwin"
           "x86_64-darwin"
         ];
+        flake = {
+          hydraJobs = {
+            inherit (self)
+              packages
+              ;
+          };
 
-        flake.nixosModules.default = import ./nix {
-          inherit self;
-          isNixOsModule = true;
-        };
+          nixosModules.default = import ./nix {
+            inherit self;
+            isNixOsModule = true;
+          };
 
-        flake.homeManagerModules.default = import ./nix {
-          inherit self;
-          isNixOsModule = false;
+          homeManagerModules.default = import ./nix {
+            inherit self;
+            isNixOsModule = false;
+          };
         };
 
         perSystem =
