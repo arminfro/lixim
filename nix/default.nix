@@ -45,6 +45,7 @@ in
           git.enable = mkEnableOption "git language support";
           html.enable = mkEnableOption "html language support";
           json.enable = mkEnableOption "json language support";
+          just.enable = mkEnableOption "just language support";
           markdown.enable = mkEnableOption "markdown language support";
           nix.enable = mkEnableOption "nix language support";
           nushell.enable = mkEnableOption "nushell language support";

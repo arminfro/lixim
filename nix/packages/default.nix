@@ -24,6 +24,7 @@ let
           git.enable = true;
           html.enable = true;
           json.enable = true;
+          just.enable = true;
           markdown.enable = true;
           nix.enable = true;
           nushell.enable = true;
