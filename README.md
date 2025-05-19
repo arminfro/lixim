@@ -28,7 +28,7 @@ Most of the configuration is achieved by setting `enableLvl` to one of the follo
 Example configuration using the `homeManagerModule`:
 
 ```nix
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [ inputs.lixim.homeManagerModules.default ];
 
@@ -66,7 +66,7 @@ Example configuration using the `homeManagerModule`:
         nix.enable = true;
         nushell.enable = true;
         react.enable = true;
-        rust.enable = true;
+        rust.enable = (pkgs.system != "aarch64-linux");
         sql.enable = true;
         svelte.enable = true;
         tailwind.enable = true;
