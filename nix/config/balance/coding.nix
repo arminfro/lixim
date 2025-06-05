@@ -9,7 +9,7 @@ self:
     with pkgs.vimPlugins;
     [
       nvim-jqx
-      tiny-inline-diagnostic-nvim
+      # tiny-inline-diagnostic-nvim
     ]
     ++ utils.buildVimPlugins [
       { name = "hl_match_area.nvim"; }

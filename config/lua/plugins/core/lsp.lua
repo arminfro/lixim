@@ -57,20 +57,20 @@ return {
       require("lsp_lines").setup()
     end,
     dependencies = {
-      {
-        "rachartier/tiny-inline-diagnostic.nvim",
-        optional = true,
-        keys = {
-          {
-            "<leader>uv",
-            function()
-              require("lsp_lines").toggle()
-              require("tiny-inline-diagnostic").toggle()
-            end,
-            desc = "Toggle Diagnostics multiline",
-          },
-        },
-      },
+      -- {
+      --   "rachartier/tiny-inline-diagnostic.nvim",
+      --   optional = true,
+      --   keys = {
+      --     {
+      --       "<leader>uv",
+      --       function()
+      --         require("lsp_lines").toggle()
+      --         require("tiny-inline-diagnostic").toggle()
+      --       end,
+      --       desc = "Toggle Diagnostics multiline",
+      --     },
+      --   },
+      -- },
     },
   },
 
