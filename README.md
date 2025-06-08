@@ -66,6 +66,7 @@ Example configuration using the `homeManagerModule`:
         nix.enable = true;
         nushell.enable = true;
         react.enable = true;
+        python.enable = true;
         rust.enable = (pkgs.system != "aarch64-linux");
         sql.enable = true;
         svelte.enable = true;

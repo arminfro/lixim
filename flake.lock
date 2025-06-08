@@ -778,6 +778,7 @@
         "telescope-node-modules-nvim": "telescope-node-modules-nvim",
         "template-string-nvim": "template-string-nvim",
         "ts-node-action": "ts-node-action",
+        "venv-selector-nvim": "venv-selector-nvim",
         "vim-mkdir": "vim-mkdir"
       }
     },
@@ -958,6 +959,22 @@
       "original": {
         "owner": "CKolkey",
         "repo": "ts-node-action",
+        "type": "github"
+      }
+    },
+    "venv-selector-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1732397488,
+        "narHash": "sha256-L4L14yq5Ix3w5ty/CImkQXx/CBxwH7jsQhU+dWKndtQ=",
+        "owner": "linux-cultist",
+        "repo": "venv-selector.nvim",
+        "rev": "f212a424fb29949cb5e683928bdd4038bbe0062d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "linux-cultist",
+        "repo": "venv-selector.nvim",
         "type": "github"
       }
     },

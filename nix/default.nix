@@ -50,6 +50,7 @@ in
           nix.enable = mkEnableOption "nix language support";
           nushell.enable = mkEnableOption "nushell language support";
           react.enable = mkEnableOption "react language support";
+          python.enable = mkEnableOption "python language support";
           rust.enable = mkEnableOption "rust language support";
           sql.enable = mkEnableOption "sql language support";
           svelte.enable = mkEnableOption "svelte language support";

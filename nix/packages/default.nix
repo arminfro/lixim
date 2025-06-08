@@ -28,6 +28,7 @@ let
           markdown.enable = true;
           nix.enable = true;
           nushell.enable = true;
+          python.enable = true;
           rust.enable = (pkgs.system != "aarch64-linux"); # TODO error: linker `aarch64-linux-gnu-gcc` not found
           sql.enable = true;
           react.enable = true;

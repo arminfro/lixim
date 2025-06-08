@@ -151,6 +151,10 @@
       url = "github:jmbuhr/cmp-pandoc-references";
       flake = false;
     };
+    venv-selector-nvim = {
+      url = "github:linux-cultist/venv-selector.nvim";
+      flake = false;
+    };
   };
 
   outputs =
