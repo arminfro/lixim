@@ -104,12 +104,14 @@ in
         LazyVim = lazyVimPackage.overrideAttrs (oldAttrs: {
           patches = (import ./patches { inherit config lib; });
         });
+        gitsigns-nvim = pkgs.vimPlugins.gitsigns-nvim.overrideAttrs (oldAttrs: {
+          patches = [ ./patches/fix-gitsigns.patch ];
+        });
       })
       ++ (with pkgs.vimPlugins; [
         conform-nvim
         dashboard-nvim
         flash-nvim
-        gitsigns-nvim
         grug-far-nvim
         lazy-nvim
         lazydev-nvim
